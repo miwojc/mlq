@@ -5,10 +5,6 @@ website:
   title: "Machine Learning Questions"
   navbar:
     background: primary
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
   sidebar:
     style: "floating"
     search: true
@@ -19,12 +15,15 @@ website:
           - 20220818.md
           - 20220819.md
           - 20220820.md
+          - 20220821.md
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      dark: darkly
+      light: flatly
     toc: true
+    css: styles.css
 
 
 
