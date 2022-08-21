@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-08-18">
 
-<title>Machine Learning Questions – quarto-input60605fd1</title>
+<title>Machine Learning Questions - Maximum depth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,10 +31,12 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,25 +70,15 @@ ul.task-list{list-style: none;}
       <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Machine Learning Questions</span>
   </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html">Home</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
-  </li>  
-</ul>
-              <div id="quarto-search" class="" title="Search"></div>
-          </div> <!-- /navcollapse -->
+          <div class="quarto-toggle-container ms-auto">
+              <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+          </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <h1 class="quarto-secondary-nav-title">Maximum depth</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -131,6 +124,11 @@ ul.task-list{list-style: none;}
   <a href="./20220820.html" class="sidebar-item-text sidebar-link">Abigail’s chart</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20220821.html" class="sidebar-item-text sidebar-link">Low-bias models</a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -138,35 +136,44 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#maximum-depth" id="toc-maximum-depth" class="nav-link active" data-scroll-target="#maximum-depth">Maximum depth</a>
-  <ul class="collapse">
-  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer">Answer</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Maximum depth</h1>
+</div>
 
 
-<section id="maximum-depth" class="level1">
-<h1>Maximum depth</h1>
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 18, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
 <p>One of the essential hyperparameters used in decision trees is their maximum depth.</p>
 <p>But unfortunately, that’s not the only thing the classroom had to remember for their test. There were many more hyperparameters with funny names and responsibilities, and they barely had time to prepare for the exam.</p>
 <p>As soon as Isabella looked at the first section of the test, her heart dropped. It was all about decision trees, and she spent most of her time focusing on neural networks.</p>
 <p>The first question didn’t seem too tricky, however.</p>
-<p>Which of the following is the correct definition of the maximum depth of a decision tree?<br>
-1. The maximum depth of a decision tree is the length of the longest path from the tree’s root to a leaf.<br>
-2. The maximum depth of a decision tree is the length of the shortest path from the tree’s root to a leaf.<br>
-3. The maximum depth of a decision tree is the length of the longest path from the tree’s root to an interior node.<br>
-4. The maximum depth of a decision tree is the length of the shortest path from the tree’s root to an interior node.</p>
-<section id="answer" class="level3">
-<h3 class="anchored" data-anchor-id="answer">Answer</h3>
+<p>Which of the following is the correct definition of the maximum depth of a decision tree?</p>
+<ol type="1">
+<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to a leaf.</p></li>
+<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to a leaf.</p></li>
+<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to an interior node.</p></li>
+<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to an interior node.</p></li>
+</ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -185,20 +192,16 @@ Expand to see the answer
 <p>Your decision tree would not be complete if you only considered internal nodes. Remember, leaves are where the conclusions of the target value live. In other words, a leaf is where the final answer lives. You can’t talk about the maximum depth of a tree without considering the leaves, so that’s the correct answer to this question.</p>
 <p>One more important thing to notice is that everything else being equal, a more straightforward decision tree will always generalize better than a more complex one. The maximum depth of the tree directly affects its complexity.</p>
 <p>In summary, the first choice is the correct answer to this question.</p>
-<section id="recommended-reading" class="level4">
-<h4 class="anchored" data-anchor-id="recommended-reading">Recommended reading</h4>
+<p><strong>Recommended reading</strong></p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">“Decision tree learning”</a> is the Wikipedia page where you can read about decision trees.</li>
 <li><a href="https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680">“How to tune a Decision Tree?”</a> is a great article talking about different ways to tune a decision tree, including the effects of setting the maximum depth hyperparameter.</li>
 </ul>
-</section>
 </div>
 </div>
 </div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -221,6 +224,109 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
