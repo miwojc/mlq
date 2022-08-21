@@ -2,4 +2,7 @@
 title: "Machine Learning Questions by [bnomial](https://today.bnomial.com/)"
 ---
 
+Support bnomial and get all the [past questions](https://bnomial.gumroad.com/l/bnomial)
+
+
 This website is built with markdown and [Quarto](https://quarto.org/docs/websites)
