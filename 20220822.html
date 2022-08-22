@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-17">
+<meta name="dcterms.date" content="2022-08-22">
 
-<title>Machine Learning Questions - A classification model</title>
+<title>Machine Learning Questions - Three elevators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">A classification model</h1>
+      <h1 class="quarto-secondary-nav-title">Three elevators</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -106,7 +106,7 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220817.html" class="sidebar-item-text sidebar-link active">A classification model</a>
+  <a href="./20220817.html" class="sidebar-item-text sidebar-link">A classification model</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -131,7 +131,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220822.html" class="sidebar-item-text sidebar-link">Three elevators</a>
+  <a href="./20220822.html" class="sidebar-item-text sidebar-link active">Three elevators</a>
   </div>
 </li>
       </ul>
@@ -148,7 +148,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">A classification model</h1>
+<h1 class="title d-none d-lg-block">Three elevators</h1>
 </div>
 
 
@@ -159,7 +159,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 17, 2022</p>
+      <p class="date">August 22, 2022</p>
     </div>
   </div>
     
@@ -168,16 +168,16 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>Natalie has been a software developer for quite some time. Although her job keeps her motivated, she wants to take her career to the next level.</p>
-<p>A critical step she wants to take is introducing machine learning into her work. She started learning some of the fundamentals and is now ready to apply what she’s learned.</p>
-<p>She researched one of her company’s problems and learned she needed to build a supervised learning classification model. She had enough labeled data, so it seemed like a good fit.</p>
-<p>Based on this, which of the following better describes what Natalie needs to accomplish?</p>
-<ol type="1">
-<li><p>She needs to train a model that returns a numerical prediction for each sample of data.</p></li>
-<li><p>She needs to train a model that clusters the data into different groups based on their characteristics.</p></li>
-<li><p>She needs to train a model to predict the class of every sample of data out of a predefined list of classes.</p></li>
-<li><p>She needs to train a model that returns the optimal policy that maximizes the potential outcomes of her problem.</p></li>
-</ol>
+<p>Iris’s company moved downtown. After closing on a large round of funding, they leased one of the tallest buildings in the city.</p>
+<p>The views were amazing, but the building was busy, and getting an elevator during peak hours was always a chore.</p>
+<p>Iris’s floor had three elevators unequally spaced along a wall. On a dull afternoon, while waiting for their ride to come, Iris asked her friends where they would stand and wait for the elevator. She wanted to minimize the distance they had to walk when one of the elevators arrived.</p>
+<p>Which of the following will minimize the distance they have to walk? Keep in mind the elevators are not spaced equally along the wall.</p>
+<ul>
+<li><p>They should always stand in any of the elevators at both extremes of the wall.</p></li>
+<li><p>They should always stand in front of the middle elevator, regardless of its location along the wall.</p></li>
+<li><p>They should always stand at the mid-point between the two elevators located at the extreme.</p></li>
+<li><p>They should only stand in front of the middle elevator if the distance to the other two elevators is the same. If not, they can stand in any of the extreme elevators.</p></li>
+</ul>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -190,15 +190,25 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3</p>
-<p>Natalie’s problem requires her to predict the class of every sample of data out of a predefined list of classes. That’s the goal of machine learning classification models.</p>
-<p>The first choice refers to a regression model. Here we want the model to output a single, continuous value. For example, imagine we want to return the predicted price of a house or the predicted highest temperature for the weekend.</p>
-<p>The second choice refers to a clustering model. These unsupervised learning techniques are helpful when we don’t have labels for our data and want the algorithm to group every sample into dynamically generated groups.</p>
-<p>The fourth choice is a loose description of a reinforcement learning approach, where we want an agent to learn the optimal policy that maximizes a reward function.</p>
+<p>2</p>
+<p>If Iris stands in front of the middle elevator, she will minimize the distance she has to walk. This holds for any distribution of the elevators along the wall—they don’t need to be equally spaced.</p>
+<p>Let’s break this down into the three possible situations with an example where we have elevators A, B, and C located along a wall (paraphrasing the answer on <a href="https://stats.stackexchange.com/questions/355538/why-does-minimizing-the-mae-lead-to-forecasting-the-median-and-not-the-mean">this Stack Exchange page</a>):</p>
+<ol type="1">
+<li>If Iris waits in front of elevator A and elevator B arrives, she will need to walk from A to B. If elevator C arrives, she must walk from A to C, passing B on her way. Here is the pattern: A→B or A→B→C.</li>
+<li>If Iris waits in front of elevator C and elevator A arrives, she will need to walk from C to A, passing B on her way. If elevator B comes, she must walk from C to B. Here is the pattern: C→B→A, or C→B.</li>
+<li>If Iris waits in front of elevator B and elevator A arrives, she will need to walk from B to A. If elevator C arrives, she must walk from B to C. She will never have to pass any other elevator. Here is the pattern: B→A or B→C.</li>
+</ol>
+<p>Do you see how standing in front of any of the elevators at both extremes of the wall will make you walk the same distance in multiple cases? A→B in the first case, and C→B in the second one.</p>
+<p>“Visualizing the Median as the Minimum-Deviation Location” explains this as follows:</p>
+<blockquote class="blockquote">
+<p>First, consider waiting at a median location. Then, consider “moving” to a waiting position away from this median point. If one does so, one moves away from more elevators than one moves towards, thereby increasing the sum of the distances to the elevators.</p>
+</blockquote>
+<p>A more exciting insight: we can minimize the distance by standing at the median point between elevators for any number of elevators, not only three. Notice that this median point is not necessarily in front of an elevator.</p>
+<p>Now that we know the correct answer is the second choice imagine if we wanted to minimize the total distance they have to walk from the door they enter the lobby where the elevators are located. It’s no longer about the distance between the elevators, but we also need to consider the distance from the door to the elevator that arrives. The answer may surprise you.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/types-of-classification-in-machine-learning/">“4 Types of Classification Tasks in Machine Learning”</a> is an excellent introduction to classification models in machine learning.</li>
-<li>For an introduction to classification models, check <a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/classification-in-machine-learning">“Classification in Machine Learning: What it is and Classification Models”</a></li>
+<li>Take a look at <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.610.3019&amp;rep=rep1&amp;type=pdf">“Visualizing the Median as the Minimum-Deviation Location”</a> for an in-depth analysis of this problem.</li>
+<li><a href="https://stats.stackexchange.com/questions/355538/why-does-minimizing-the-mae-lead-to-forecasting-the-median-and-not-the-mean">“Why does minimizing the MAE lead to forecasting the median and not the mean?”</a> is the question that led me down this rabbit hole.</li>
 </ul>
 </div>
 </div>
