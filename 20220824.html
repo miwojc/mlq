@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-18">
+<meta name="dcterms.date" content="2022-08-24">
 
-<title>Machine Learning Questions - Maximum depth</title>
+<title>Machine Learning Questions - The political reporter</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Maximum depth</h1>
+      <h1 class="quarto-secondary-nav-title">The political reporter</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -111,7 +111,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220818.html" class="sidebar-item-text sidebar-link active">Maximum depth</a>
+  <a href="./20220818.html" class="sidebar-item-text sidebar-link">Maximum depth</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -141,7 +141,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220824.html" class="sidebar-item-text sidebar-link">The political reporter</a>
+  <a href="./20220824.html" class="sidebar-item-text sidebar-link active">The political reporter</a>
   </div>
 </li>
       </ul>
@@ -158,7 +158,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Maximum depth</h1>
+<h1 class="title d-none d-lg-block">The political reporter</h1>
 </div>
 
 
@@ -169,7 +169,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2022</p>
+      <p class="date">August 24, 2022</p>
     </div>
   </div>
     
@@ -178,16 +178,16 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>One of the essential hyperparameters used in decision trees is their maximum depth.</p>
-<p>But unfortunately, that’s not the only thing the classroom had to remember for their test. There were many more hyperparameters with funny names and responsibilities, and they barely had time to prepare for the exam.</p>
-<p>As soon as Isabella looked at the first section of the test, her heart dropped. It was all about decision trees, and she spent most of her time focusing on neural networks.</p>
-<p>The first question didn’t seem too tricky, however.</p>
-<p>Which of the following is the correct definition of the maximum depth of a decision tree?</p>
+<p>Aria has been working with a source for the past four weeks to get information about hospitalized patients with COVID-19.</p>
+<p>In her short career as a political reporter, she has never dealt with technical data, so imagine her surprise when she realized the information her source sent her was not in plain English.</p>
+<p>The hospital has been using a machine learning model to predict whether patients sick with COVID-19 will end up in the hospital. The report came with a bunch of numbers, and it measured the quality of the model using two weird terms: “precision” and “recall.”</p>
+<p>Aria has to write her article, but first, she needs to figure out how to interpret the numbers.</p>
+<p>Which of the following statements accurately represent what precision and recall are?</p>
 <ol type="1">
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to an interior node.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to an interior node.</p></li>
+<li><p>Precision: Among all the patients classified by the model as potential hospitalizations, the fraction that ended up in the hospital.</p></li>
+<li><p>Precision: Among all the patients that ended up in the hospital, the fraction that the model correctly classified.</p></li>
+<li><p>Recall: Among all the patients classified by the model as potential hospitalizations, the fraction that ended up in the hospital.</p></li>
+<li><p>Recall: Among all the patients that ended up in the hospital, the fraction that the model correctly classified.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -201,16 +201,27 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1</p>
-<p>In a few words, a decision tree represents particular observations about a sample in its branches and the conclusions about that item’s target value as the tree’s leaves. If you draw the tree, its maximum depth is a way to explain how tall the tree is.</p>
-<p>It makes sense that the maximum depth is the length of the longest path from the root to the bottom of the tree, but what exactly is that bottom? Is it a leaf or an internal node?</p>
-<p>Your decision tree would not be complete if you only considered internal nodes. Remember, leaves are where the conclusions of the target value live. In other words, a leaf is where the final answer lives. You can’t talk about the maximum depth of a tree without considering the leaves, so that’s the correct answer to this question.</p>
-<p>One more important thing to notice is that everything else being equal, a more straightforward decision tree will always generalize better than a more complex one. The maximum depth of the tree directly affects its complexity.</p>
-<p>In summary, the first choice is the correct answer to this question.</p>
+<p>1, 4</p>
+<p>In machine learning, especially when building classification models, <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">precision</a> and <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">recall</a> are two of the most critical metrics we need to understand.</p>
+<p>Let’s start with the definition from Wikipedia:</p>
+<p>Precision is the fraction of relevant instances among the retrieved instances, while recall is the fraction of relevant instances that were retrieved.</p>
+<p>Using this definition, we can break down what precision is by looking at two components:</p>
+<ol type="1">
+<li>Relevant instances: These are all patients the model predicted as positive and actually ended up in the hospital. We call these “true positive” patients.</li>
+<li>Retrieved instances: These are all the patients the model predicted would end up in the hospital.</li>
+</ol>
+<p>The precision is the number of relevant instances divided by retrieved instances. We want to express how “precise” the model was: out of every patient the model predicted would end up in the hospital, how many were actually hospitalized. Looking at the available choices, the first is the correct definition of precision.</p>
+<p>Let’s do the same with recall. We need two components:</p>
+<ol type="1">
+<li>Relevant instances: These are all patients the model predicted as positive and actually ended up in the hospital. We call these “true positive” patients.</li>
+<li>Positive instances: The number of patients that ended up in the hospital.</li>
+</ol>
+<p>The recall is the number of relevant instances divided by the number of positive instances. In other words, we want to express the capacity of the model to find positive patients: out of every patient that ended up in the hospital, how many did the model retrieve. Looking at the choices, the fourth is the correct definition of recall.</p>
+<p>In summary, the first and fourth choices are the correct answer to this question.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">“Decision tree learning”</a> is the Wikipedia page where you can read about decision trees.</li>
-<li><a href="https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680">“How to tune a Decision Tree?”</a> is a great article talking about different ways to tune a decision tree, including the effects of setting the maximum depth hyperparameter.</li>
+<li>Check out <a href="https://en.wikipedia.org/wiki/Precision_and_recall">“Precision and recall”</a> for a better understanding of these two metrics.</li>
+<li><a href="https://medium.com/@shrutisaxena0617/precision-vs-recall-386cf9f89488">“Precision vs Recall”</a> is a great article covering the tradeoffs of precision and recall using a real-life example.</li>
 </ul>
 </div>
 </div>
