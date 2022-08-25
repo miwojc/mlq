@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-08-25">
 
-<title>Machine Learning Questions - Machine Learning Questions by bnomial</title>
+<title>Machine Learning Questions - Hailey’s labeling approach</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,7 +78,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Machine Learning Questions by <a href="https://today.bnomial.com/">bnomial</a></h1>
+      <h1 class="quarto-secondary-nav-title">Hailey’s labeling approach</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -145,7 +146,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220825.html" class="sidebar-item-text sidebar-link">Hailey’s labeling approach</a>
+  <a href="./20220825.html" class="sidebar-item-text sidebar-link active">Hailey’s labeling approach</a>
   </div>
 </li>
       </ul>
@@ -162,7 +163,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Machine Learning Questions by <a href="https://today.bnomial.com/">bnomial</a></h1>
+<h1 class="title d-none d-lg-block">Hailey’s labeling approach</h1>
 </div>
 
 
@@ -170,14 +171,54 @@ ul.task-list{list-style: none;}
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 25, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-<p>Support bnomial and get all the <a href="https://bnomial.gumroad.com/l/bnomial">past questions</a></p>
-<p>This website is built with markdown and <a href="https://quarto.org/docs/websites">Quarto</a></p>
+<p>Hailey had an excellent idea!</p>
+<p>Despite having access to a massive dataset of x-ray pictures, she didn’t have too many labels. The company couldn’t afford to have doctors spending their time labeling samples, so she was in a catch-22 situation: to save the doctor’s time, she wanted to build a supervised learning model, but she couldn’t do that without having the doctors spend more time labeling data.</p>
+<p>Hailey found a way to solve the problem: she built a model using the labels she had. Then started processing the unlabeled samples and setting aside those for which her model wasn’t confident.</p>
+<p>After each round, Hailey asked doctors only to spend time labeling those low-confidence samples, after which she built a new model and repeated the process.</p>
+<p>This approach saved the company a massive amount of money.</p>
+<p>How would you classify Hailey’s approach?</p>
+<ol type="1">
+<li><p>Hailey’s approach is a Weak Supervision technique.</p></li>
+<li><p>Hailey’s approach is a Reinforcement Learning technique.</p></li>
+<li><p>Hailey’s approach is an Unsupervised Learning technique.</p></li>
+<li><p>Hailey’s approach is a Semi-supervised Learning technique.</p></li>
+</ol>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Expand to see the answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>4</p>
+<p>Hailey encountered a widespread problem we often face when we want to build machine learning models for companies. Sometimes, we have access to plenty of data, but labeling the dataset is time-consuming or hard to collect without a prohibitive cost.</p>
+<p>Hailey did something clever: she only asked doctors to spend time labeling images that had the most value to her model. She built a good model with a fraction of the labels that otherwise would have been necessary.</p>
+<p>We call this technique <a href="https://essays.bnomial.com/active-learning">“Active Learning”</a>, a semi-supervised learning technique. Hailey followed a <a href="https://towardsdatascience.com/active-learning-in-machine-learning-525e61be16e5">pool-based sampling</a> approach, where she queried the pool of unlabeled samples and used the confidence of her model to decide which instances to label next.</p>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li><a href="https://essays.bnomial.com/active-learning">“Active Learning”</a> is a short introduction to active learning and how the process works.</li>
+<li>If you are serious about Active Learning, <a href="https://burrsettles.com/pub/settles.activelearning.pdf">“Active Learning Literature Survey”</a> is the publication you want to read.</li>
+</ul>
+</div>
+</div>
+</div>
 
 
 
