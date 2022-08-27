@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-08-27">
 
-<title>Machine Learning Questions - Machine Learning Questions by bnomial</title>
+<title>Machine Learning Questions - Predictive maintenance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Machine Learning Questions by <a href="https://today.bnomial.com/">bnomial</a></h1>
+      <h1 class="quarto-secondary-nav-title">Predictive maintenance</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -162,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220827.html" class="sidebar-item-text sidebar-link">Predictive maintenance</a>
+  <a href="./20220827.html" class="sidebar-item-text sidebar-link active">Predictive maintenance</a>
   </div>
 </li>
       </ul>
@@ -179,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Machine Learning Questions by <a href="https://today.bnomial.com/">bnomial</a></h1>
+<h1 class="title d-none d-lg-block">Predictive maintenance</h1>
 </div>
 
 
@@ -187,14 +188,79 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 27, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-<p>Support bnomial and get all the <a href="https://bnomial.gumroad.com/l/bnomial">past questions</a></p>
-<p>This website is built with markdown and <a href="https://quarto.org/docs/websites">Quarto</a></p>
+<p>Mariam built a machine learning model that looks at pictures of mechanical components and predicts whether they need maintenance.</p>
+<p>After successfully testing the model in a pilot project, the company plans to start using it in one of its warehouses. Before they are ready, Miriam needs to summarize the performance of the pilot project.</p>
+<p>She ran pictures of 100 different components through the model and found the following:</p>
+<ul>
+<li>The model predicted that 7 components needed maintenance. After manually inspecting them, only 5 required work, but the other 2 were okay.</li>
+<li>The model predicted that 93 components were working as expected but missed 2 that needed maintenance.</li>
+</ul>
+<p>Which of the following is the correct summary of accuracy, precision, and recall for Miriam’s model?</p>
+<ol type="1">
+<li><p>The model’s accuracy is 93%, the precision is 29%, and the recall is 71%.</p></li>
+<li><p>The model’s accuracy is 98%, the precision is 71%, and the recall is 29%.</p></li>
+<li><p>The model’s accuracy is 90%, the precision is 98%, and the recall is 29%.</p></li>
+<li><p>The model’s accuracy is 96%, the precision is 71%, and the recall is 71%.</p></li>
+</ol>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Expand to see the answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>4</p>
+<p>The easiest way to answer this question is to put the information we know in a <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a>. Whenever you build a classification model, the confusion matrix will help tremendously. Let’s see how.</p>
+<p>Here is the confusion matrix with Miriam’s results. Notice the small annotations next to each value:</p>
+<p><img src="20220827.png" class="img-fluid"></p>
+<ul>
+<li>Miriam’s model found 5 true positives (TP). These are the components that the model predicted that needed maintenance that actually needed it.</li>
+<li>There are 2 false positives (FP). These are the other 2 components the model thought erroneously needed maintenance.</li>
+<li>There are 91 true negatives (TN). These are the components the model classified as okay and were indeed fine.</li>
+<li>There are 2 false negatives (FN). These are the 2 components that the model missed as needing maintenance.</li>
+</ul>
+<p>We can compute the three metrics we need using this information. Let’s start with accuracy:</p>
+<pre><code>accuracy = (TP+TN)/(TP+TN+FP+FN)
+accuracy = (5+91)/(5+91+2+2)
+accuracy = 96/100
+accuracy = 0.96</code></pre>
+<p>The <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">precision</a> of the model is the fraction of components that truly need maintenance among the components that the model predicts need it. We can compute the precision this way:</p>
+<pre><code>precision = TP/(TP + FP)
+precision = 5/(5 + 2)
+precision = 5/7
+precision = 0.71</code></pre>
+<p>The <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">recall</a> of the model is the fraction of components that truly need maintenance among all the existing components that need maintenance. We can compute the recall this way:</p>
+<pre><code>recall = TP/(TP + FN)
+recall = 5/(5 + 2)
+recall = 5/7
+recall = 0.71</code></pre>
+<p>As you can see, the fourth choice is the correct answer to this question.</p>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>Here is the Wikipedia page explaining what a <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> is. Most of the information you need is here.</li>
+<li>Check out <a href="https://en.wikipedia.org/wiki/Precision_and_recall">“Precision and recall”</a> for a better understanding of these two metrics.</li>
+<li><a href="https://blog.paperspace.com/deep-learning-metrics-precision-recall-accuracy/">“Evaluating Deep Learning Models: The Confusion Matrix, Accuracy, Precision, and Recall”</a> is a great article that puts all of these concepts together.</li>
+</ul>
+</div>
+</div>
+</div>
 
 
 
