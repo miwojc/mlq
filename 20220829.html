@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-24">
+<meta name="dcterms.date" content="2022-08-29">
 
-<title>Machine Learning Questions - The political reporter</title>
+<title>Machine Learning Questions - Distance measures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The political reporter</h1>
+      <h1 class="quarto-secondary-nav-title">Distance measures</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220824.html" class="sidebar-item-text sidebar-link active">The political reporter</a>
+  <a href="./20220824.html" class="sidebar-item-text sidebar-link">The political reporter</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220829.html" class="sidebar-item-text sidebar-link">Distance measures</a>
+  <a href="./20220829.html" class="sidebar-item-text sidebar-link active">Distance measures</a>
   </div>
 </li>
       </ul>
@@ -190,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The political reporter</h1>
+<h1 class="title d-none d-lg-block">Distance measures</h1>
 </div>
 
 
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 24, 2022</p>
+      <p class="date">August 29, 2022</p>
     </div>
   </div>
     
@@ -210,16 +210,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Aria has been working with a source for the past four weeks to get information about hospitalized patients with COVID-19.</p>
-<p>In her short career as a political reporter, she has never dealt with technical data, so imagine her surprise when she realized the information her source sent her was not in plain English.</p>
-<p>The hospital has been using a machine learning model to predict whether patients sick with COVID-19 will end up in the hospital. The report came with a bunch of numbers, and it measured the quality of the model using two weird terms: “precision” and “recall.”</p>
-<p>Aria has to write her article, but first, she needs to figure out how to interpret the numbers.</p>
-<p>Which of the following statements accurately represent what precision and recall are?</p>
+<p>Distance measures are critical in many machine learning algorithms: they summarize the relative difference between two objects. K-Nearest Neighbors is an example of an algorithm that uses a distance measure at its core.</p>
+<p>Every distance measure doesn’t work for every problem. Instead, we must select the appropriate function depending on the nature of the data.</p>
+<p>Here is a list of four distance measures and a quick summary of how they work. Select every one of them that’s correct.</p>
 <ol type="1">
-<li><p>Precision: Among all the patients classified by the model as potential hospitalizations, the fraction that ended up in the hospital.</p></li>
-<li><p>Precision: Among all the patients that ended up in the hospital, the fraction that the model correctly classified.</p></li>
-<li><p>Recall: Among all the patients classified by the model as potential hospitalizations, the fraction that ended up in the hospital.</p></li>
-<li><p>Recall: Among all the patients that ended up in the hospital, the fraction that the model correctly classified.</p></li>
+<li><p>The Euclidean distance between two vectors is the square root of the sum of the squared differences between them.</p></li>
+<li><p>The Manhattan distance between two vectors is the sum of their absolute differences.</p></li>
+<li><p>The Hamming distance is a generalization of the Euclidean and Manhattan distances that we can tune depending on which distance measure we need.</p></li>
+<li><p>The Minkowski distance computes the distance between two binary vectors.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -233,27 +231,14 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 4</p>
-<p>In machine learning, especially when building classification models, <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">precision</a> and <a href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">recall</a> are two of the most critical metrics we need to understand.</p>
-<p>Let’s start with the definition from Wikipedia:</p>
-<p>Precision is the fraction of relevant instances among the retrieved instances, while recall is the fraction of relevant instances that were retrieved.</p>
-<p>Using this definition, we can break down what precision is by looking at two components:</p>
-<ol type="1">
-<li>Relevant instances: These are all patients the model predicted as positive and actually ended up in the hospital. We call these “true positive” patients.</li>
-<li>Retrieved instances: These are all the patients the model predicted would end up in the hospital.</li>
-</ol>
-<p>The precision is the number of relevant instances divided by retrieved instances. We want to express how “precise” the model was: out of every patient the model predicted would end up in the hospital, how many were actually hospitalized. Looking at the available choices, the first is the correct definition of precision.</p>
-<p>Let’s do the same with recall. We need two components:</p>
-<ol type="1">
-<li>Relevant instances: These are all patients the model predicted as positive and actually ended up in the hospital. We call these “true positive” patients.</li>
-<li>Positive instances: The number of patients that ended up in the hospital.</li>
-</ol>
-<p>The recall is the number of relevant instances divided by the number of positive instances. In other words, we want to express the capacity of the model to find positive patients: out of every patient that ended up in the hospital, how many did the model retrieve. Looking at the choices, the fourth is the correct definition of recall.</p>
-<p>In summary, the first and fourth choices are the correct answer to this question.</p>
+<p>1, 2</p>
+<p>While the Euclidean and Manhattan distances summary is correct, the Hamming and Minkowski summaries aren’t.</p>
+<p>The Hamming distance computes the distance between two binary vectors. For example, you can calculate the distance between objects using a one-hot encoded feature.</p>
+<p>The Minkowski distance is a generalization of the Euclidean and Manhattan distances. Both of these work with real-value vectors, but the Euclidean distance is the shortest path between objects, while the Manhattan distance is the rectilinear distance between them. Using the Minkowski distance, we can control which approach to use depending on the data.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check out <a href="https://en.wikipedia.org/wiki/Precision_and_recall">“Precision and recall”</a> for a better understanding of these two metrics.</li>
-<li><a href="https://medium.com/@shrutisaxena0617/precision-vs-recall-386cf9f89488">“Precision vs Recall”</a> is a great article covering the tradeoffs of precision and recall using a real-life example.</li>
+<li>Check <a href="https://machinelearningmastery.com/distance-measures-for-machine-learning/">“4 Distance Measures for Machine Learning”</a> for a complete explanation of these four distance measures.</li>
+<li><a href="https://regenerativetoday.com/five-common-distance-measures-in-data-science-with-formulas-and-examples/">“Five Common Distance Measures in Data Science With Formulas and Examples”</a> is a deeper dive into these distance measures.</li>
 </ul>
 </div>
 </div>
