@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-18">
+<meta name="dcterms.date" content="2022-08-30">
 
-<title>Machine Learning Questions - Maximum depth</title>
+<title>Machine Learning Questions - Softmax mockery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Maximum depth</h1>
+      <h1 class="quarto-secondary-nav-title">Softmax mockery</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220818.html" class="sidebar-item-text sidebar-link active">Maximum depth</a>
+  <a href="./20220818.html" class="sidebar-item-text sidebar-link">Maximum depth</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -178,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220830.html" class="sidebar-item-text sidebar-link">Softmax mockery</a>
+  <a href="./20220830.html" class="sidebar-item-text sidebar-link active">Softmax mockery</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -200,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Maximum depth</h1>
+<h1 class="title d-none d-lg-block">Softmax mockery</h1>
 </div>
 
 
@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2022</p>
+      <p class="date">August 30, 2022</p>
     </div>
   </div>
     
@@ -220,16 +220,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>One of the essential hyperparameters used in decision trees is their maximum depth.</p>
-<p>But unfortunately, that’s not the only thing the classroom had to remember for their test. There were many more hyperparameters with funny names and responsibilities, and they barely had time to prepare for the exam.</p>
-<p>As soon as Isabella looked at the first section of the test, her heart dropped. It was all about decision trees, and she spent most of her time focusing on neural networks.</p>
-<p>The first question didn’t seem too tricky, however.</p>
-<p>Which of the following is the correct definition of the maximum depth of a decision tree?</p>
+<p>Despite years of research, Loretta never paid too much attention to the softmax function and its properties. She never needed it, so imagine her surprise when Alan pushed her about it.</p>
+<p>Alan was cooky. He didn’t know much but liked to show off with every bit of trivia that crossed his path. More than anything, he enjoyed pissing off Loretta at every opportunity he had.</p>
+<p>And here is Alan, bugging Loretta about the softmax function and ready to mock her if she fails.</p>
+<p>Which of the following are correct statements about the softmax function?</p>
 <ol type="1">
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to an interior node.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to an interior node.</p></li>
+<li><p>The softmax function is a soft or smooth approximation to the max function.</p></li>
+<li><p>The softmax function is a soft or smooth approximation to the argmax function.</p></li>
+<li><p>The softmax function converts a vector of n values into a probability distribution of n possible outcomes.</p></li>
+<li><p>Softmax is a differentiable function.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -243,16 +242,14 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1</p>
-<p>In a few words, a decision tree represents particular observations about a sample in its branches and the conclusions about that item’s target value as the tree’s leaves. If you draw the tree, its maximum depth is a way to explain how tall the tree is.</p>
-<p>It makes sense that the maximum depth is the length of the longest path from the root to the bottom of the tree, but what exactly is that bottom? Is it a leaf or an internal node?</p>
-<p>Your decision tree would not be complete if you only considered internal nodes. Remember, leaves are where the conclusions of the target value live. In other words, a leaf is where the final answer lives. You can’t talk about the maximum depth of a tree without considering the leaves, so that’s the correct answer to this question.</p>
-<p>One more important thing to notice is that everything else being equal, a more straightforward decision tree will always generalize better than a more complex one. The maximum depth of the tree directly affects its complexity.</p>
-<p>In summary, the first choice is the correct answer to this question.</p>
+<p>2, 3, 4</p>
+<p>The name “softmax” is a misnomer. The softmax function is a smooth—soft—approximation of the argmax function, not the max function. To avoid this confusion, some of the literature uses “softargmax” instead, but the machine learning world ran with “softmax” and never looked back.</p>
+<p>The softmax function turns a vector of n values into another vector of n probabilities that sum to 1. These probabilities are proportional to the relative scale of each value in the vector. For example, when we use softmax as the activation function of a neural network’s output layer, we get a normalized probability distribution that we can use to interpret the result of multi-class classification models.</p>
+<p>Finally, contrary to the argmax function, the softmax function is differentiable.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">“Decision tree learning”</a> is the Wikipedia page where you can read about decision trees.</li>
-<li><a href="https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680">“How to tune a Decision Tree?”</a> is a great article talking about different ways to tune a decision tree, including the effects of setting the maximum depth hyperparameter.</li>
+<li>Check <a href="https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/">“The Softmax function and its derivative”</a> for a complete explanation of softmax.</li>
+<li><a href="https://deepai.org/machine-learning-glossary-and-terms/softmax-layer">“What is the Softmax Function?”</a> is another great explanation of how the function works.</li>
 </ul>
 </div>
 </div>

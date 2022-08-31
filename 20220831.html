@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-18">
+<meta name="dcterms.date" content="2022-08-31">
 
-<title>Machine Learning Questions - Maximum depth</title>
+<title>Machine Learning Questions - Vintage shoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Maximum depth</h1>
+      <h1 class="quarto-secondary-nav-title">Vintage shoes</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220818.html" class="sidebar-item-text sidebar-link active">Maximum depth</a>
+  <a href="./20220818.html" class="sidebar-item-text sidebar-link">Maximum depth</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -183,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220831.html" class="sidebar-item-text sidebar-link">Vintage shoes</a>
+  <a href="./20220831.html" class="sidebar-item-text sidebar-link active">Vintage shoes</a>
   </div>
 </li>
       </ul>
@@ -200,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Maximum depth</h1>
+<h1 class="title d-none d-lg-block">Vintage shoes</h1>
 </div>
 
 
@@ -211,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2022</p>
+      <p class="date">August 31, 2022</p>
     </div>
   </div>
     
@@ -220,16 +221,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>One of the essential hyperparameters used in decision trees is their maximum depth.</p>
-<p>But unfortunately, that’s not the only thing the classroom had to remember for their test. There were many more hyperparameters with funny names and responsibilities, and they barely had time to prepare for the exam.</p>
-<p>As soon as Isabella looked at the first section of the test, her heart dropped. It was all about decision trees, and she spent most of her time focusing on neural networks.</p>
-<p>The first question didn’t seem too tricky, however.</p>
-<p>Which of the following is the correct definition of the maximum depth of a decision tree?</p>
+<p>Sam owns a small store that sells vintage shoes.</p>
+<p>Business is going great, and one of her main issues is determining the price of new inventory as it comes in. Sam would like to create a machine learning model that automatically selects the best price using the historical performance.</p>
+<p>Sam was a data scientist in a previous life, so she was surprised when she found some documentation recommending a new loss function: The Root Mean Squared Log Error (RMSLE.) This function seemed better than Root Mean Squared Error (RMSE) for her use case.</p>
+<p>Which of the following are some of the differences between RMSLE and RMSE?</p>
 <ol type="1">
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to a leaf.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the longest path from the tree’s root to an interior node.</p></li>
-<li><p>The maximum depth of a decision tree is the length of the shortest path from the tree’s root to an interior node.</p></li>
+<li><p>RMSLE penalizes coming under the actual value much more than coming above the actual value. On the other hand, RMSE penalizes both cases in the same way.</p></li>
+<li><p>RMSLE is not sensitive to outliers as RMSE is. Whenever we have outliers, the result of RMSE can explode while RMSLE will scale down the outliers.</p></li>
+<li><p>RMSLE measures the error by only focusing on the predicted value. On the other hand, RMSE uses the difference between the predicted and the actual value to compute the error.</p></li>
+<li><p>RMSLE focuses on the relative error between two values. When using RMSLE, the scale of the error is not significant. On the other hand, the result of RMSE increases in magnitude if the error scale increases.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -243,16 +243,23 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1</p>
-<p>In a few words, a decision tree represents particular observations about a sample in its branches and the conclusions about that item’s target value as the tree’s leaves. If you draw the tree, its maximum depth is a way to explain how tall the tree is.</p>
-<p>It makes sense that the maximum depth is the length of the longest path from the root to the bottom of the tree, but what exactly is that bottom? Is it a leaf or an internal node?</p>
-<p>Your decision tree would not be complete if you only considered internal nodes. Remember, leaves are where the conclusions of the target value live. In other words, a leaf is where the final answer lives. You can’t talk about the maximum depth of a tree without considering the leaves, so that’s the correct answer to this question.</p>
-<p>One more important thing to notice is that everything else being equal, a more straightforward decision tree will always generalize better than a more complex one. The maximum depth of the tree directly affects its complexity.</p>
-<p>In summary, the first choice is the correct answer to this question.</p>
+<p>1, 2, 4</p>
+<p>Compared to <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">RMSE</a>, <a href="https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/mean-squared-logarithmic-error-(msle)">RMSLE</a> is a relatively new metric. Here is the formula:</p>
+<p><span class="math display">\[
+\sqrt{ \frac{1}{n} \sum_{i=1}^n (\log(x_i + 1) - \log(y_i + 1))^2 }
+\]</span></p>
+<p>If you compare this formula with the RMSE formula, you’ll notice they are almost the same, with the difference of RMSLE computing the log of both the predicted and actual values. This small difference comes with some essential properties.</p>
+<p>First, RMSLE penalizes underestimates much more than overestimates. To understand the reason, take a look at the following charts that I took from <a href="https://medium.com/analytics-vidhya/root-mean-square-log-error-rmse-vs-rmlse-935c6cc1802a">“What’s the Difference Between RMSE and RMSLE?”</a>:</p>
+<p><img src="20220831.png" class="img-fluid"></p>
+<p>Notice how RMSLE penalizes negative values much more heavily than positive ones, while RMSE equally penalizes both cases. Therefore, the first choice is correct.</p>
+<p>The second choice is also correct. The log that RMSLE uses squashes outliers, while RMSE amplifies their effect. If you want your model to remain unaffected by outliers, RMSLE is a good candidate.</p>
+<p>The third choice is incorrect because both RMSE and RMSLE use the predicted and actual values. Predicted values alone don’t tell us anything; comparing them with the actual value is critical.</p>
+<p>Finally, the fourth choice is also correct. For example, imagine a case where the model predicts 30 when the actual value was 40 and another case where the prediction was 300 when the actual value was 400. The RMSE of the second case is ten times more than the RMSE of the first case. However, the RMSLE will score both cases the same. The RMSLE measures the relative error, while the RMSE measures the absolute error.</p>
+<p>In summary, the first, second, and fourth choices are correct.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">“Decision tree learning”</a> is the Wikipedia page where you can read about decision trees.</li>
-<li><a href="https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680">“How to tune a Decision Tree?”</a> is a great article talking about different ways to tune a decision tree, including the effects of setting the maximum depth hyperparameter.</li>
+<li><a href="https://medium.com/analytics-vidhya/root-mean-square-log-error-rmse-vs-rmlse-935c6cc1802a">“What’s the Difference Between RMSE and RMSLE?”</a> covers really well every one of the differences between these two functions.</li>
+<li>Another article that covers the differences between some of the most popular functions is <a href="https://akhilendra.com/evaluation-metrics-regression-mae-mse-rmse-rmsle/">“Evaluation Metrics for Regression models”</a></li>
 </ul>
 </div>
 </div>
