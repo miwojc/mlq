@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-28">
+<meta name="dcterms.date" content="2022-09-01">
 
-<title>Machine Learning Questions - The first exam</title>
+<title>Machine Learning Questions - Bounding boxes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The first exam</h1>
+      <h1 class="quarto-secondary-nav-title">Bounding boxes</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220901.html" class="sidebar-item-text sidebar-link">Bounding boxes</a>
+  <a href="./20220901.html" class="sidebar-item-text sidebar-link active">Bounding boxes</a>
   </div>
 </li>
       </ul>
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220828.html" class="sidebar-item-text sidebar-link active">The first exam</a>
+  <a href="./20220828.html" class="sidebar-item-text sidebar-link">The first exam</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The first exam</h1>
+<h1 class="title d-none d-lg-block">Bounding boxes</h1>
 </div>
 
 
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 28, 2022</p>
+      <p class="date">September 1, 2022</p>
     </div>
   </div>
     
@@ -235,16 +235,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Ayla is grading the first exam of her machine learning class.</p>
-<p>Almost 50 students submitted a document explaining the neural network architecture they used to solve a problem and a complete analysis of their results.</p>
-<p>Ayla opens the first paper and sees the following chart, showing the model’s training and validation loss over the number of iterations (epochs):</p>
-<p><img src="20220828.jpg" class="img-fluid"></p>
-<p>Which of the following is the correct feedback Ayla should give this student?</p>
+<p>Magdalena is working on a model to detect people in footage from security cameras.</p>
+<p>She wants to measure the performance of her object detection method, but there is a problem: The bounding boxes predicted by her model never match precisely the bounding boxes in the ground truth data.</p>
+<p>Magdalena needs a metric that tells her how well the two bounding boxes overlap. Based on this metric, she can define a threshold and decide if the predicted bounding box is correct or not.</p>
+<p>Which metric can Magdalena use?</p>
 <ol type="1">
-<li><p>The training loss decreases continuously, indicating that the model is doing well.</p></li>
-<li><p>The separation between the training and the validation curves indicates the training set is too complex for the model to learn.</p></li>
-<li><p>The training and validation loss continue to decrease until the end of the training process, indicating the model is overfitting.</p></li>
-<li><p>The training and validation loss continue to decrease until the end of the training process, indicating the model is underfitting.</p></li>
+<li><p>The percentage of the ground truth bounding box that’s covered by the predicted bounding box.</p></li>
+<li><p>The percentage of the predicted bounding box that’s covered by the ground truth bounding box.</p></li>
+<li><p>The intersection area of the predicted and ground truth bounding boxes divided by their union.</p></li>
+<li><p>The intersection area of the predicted and ground truth bounding boxes multiplied by their union.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -258,19 +257,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>4</p>
-<p>Analyzing <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)">learning curves</a> is one of the fundamental skills you should build in your career. There are different learning curves, but we will focus on Ayla’s chart here.</p>
-<p>First, notice that the chart shows the loss—or error—as we increase the number of training iterations. A good mental model is to look at this the following way: “as we keep training, how much better the model gets?” Since we are displaying the loss, larger values are worse, so having both lines decrease is a good sign.</p>
-<p>We have two lines in the chart: one representing the loss we get during training, the other representing the loss during the validation process. How these lines look concerning each other is essential. Most of the time, one of the lines alone wouldn’t give you a complete picture of the situation.</p>
-<p>Let’s start with the first choice that argues that a training loss that’s continually decreasing means that Ayla’s model is doing a good job. While this could be a good sign, it’s not a sufficient explanation to draw any conclusions about the quality of the model. For example, the model could be memorizing the dataset (overfitting), and while the training loss is decreasing, we will end up with a flawed model. Therefore, the first choice is incorrect.</p>
-<p>The chart shows a gap between the training and the validation loss. Even when the student didn’t train the model for too long (about 50 epochs), the gap indicates the model can achieve a better loss in the validation dataset. This, however, doesn’t mean the training dataset is too complex for the model to learn. The chart shows how the training loss continually decreases until the end of the process, so the second choice is also incorrect.</p>
-<p>The critical insight is that the training and validation losses decrease during the entire process. What would you say if you were to guess what would happen right after the 50th epoch? Looking at the chart, it seems clear that both the training and validation losses have the potential to keep decreasing, and therefore the student stopped the training process too early.</p>
-<p>What does this mean? Is the model overfitting or underfitting?</p>
-<p>The model is not maximizing its potential. If we let it train for longer, the model will likely continue learning. This is a characteristic of underfitting models: they aren’t taking full advantage of their data. Therefore, the third choice is incorrect, and the fourth is the correct answer to this question.</p>
+<p>3</p>
+<p>After a quick look at the choices, the first two options sound like plausible solutions. However, they have fundamental flaws that may allow a bad model to score high on these metrics.</p>
+<p>Let’s take the percentage of the ground-truth bounding box covered by the prediction. If our model learns to predict huge bounding boxes covering almost the whole image, we will always get a score close to 100%.</p>
+<p>If we take the percentage of the predicted bounding box covered by the ground truth, we have the opposite problem: a small bounding box somewhere in the bounds of the ground truth will give us a 100% score. Therefore the first two choices are incorrect.</p>
+<p>An excellent way to deal with these problematic cases is to take the so-called intersection over union measure (IoU for short, also called the <a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a>). We compute the intersection area of the bounding boxes and divide it by their union. The union will increase if the predicted bounding box is too big, driving the score down. The small intersection area will lower the score if the bounding box is too small.</p>
+<p>Finally, the last choice is also incorrect. Multiplying the intersection by the union will not give us any relevant or helpful results.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/">“How to use Learning Curves to Diagnose Machine Learning Model Performance”</a> is the article that inspired this question and from where I borrowed Ayla’s chart.</li>
-<li>Wikipedia’s introduction to <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)">Learning curves</a>.</li>
+<li>Check <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">“Intersection over Union (IoU) for object detection”</a> for an entire explanation of this metric.</li>
 </ul>
 </div>
 </div>
