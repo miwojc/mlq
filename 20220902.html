@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-19">
+<meta name="dcterms.date" content="2022-09-02">
 
-<title>Machine Learning Questions - Hiring a team</title>
+<title>Machine Learning Questions - Stock prices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Hiring a team</h1>
+      <h1 class="quarto-secondary-nav-title">Stock prices</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220902.html" class="sidebar-item-text sidebar-link">Stock prices</a>
+  <a href="./20220902.html" class="sidebar-item-text sidebar-link active">Stock prices</a>
   </div>
 </li>
       </ul>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220819.html" class="sidebar-item-text sidebar-link active">Hiring a team</a>
+  <a href="./20220819.html" class="sidebar-item-text sidebar-link">Hiring a team</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Hiring a team</h1>
+<h1 class="title d-none d-lg-block">Stock prices</h1>
 </div>
 
 
@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2022</p>
+      <p class="date">September 2, 2022</p>
     </div>
   </div>
     
@@ -240,15 +240,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The company was getting ready to build an extensive system with a machine learning model at its core, so it was time to start hiring.</p>
-<p>Jordan was one of the first. She came right off her Ph.D.&nbsp;to lead the creation of an automated data pipeline for the system. There was only one small problem: she didn’t have industry experience, and her research work was very different.</p>
-<p>Jordan needs to build a team, but it’s hard to identify the appropriate candidates without fully understanding what goes into a data pipeline.</p>
-<p>Which of the following are some of the data processing steps that go into a data pipeline?</p>
+<p>George had an exciting meeting with his new client.</p>
+<p>A fund manager wants George’s team to design a machine learning model that evaluates the price of stocks. The model should use publicly available information to predict the true share price of each company.</p>
+<p>That’s all the fund manager needs. He will take it from there and look deeper into under-priced stocks (where the true price is higher than the current market price.)</p>
+<p>The model will act as a pre-filter to sort out potential companies, and the fund manager will do a more detailed analysis before deciding whether to invest in the stock. The fund manager doesn’t care if there are occasional wrong predictions, even by a large margin, but he doesn’t want to have too many false positives because detailed research will cost a lot of time.</p>
+<p>George is trying to decide which loss function the team should use for the model.</p>
+<p>Which of the following loss functions do you think are suitable for this problem?</p>
 <ol type="1">
-<li><p>Data analysis is one of the steps of a data pipeline.</p></li>
-<li><p>Data ingestion is one of the steps of a data pipeline.</p></li>
-<li><p>Data preparation is one of the steps of a data pipeline.</p></li>
-<li><p>Data validation is one of the steps of a data pipeline.</p></li>
+<li><p>Mean Squared Error (MSE)</p></li>
+<li><p>Mean Absolute Error (MAE)</p></li>
+<li><p>Binary Cross-entropy Loss</p></li>
+<li><p>Huber Loss</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -262,17 +264,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3, 4</p>
-<p>A critical part of any production-ready machine learning system is the data pipeline. Its goal is to collect and prepare the data we can use later to train, validate and use the model.</p>
-<p>A data pipeline is a fully automated process. There shouldn’t be any steps that require human intervention.</p>
-<p>Analyzing the data is not part of a data pipeline. During the data analysis phase, the team will define the data required by the system. This is a manual step that happens before the data pipeline is ready. During the data analysis phase, the team will make the necessary decisions to build the data pipeline. Therefore, the first option is incorrect.</p>
-<p>Data ingestion is one of the steps of a data pipeline. During this step, we ingest the data from the different data sources and transfer it to where we will store it and later process it. For example, the company may need data currently stored in spreadsheets, databases, and a few real-time sensors. The data ingestion step will get the necessary data from each place and keep them in the final location for the rest of the process.</p>
-<p>Data preparation is another essential step of a data pipeline, where we format and prepare the data before using it. For example, the company might want to standardize the format of dates collected from different sources or perform specific transformations on numerical data.</p>
-<p>Finally, data validation is another step of a data pipeline. We can validate that the necessary data we are ingesting is present and follow the appropriate schema during this step. For example, we might need to collect a minimum number of samples daily and raise an exception during the data validation step if we don’t meet that condition.</p>
+<p>2, 4</p>
+<p>We don’t have too much information about the problem, but the client has clear priorities regarding the errors they are willing to tolerate. Significant outliers are not a big problem because the fund manager will spot them quickly and reject them. However, they expect excellent overall performance to avoid wasting time researching unpromising stocks.</p>
+<p>With this in mind, the <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error (MAE)</a> and the <a href="https://en.wikipedia.org/wiki/Huber_loss">Huber loss</a> seem like better options than the <a href="https://en.wikipedia.org/wiki/Mean_squared_errorj">Mean Squared Error (MSE.)</a> The MSE penalizes high errors of the model much more than the others. This means that the model will try to learn to avoid big mistakes in the prediction, which will likely come at the cost of worse overall performance. We don’t want this.</p>
+<p>On the other hand, the MAE and the Huber loss are more robust to outliers, and they will not dominate the training process. Therefore, the second and fourth choices are the correct answers.</p>
+<p>The cross-entropy loss doesn’t apply to regression problems, so the third choice is also incorrect.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>The <a href="https://www.coursera.org/learn/machine-learning-data-lifecycle-in-production">“Machine Learning Data Lifecycle in Production”</a> course in Coursera, part of the <a href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops">Machine Learning Engineering for Production (MLOps) Specialization.</a></li>
-<li><a href="https://hazelcast.com/glossary/data-pipeline/">“What is a Data Pipeline”</a> is a short article explaining the high-level idea of data pipelines.</li>
+<li>Check <a href="https://machinelearningmastery.com/regression-metrics-for-machine-learning/">“Regression Metrics for Machine Learning”</a> for an overview of some of the most popular metrics used for regression problems.</li>
+<li><a href="https://stephenallwright.com/rmse-vs-mae/">“RMSE vs MAE, which should I use?”</a> is a great summary by Stephen Allwright about the properties of these two functions and how you should think about them. For more information about the Huber loss, take a look at <a href="https://www.cantorsparadise.com/huber-loss-why-is-it-like-how-it-is-dcbe47936473">“Huber Loss: Why Is It, Like How It Is?”</a>.</li>
 </ul>
 </div>
 </div>
