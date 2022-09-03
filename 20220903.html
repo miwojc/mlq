@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-20">
+<meta name="dcterms.date" content="2022-09-03">
 
-<title>Machine Learning Questions - Abigail’s chart</title>
+<title>Machine Learning Questions - Recognizing overfitting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Abigail’s chart</h1>
+      <h1 class="quarto-secondary-nav-title">Recognizing overfitting</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220903.html" class="sidebar-item-text sidebar-link">Recognizing overfitting</a>
+  <a href="./20220903.html" class="sidebar-item-text sidebar-link active">Recognizing overfitting</a>
   </div>
 </li>
       </ul>
@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220820.html" class="sidebar-item-text sidebar-link active">Abigail’s chart</a>
+  <a href="./20220820.html" class="sidebar-item-text sidebar-link">Abigail’s chart</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -225,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Abigail’s chart</h1>
+<h1 class="title d-none d-lg-block">Recognizing overfitting</h1>
 </div>
 
 
@@ -236,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2022</p>
+      <p class="date">September 3, 2022</p>
     </div>
   </div>
     
@@ -245,16 +245,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Abigail firmly believes in charts. She always takes a few minutes to plot and support her story with compelling visuals.</p>
-<p>She was ready to share her model with the rest of her team. This was her first machine learning experience, and she was proud of how much progress she had made in the last few weeks.</p>
-<p>Abigail plotted her model’s training and validation loss over the number of iterations (epochs). The cart looked like this:</p>
-<p><img src="20220820.jpg" class="img-fluid"></p>
-<p>Which of the following is the correct conclusion from looking at Abigail’s plot?</p>
+<p>Cora doesn’t know yet what overfitting is, but most of her class doesn’t talk about anything else, so she expects to find out about it at any moment.</p>
+<p>She started training models recently and would love to know how to recognize when one of her models overfit.</p>
+<p>If you were to summarize it for Cora, in which of the following situations is a model overfitting?</p>
 <ol type="1">
-<li><p>The training loss decreases continuously, indicating that the model is doing well.</p></li>
-<li><p>The validation loss decreases to a point and starts increasing again, indicating the model is overfitting.</p></li>
-<li><p>The training and validation loss suddenly slowed down, indicating a problem with the learning process.</p></li>
-<li><p>The validation loss doesn’t follow the training loss closely, indicating the model is underfitting.</p></li>
+<li><p>The training loss on the model stays constant during the entire training process.</p></li>
+<li><p>The model’s performance on the training set is good but low on the validation set.</p></li>
+<li><p>The model’s performance on the training and validation sets is low.</p></li>
+<li><p>The model takes an extremely long time to converge.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -269,19 +267,13 @@ Expand to see the answer
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>2</p>
-<p>Analyzing learning curves is one of the fundamental skills you should build in your career. There are different learning curves, but we will focus on Abigail’s chart.</p>
-<p>First, notice that the chart shows the loss—or error—as we increase the number of training iterations. A good mental model is to look at this the following way: “as we keep training, how much better the model gets?” Since we are displaying the loss, larger values are worse, so having both lines decrease is a good sign.</p>
-<p>We have two lines in the chart: one representing the loss we get during training, the other representing the loss during the validation process. How these lines look concerning each other is essential. Most of the time, one of the lines alone wouldn’t give you a complete picture of the situation.</p>
-<p>Let’s start with the first choice that argues that a training loss that’s continually decreasing is good. Indeed this could be a good sign in isolation: the more we train our model, the fewer mistakes we make on the training dataset, but this is not enough to draw any conclusions.</p>
-<p>Always be suspicious of an always-decreasing training loss; it’s a sign that your model might be memorizing the data. Usually, you want a model that learns up to a point, and then the loss stays flat. But how do you know when during the process that should happen? The relationship between the training loss and the validation loss shows how they start diverging at about 100 iterations. This point is the key.</p>
-<p>Think about it this way: Abigail’s model “continues learning” the training data but stops learning the validation data at about 100 iterations. The model is overfitting: it’s memorizing the training data, which is not helping with the validation data. Therefore, the first choice is incorrect, and the second is correct.</p>
-<p>The third choice is incorrect as well. You’ll always see a similar slow down in the loss functions. The best case—not usual, but technically possible—is to reach 0, where there’s nowhere else to go.</p>
-<p>Finally, the fourth choice is also incorrect. First, the training and validation loss do not necessarily need to follow each other. Second, this model shows overfitting—memorizing the training data—and not underfitting—lack of model complexity to learn the data correctly. You can usually identify an underfitting model when its training loss is flat or doesn’t decrease much.</p>
-<p>In summary, the second choice is the correct answer to this question.</p>
+<p>If the training loss doesn’t move during the training process, something is wrong, but we can’t say that the model is overfitting. Overfitting is also not related to the speed of convergence. There may be multiple reasons a model takes a long time to converge, but we can’t claim that a model is not converging fast enough because it’s overfitting.</p>
+<p>When a model is overfitting, we should see a good performance on the training set alone. A good model should capture valuable patterns in the data and discard any noise that doesn’t help with predictions, leading to good performance in both the training and validation sets. The third choice argues for low performance on both training and validation sets, which will be a way to detect underfitting.</p>
+<p>In summary, the second option is the correct answer: Cora should expect good performance on the training set but low validation performance.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/">“How to use Learning Curves to Diagnose Machine Learning Model Performance”</a> is the article that inspired this question and from where I borrowed Abigail’s chart.</li>
-<li>Wikipedia’s introduction to <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)">Learning curves</a>.</li>
+<li>Check <a href="https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/">“Overfitting and Underfitting With Machine Learning Algorithms”</a> for an introduction to overfitting and underfitting in machine learning.</li>
+<li><a href="https://allcloud.io/blog/how-to-solve-underfitting-and-overfitting-data-models/">“How to Solve Underfitting and Overfitting Data Models”</a> covers several strategies to solve overfitting and underfitting.</li>
 </ul>
 </div>
 </div>
