@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-03">
+<meta name="dcterms.date" content="2022-09-05">
 
-<title>Machine Learning Questions - Recognizing overfitting</title>
+<title>Machine Learning Questions - Zombies taking over</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Recognizing overfitting</h1>
+      <h1 class="quarto-secondary-nav-title">Zombies taking over</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220903.html" class="sidebar-item-text sidebar-link active">Recognizing overfitting</a>
+  <a href="./20220903.html" class="sidebar-item-text sidebar-link">Recognizing overfitting</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220905.html" class="sidebar-item-text sidebar-link">Zombies taking over</a>
+  <a href="./20220905.html" class="sidebar-item-text sidebar-link active">Zombies taking over</a>
   </div>
 </li>
       </ul>
@@ -235,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Recognizing overfitting</h1>
+<h1 class="title d-none d-lg-block">Zombies taking over</h1>
 </div>
 
 
@@ -246,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 3, 2022</p>
+      <p class="date">September 5, 2022</p>
     </div>
   </div>
     
@@ -255,14 +255,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Cora doesn’t know yet what overfitting is, but most of her class doesn’t talk about anything else, so she expects to find out about it at any moment.</p>
-<p>She started training models recently and would love to know how to recognize when one of her models overfit.</p>
-<p>If you were to summarize it for Cora, in which of the following situations is a model overfitting?</p>
+<p>Every TV in the country didn’t talk about anything else: zombies were finally taking over the world.</p>
+<p>But there was still hope.</p>
+<p>Adeline was part of the team dedicated to finding a cure to transform the zombies back. She wasn’t a machine learning expert but knew how to build logistic regression classifiers. Her job was to categorize zombies based on data captured by field teams.</p>
+<p>Assuming that there are five categories of zombies and that Adeline is only working with logistic regression models, how many models does she need to build to classify zombies correctly?</p>
 <ol type="1">
-<li><p>The training loss on the model stays constant during the entire training process.</p></li>
-<li><p>The model’s performance on the training set is good but low on the validation set.</p></li>
-<li><p>The model’s performance on the training and validation sets is low.</p></li>
-<li><p>The model takes an extremely long time to converge.</p></li>
+<li><p>Adeline can classify every zombie correctly by building a single model.</p></li>
+<li><p>Adeline can classify every zombie correctly by building 5 models.</p></li>
+<li><p>Adeline can classify every zombie correctly by building 24 models.</p></li>
+<li><p>Adeline cannot classify every zombie using logistic regression. She needs a multi-class classification model instead.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -277,13 +278,20 @@ Expand to see the answer
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>2</p>
-<p>If the training loss doesn’t move during the training process, something is wrong, but we can’t say that the model is overfitting. Overfitting is also not related to the speed of convergence. There may be multiple reasons a model takes a long time to converge, but we can’t claim that a model is not converging fast enough because it’s overfitting.</p>
-<p>When a model is overfitting, we should see a good performance on the training set alone. A good model should capture valuable patterns in the data and discard any noise that doesn’t help with predictions, leading to good performance in both the training and validation sets. The third choice argues for low performance on both training and validation sets, which will be a way to detect underfitting.</p>
-<p>In summary, the second option is the correct answer: Cora should expect good performance on the training set but low validation performance.</p>
+<p>This is what we were aiming for:</p>
+<p>Adeline can solve the problem using logistic regression alone.</p>
+<p><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic regression</a> estimates the probability of an event occurring by outputting a single value bounded between 0 and 1. The closer the result is to zero, the less likely the event will occur, while the closer is to 1, the more likely it is. This structure makes logistic regression ideal for tackling binary or 2-class classification problems. Notice that we can formulate a binary classification task as a 2-class classification task and vice versa.</p>
+<p>Adeline needs to classify zombies into five different categories. She can use the One-vs-All method (also called “One-vs-Rest.”) She will need to train five models:</p>
+<pre><code>Model 1: Identifying Class 1 vs. [Class 2, Class 3, Class 4, Class 5]
+Model 2: Identifying Class 2 vs. [Class 1, Class 3, Class 4, Class 5]
+Model 3: Identifying Class 3 vs. [Class 1, Class 2, Class 4, Class 5]
+Model 4: Identifying Class 4 vs. [Class 1, Class 2, Class 3, Class 5]
+Model 5: Identifying Class 5 vs. [Class 1, Class 2, Class 3, Class 4]</code></pre>
+<p>After running the data through every one of these five models, the correct category would be the prediction from the model with the highest confidence.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/">“Overfitting and Underfitting With Machine Learning Algorithms”</a> for an introduction to overfitting and underfitting in machine learning.</li>
-<li><a href="https://allcloud.io/blog/how-to-solve-underfitting-and-overfitting-data-models/">“How to Solve Underfitting and Overfitting Data Models”</a> covers several strategies to solve overfitting and underfitting.</li>
+<li>Check out <a href="https://machinelearningmastery.com/logistic-regression-for-machine-learning/">“Logistic Regression for Machine Learning”</a> for an introduction to Logistic regression.</li>
+<li><a href="https://www.kdnuggets.com/2020/08/one-vs-rest-one-multi-class-classification.html">“Essential Data Science Tips: How to Use One-Vs-Rest and One-Vs-One for Multi-Class Classification”</a> is a great reference to understand how to use the One-vs-All method for multi-class classification.</li>
 </ul>
 </div>
 </div>
