@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-01">
+<meta name="dcterms.date" content="2022-09-08">
 
-<title>Machine Learning Questions - Bounding boxes</title>
+<title>Machine Learning Questions - Leave one out</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Bounding boxes</h1>
+      <h1 class="quarto-secondary-nav-title">Leave one out</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220901.html" class="sidebar-item-text sidebar-link active">Bounding boxes</a>
+  <a href="./20220901.html" class="sidebar-item-text sidebar-link">Bounding boxes</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220908.html" class="sidebar-item-text sidebar-link">Leave one out</a>
+  <a href="./20220908.html" class="sidebar-item-text sidebar-link active">Leave one out</a>
   </div>
 </li>
       </ul>
@@ -250,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Bounding boxes</h1>
+<h1 class="title d-none d-lg-block">Leave one out</h1>
 </div>
 
 
@@ -261,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 1, 2022</p>
+      <p class="date">September 8, 2022</p>
     </div>
   </div>
     
@@ -270,15 +270,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Magdalena is working on a model to detect people in footage from security cameras.</p>
-<p>She wants to measure the performance of her object detection method, but there is a problem: The bounding boxes predicted by her model never match precisely the bounding boxes in the ground truth data.</p>
-<p>Magdalena needs a metric that tells her how well the two bounding boxes overlap. Based on this metric, she can define a threshold and decide if the predicted bounding box is correct or not.</p>
-<p>Which metric can Magdalena use?</p>
+<p>Rosie discovered that her model had worse performance when using a different test set.</p>
+<p>She started the project by setting aside a portion of her data and built a model that, so far, impressed everyone with a strong performance. But the bubble burst when she trained and tested the model with a different portion of her dataset.</p>
+<p>Rosie’s team recommended k-Fold cross-validation, but Rosie wanted to take the process to the extreme: she decided to create as many folds as samples in the dataset.</p>
+<p>Which of the following statements correctly describes what Rosie should expect to happen:</p>
 <ol type="1">
-<li><p>The percentage of the ground truth bounding box that’s covered by the predicted bounding box.</p></li>
-<li><p>The percentage of the predicted bounding box that’s covered by the ground truth bounding box.</p></li>
-<li><p>The intersection area of the predicted and ground truth bounding boxes divided by their union.</p></li>
-<li><p>The intersection area of the predicted and ground truth bounding boxes multiplied by their union.</p></li>
+<li><p>Rosie’s method will be computationally cheaper than using fewer folds and result in a more reliable estimate of model performance.</p></li>
+<li><p>Rosie’s method will be computationally more expensive than using fewer folds but will result in a more reliable estimate of model performance.</p></li>
+<li><p>Rosie’s method will be computationally cheaper than using fewer folds but result in a less reliable estimate of model performance.</p></li>
+<li><p>Rosie’s method will be computationally more expensive than using fewer folds and result in a less reliable estimate of model performance.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -292,15 +292,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3</p>
-<p>After a quick look at the choices, the first two options sound like plausible solutions. However, they have fundamental flaws that may allow a bad model to score high on these metrics.</p>
-<p>Let’s take the percentage of the ground-truth bounding box covered by the prediction. If our model learns to predict huge bounding boxes covering almost the whole image, we will always get a score close to 100%.</p>
-<p>If we take the percentage of the predicted bounding box covered by the ground truth, we have the opposite problem: a small bounding box somewhere in the bounds of the ground truth will give us a 100% score. Therefore the first two choices are incorrect.</p>
-<p>An excellent way to deal with these problematic cases is to take the so-called intersection over union measure (IoU for short, also called the <a href="https://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a>). We compute the intersection area of the bounding boxes and divide it by their union. The union will increase if the predicted bounding box is too big, driving the score down. The small intersection area will lower the score if the bounding box is too small.</p>
-<p>Finally, the last choice is also incorrect. Multiplying the intersection by the union will not give us any relevant or helpful results.</p>
+<p>2</p>
+<p>Rosie’s approach has a name: <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">Leave-one-out cross-validation</a>, a case of cross-validation where the number of folds equals the number of samples in the dataset.</p>
+<p>To use leave-one-out cross-validation, we build one model for each sample in the dataset. We train each model using all data except one instance we later use to evaluate its performance. Finally, we compute the overall performance by averaging the result of each model.</p>
+<p>Assuming Rosie uses leave-one-out cross-validation on a dataset with 10,000 samples, she will need to train 10,000 models. Compare this with 10-Fold cross-validation, where she will only need to build ten models. Leave-one-out cross-validation is significantly more expensive than a process using fewer folds.</p>
+<p>On the other hand, leave-one-out cross-validation will give Rosie a more robust estimate of model performance. Each sample has an opportunity to represent the entire dataset and contribute to the final evaluation, and this will result in a reliable and unbiased estimate of model performance.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">“Intersection over Union (IoU) for object detection”</a> for an entire explanation of this metric.</li>
+<li><a href="https://machinelearningmastery.com/loocv-for-evaluating-machine-learning-algorithms/">“LOOCV for Evaluating Machine Learning Algorithms”</a> is an excellent introduction to leave-one-out cross-validation.</li>
+<li>Check <a href="https://www.statology.org/leave-one-out-cross-validation/">“A Quick Intro to Leave-One-Out Cross-Validation (LOOCV)”</a> for a brief introduction to leave-one-out cross-validation.</li>
 </ul>
 </div>
 </div>
