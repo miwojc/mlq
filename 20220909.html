@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-20">
+<meta name="dcterms.date" content="2022-09-09">
 
-<title>Machine Learning Questions - Abigail’s chart</title>
+<title>Machine Learning Questions - Universal approximators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Abigail’s chart</h1>
+      <h1 class="quarto-secondary-nav-title">Universal approximators</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220909.html" class="sidebar-item-text sidebar-link">Universal approximators</a>
+  <a href="./20220909.html" class="sidebar-item-text sidebar-link active">Universal approximators</a>
   </div>
 </li>
       </ul>
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220820.html" class="sidebar-item-text sidebar-link active">Abigail’s chart</a>
+  <a href="./20220820.html" class="sidebar-item-text sidebar-link">Abigail’s chart</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Abigail’s chart</h1>
+<h1 class="title d-none d-lg-block">Universal approximators</h1>
 </div>
 
 
@@ -266,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2022</p>
+      <p class="date">September 9, 2022</p>
     </div>
   </div>
     
@@ -275,16 +275,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Abigail firmly believes in charts. She always takes a few minutes to plot and support her story with compelling visuals.</p>
-<p>She was ready to share her model with the rest of her team. This was her first machine learning experience, and she was proud of how much progress she had made in the last few weeks.</p>
-<p>Abigail plotted her model’s training and validation loss over the number of iterations (epochs). The cart looked like this:</p>
-<p><img src="20220820.jpg" class="img-fluid"></p>
-<p>Which of the following is the correct conclusion from looking at Abigail’s plot?</p>
+<p>A theoretical question that Daisy always liked to discuss was the ability of machine learning algorithms to approximate any function.</p>
+<p>She called them “universal approximators.” To classify, they had to approximate any measurable or continuous function up to any desired accuracy.</p>
+<p>Which of the following would you consider universal approximators?</p>
 <ol type="1">
-<li><p>The training loss decreases continuously, indicating that the model is doing well.</p></li>
-<li><p>The validation loss decreases to a point and starts increasing again, indicating the model is overfitting.</p></li>
-<li><p>The training and validation loss suddenly slowed down, indicating a problem with the learning process.</p></li>
-<li><p>The validation loss doesn’t follow the training loss closely, indicating the model is underfitting.</p></li>
+<li><p>Neural Networks</p></li>
+<li><p>Support Vector Machines using a Gaussian kernel</p></li>
+<li><p>Linear Regression</p></li>
+<li><p>Boosted Decision Trees</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -298,20 +296,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>Analyzing learning curves is one of the fundamental skills you should build in your career. There are different learning curves, but we will focus on Abigail’s chart.</p>
-<p>First, notice that the chart shows the loss—or error—as we increase the number of training iterations. A good mental model is to look at this the following way: “as we keep training, how much better the model gets?” Since we are displaying the loss, larger values are worse, so having both lines decrease is a good sign.</p>
-<p>We have two lines in the chart: one representing the loss we get during training, the other representing the loss during the validation process. How these lines look concerning each other is essential. Most of the time, one of the lines alone wouldn’t give you a complete picture of the situation.</p>
-<p>Let’s start with the first choice that argues that a training loss that’s continually decreasing is good. Indeed this could be a good sign in isolation: the more we train our model, the fewer mistakes we make on the training dataset, but this is not enough to draw any conclusions.</p>
-<p>Always be suspicious of an always-decreasing training loss; it’s a sign that your model might be memorizing the data. Usually, you want a model that learns up to a point, and then the loss stays flat. But how do you know when during the process that should happen? The relationship between the training loss and the validation loss shows how they start diverging at about 100 iterations. This point is the key.</p>
-<p>Think about it this way: Abigail’s model “continues learning” the training data but stops learning the validation data at about 100 iterations. The model is overfitting: it’s memorizing the training data, which is not helping with the validation data. Therefore, the first choice is incorrect, and the second is correct.</p>
-<p>The third choice is incorrect as well. You’ll always see a similar slow down in the loss functions. The best case—not usual, but technically possible—is to reach 0, where there’s nowhere else to go.</p>
-<p>Finally, the fourth choice is also incorrect. First, the training and validation loss do not necessarily need to follow each other. Second, this model shows overfitting—memorizing the training data—and not underfitting—lack of model complexity to learn the data correctly. You can usually identify an underfitting model when its training loss is flat or doesn’t decrease much.</p>
-<p>In summary, the second choice is the correct answer to this question.</p>
+<p>1, 2, 4</p>
+<p>Except for linear regression, all the other three choices are universal approximators.</p>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">Universal approximation theorem</a>, neural networks are a well-known member of this category. The theorem states that, when using non-linear activation functions, we can turn a two-layer neural network into a universal function approximator.</p>
+<p>The authors of <a href="https://www.researchgate.net/publication/2531186_A_Note_on_the_Universal_Approximation_Capability_of_Support_Vector_Machines">“A Note on the Universal Approximation Capability of Support Vector Machines”</a> show that support vector machines with standard kernels can also approximate any measurable or continuous function.</p>
+<p>Finally, the <a href="https://kenndanielso.github.io/mlrefined/blog_posts/12_Nonlinear_intro/12_5_Universal_approximation.html">“Universal approximation”</a> chapter of <a href="https://amzn.to/3OXcHZF">Machine Learning Refined</a> covers trees as one of the standard types of universal approximations.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/">“How to use Learning Curves to Diagnose Machine Learning Model Performance”</a> is the article that inspired this question and from where I borrowed Abigail’s chart.</li>
-<li>Wikipedia’s introduction to <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)">Learning curves</a>.</li>
+<li><a href="https://www.researchgate.net/publication/2531186_A_Note_on_the_Universal_Approximation_Capability_of_Support_Vector_Machines">“A Note on the Universal Approximation Capability of Support Vector Machines”</a> is a paper showing that SVMs with standard kernels can approximate any measurable or continuous function.</li>
+<li>Chapter 12.5 <a href="https://kenndanielso.github.io/mlrefined/blog_posts/12_Nonlinear_intro/12_5_Universal_approximation.html">“Universal approximation”</a> of <a href="https://amzn.to/3OXcHZF">Machine Learning</a> Refined covers kernels, neural networks, and trees as universal approximations.</li>
 </ul>
 </div>
 </div>
