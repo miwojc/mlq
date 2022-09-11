@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-29">
+<meta name="dcterms.date" content="2022-09-11">
 
-<title>Machine Learning Questions - Distance measures</title>
+<title>Machine Learning Questions - Inattentive drivers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Distance measures</h1>
+      <h1 class="quarto-secondary-nav-title">Inattentive drivers</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220911.html" class="sidebar-item-text sidebar-link">Inattentive drivers</a>
+  <a href="./20220911.html" class="sidebar-item-text sidebar-link active">Inattentive drivers</a>
   </div>
 </li>
       </ul>
@@ -238,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220829.html" class="sidebar-item-text sidebar-link active">Distance measures</a>
+  <a href="./20220829.html" class="sidebar-item-text sidebar-link">Distance measures</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Distance measures</h1>
+<h1 class="title d-none d-lg-block">Inattentive drivers</h1>
 </div>
 
 
@@ -276,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 29, 2022</p>
+      <p class="date">September 11, 2022</p>
     </div>
   </div>
     
@@ -285,14 +285,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Distance measures are critical in many machine learning algorithms: they summarize the relative difference between two objects. K-Nearest Neighbors is an example of an algorithm that uses a distance measure at its core.</p>
-<p>Every distance measure doesn’t work for every problem. Instead, we must select the appropriate function depending on the nature of the data.</p>
-<p>Here is a list of four distance measures and a quick summary of how they work. Select every one of them that’s correct.</p>
+<p>Summer started working for Tesla.</p>
+<p>Her first assignment is to build a model that will use the camera in the cabin to detect whether drivers are paying attention or are too tired.</p>
+<p>The system’s ultimate goal is to provide audio and visual alerts to help drivers stay safe. Tesla hopes this feature will significantly decrease the number of accidents.</p>
+<p>Before the work starts, Summer wants to decide which of the following will be the best way to evaluate the model:</p>
 <ol type="1">
-<li><p>The Euclidean distance between two vectors is the square root of the sum of the squared differences between them.</p></li>
-<li><p>The Manhattan distance between two vectors is the sum of their absolute differences.</p></li>
-<li><p>The Hamming distance is a generalization of the Euclidean and Manhattan distances that we can tune depending on which distance measure we need.</p></li>
-<li><p>The Minkowski distance computes the distance between two binary vectors.</p></li>
+<li><p>Summer should use the recall of the model, while keeping an eye on its precision.</p></li>
+<li><p>Summer should use the accuracy of the model.</p></li>
+<li><p>Summer should use the precision of the model, while keeping an eye on its recall.</p></li>
+<li><p>Summer should use the training loss of the model.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -306,14 +307,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2</p>
-<p>While the Euclidean and Manhattan distances summary is correct, the Hamming and Minkowski summaries aren’t.</p>
-<p>The Hamming distance computes the distance between two binary vectors. For example, you can calculate the distance between objects using a one-hot encoded feature.</p>
-<p>The Minkowski distance is a generalization of the Euclidean and Manhattan distances. Both of these work with real-value vectors, but the Euclidean distance is the shortest path between objects, while the Manhattan distance is the rectilinear distance between them. Using the Minkowski distance, we can control which approach to use depending on the data.</p>
+<p>1</p>
+<p>There will be many more situations where Summer’s system will find that the driver is correctly paying attention than not. If she uses the accuracy of her model as the evaluation metric, she could end up with a struggling model that still shows high accuracy. Remember that <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">accuracy is not a good metric when facing an imbalanced problem</a>. You can achieve very high accuracy even with a model that does nothing useful.</p>
+<p>Let’s assume Summer’s model misses most cases where the driver is tired and not paying attention. Think of a model that detects a single issue correctly, doesn’t have any false positives, and ignores all other dangerous situations. That model will have perfect precision, but it won’t help much in reducing traffic accidents because it doesn’t detect every problematic situation. Precision is not a good metric for this problem.</p>
+<p>The training loss of the model won’t help Summer either. We use the loss to determine whether the model learned, but it doesn’t tell us anything about the capacity of the model to detect inattentive drivers. Like accuracy, we could have a low loss model that doesn’t do well with problematic situations.</p>
+<p>Summer should focus on the recall of her model while keeping an eye on its precision. A high recall will ensure that Summer’s model detects as many problematic situations as possible.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://machinelearningmastery.com/distance-measures-for-machine-learning/">“4 Distance Measures for Machine Learning”</a> for a complete explanation of these four distance measures.</li>
-<li><a href="https://regenerativetoday.com/five-common-distance-measures-in-data-science-with-formulas-and-examples/">“Five Common Distance Measures in Data Science With Formulas and Examples”</a> is a deeper dive into these distance measures.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
 </ul>
 </div>
 </div>
