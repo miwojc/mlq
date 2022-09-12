@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-10">
+<meta name="dcterms.date" content="2022-09-12">
 
-<title>Machine Learning Questions - Missing answers</title>
+<title>Machine Learning Questions - Broken bottles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Missing answers</h1>
+      <h1 class="quarto-secondary-nav-title">Broken bottles</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -158,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220910.html" class="sidebar-item-text sidebar-link active">Missing answers</a>
+  <a href="./20220910.html" class="sidebar-item-text sidebar-link">Missing answers</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220912.html" class="sidebar-item-text sidebar-link">Broken bottles</a>
+  <a href="./20220912.html" class="sidebar-item-text sidebar-link active">Broken bottles</a>
   </div>
 </li>
       </ul>
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Missing answers</h1>
+<h1 class="title d-none d-lg-block">Broken bottles</h1>
 </div>
 
 
@@ -281,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 10, 2022</p>
+      <p class="date">September 12, 2022</p>
     </div>
   </div>
     
@@ -290,15 +290,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Amaya’s company surveyed a large group of people. After collecting and digitizing all of the data, she noticed that many participants didn’t answer one particular question.</p>
-<p>It was clear to Amaya that not disclosing the answer to the question was as important as the answer itself, so she wanted to consider this when preparing the data.</p>
-<p>Amaya is ready to build a machine learning model but must first deal with the missing answers.</p>
-<p>Which of the following should be the best strategy that Amaya should pursue?</p>
+<p>Parker works at a drink factory concerned with classifying defects as bottles come out of the line. She built a computer vision model to classify bottles into three classes: “ready,” “almost ready,” and “waste.”</p>
+<p>Most of the bottles that come out are “ready,” and there are only a few samples that classify as “almost ready” or “waste.” Parker is very aware of this imbalance.</p>
+<p>The factory uses Parker’s model to reduce the number of defective bottles that ship to customers (any bottle that’s not “ready” is defective.) They consider each of the three classes equally important and wants to ensure the evaluation process reflects that.</p>
+<p>Which metric should Parker use to evaluate her model?</p>
 <ol type="1">
-<li><p>Amaya should remove the column that contains the missing values.</p></li>
-<li><p>Amaya should add a new column to the dataset to flag rows with missing values and then replace those values with a reasonable answer.</p></li>
-<li><p>Amaya should replace the missing values with a reasonable answer.</p></li>
-<li><p>Amaya should predict the missing values using a separate machine learning model.</p></li>
+<li><p>The accuracy of the model.</p></li>
+<li><p>The Micro-average F1-Score of the model.</p></li>
+<li><p>The Macro-average F1-Score of the model.</p></li>
+<li><p>The Weighted F1-Score of the model.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -312,16 +312,17 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>Amaya knows she must do something with the missing answers before training a machine learning model, and <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputing</a> these values seem like a good solution. For example, she could replace the missing values with their mean, median, or mode.</p>
-<p>But this approach has a problem: Amaya thinks having many participants not disclose the answer to the question is as important as the answer itself. If she replaces the missing values, she will lose that information.</p>
-<p>A great approach to avoid losing that information is to add a new binary column to the dataset. This column will flag every participant that didn’t answer the question. Assuming avoiding to answer is not a random event, this new column will help with the predictive performance of Amaya’s model.</p>
-<p>Therefore, the best strategy for Amaya is to add this new column right before imputing missing values.</p>
+<p>3</p>
+<p>Since Parker is working on a very imbalanced problem, she shouldn’t use accuracy to evaluate her model’s quality. If 99% of the bottles are “ready,” Parker’s model will have 99% accuracy, even if she ignores every sample belonging to the other two classes.</p>
+<p>The F1-Score is helpful in these situations, but it depends on how we compute it in a multi-class classification problem.</p>
+<p>The Micro-average F1-Score calculates the proportion of correctly classified samples out of all instances, the same as the model’s accuracy definition. Therefore, if we use the Micro-average F1-Score, we’ll have the same issue we see when using accuracy.</p>
+<p>The Weighted F1-Score scales the individual F1-Score of each class. This method favors the majority classes, which in Parker’s case are the bottles classified as “ready.” The factory considers every category equally important, and that’s why the Weighted F1-Score is not the correct answer.</p>
+<p>Finally, the Macro-average F1-Score penalizes the model equally for any class that doesn’t perform well, regardless of its importance or how many support samples it has. This metric is the correct answer where every category is important, irrespective of how many instances we have in the dataset. This is the metric that Parker should use to evaluate her model.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://www.kaggle.com/dansbecker/handling-missing-values">“Handling Missing Values”</a> is a Kaggle notebook that goes over a few strategies to handle missing values including adding an extra column to flag these rows.</li>
-<li>Check <a href="https://scikit-learn.org/stable/modules/impute.html#imputation-of-missing-values">“Imputation of missing values”</a> for some information about how Scikit-Learn handles missing values.</li>
-<li><a href="https://machinelearningmastery.com/handle-missing-data-python/">“How to Handle Missing Data with Python”</a> is an excellent post discussing different strategies in Python.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
+<li><a href="https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f">“Micro, Macro &amp; Weighted Averages of F1 Score, Clearly Explained”</a> is a great article covering how to compute a global F1-Score metric in multi-class classification problem.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
 </ul>
 </div>
 </div>
