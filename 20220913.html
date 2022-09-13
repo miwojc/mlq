@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-09">
+<meta name="dcterms.date" content="2022-09-13">
 
-<title>Machine Learning Questions - Universal approximators</title>
+<title>Machine Learning Questions - Job descriptions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Universal approximators</h1>
+      <h1 class="quarto-secondary-nav-title">Job descriptions</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220909.html" class="sidebar-item-text sidebar-link active">Universal approximators</a>
+  <a href="./20220909.html" class="sidebar-item-text sidebar-link">Universal approximators</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220913.html" class="sidebar-item-text sidebar-link">Job descriptions</a>
+  <a href="./20220913.html" class="sidebar-item-text sidebar-link active">Job descriptions</a>
   </div>
 </li>
       </ul>
@@ -275,7 +275,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Universal approximators</h1>
+<h1 class="title d-none d-lg-block">Job descriptions</h1>
 </div>
 
 
@@ -286,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 9, 2022</p>
+      <p class="date">September 13, 2022</p>
     </div>
   </div>
     
@@ -295,14 +295,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>A theoretical question that Daisy always liked to discuss was the ability of machine learning algorithms to approximate any function.</p>
-<p>She called them “universal approximators.” To classify, they had to approximate any measurable or continuous function up to any desired accuracy.</p>
-<p>Which of the following would you consider universal approximators?</p>
+<p>Millie finished collecting a dataset with job descriptions and their corresponding salary ranges.</p>
+<p>Unfortunately, there’s a lot of noise in the dataset, and Millie is not sure how to proceed.</p>
+<p>A colleague recommended bagging, but Millie is unfamiliar with this technique. She looked into it and came up with a few questions.</p>
+<p>Select every statement below that’s correct about bagging:</p>
 <ol type="1">
-<li><p>Neural Networks</p></li>
-<li><p>Support Vector Machines using a Gaussian kernel</p></li>
-<li><p>Linear Regression</p></li>
-<li><p>Boosted Decision Trees</p></li>
+<li><p>Bagging is an effective technique to reduce the variance of a model.</p></li>
+<li><p>Bagging is an effective technique to reduce the bias of a model.</p></li>
+<li><p>Bagging trains a group of models, each using a subset of data selected randomly without replacement from the original dataset.</p></li>
+<li><p>Bagging trains a group of models, each using a subset of data selected randomly with replacement from the original dataset.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -316,15 +317,18 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2, 4</p>
-<p>Except for linear regression, all the other three choices are universal approximators.</p>
-<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">Universal approximation theorem</a>, neural networks are a well-known member of this category. The theorem states that, when using non-linear activation functions, we can turn a two-layer neural network into a universal function approximator.</p>
-<p>The authors of <a href="https://www.researchgate.net/publication/2531186_A_Note_on_the_Universal_Approximation_Capability_of_Support_Vector_Machines">“A Note on the Universal Approximation Capability of Support Vector Machines”</a> show that support vector machines with standard kernels can also approximate any measurable or continuous function.</p>
-<p>Finally, the <a href="https://kenndanielso.github.io/mlrefined/blog_posts/12_Nonlinear_intro/12_5_Universal_approximation.html">“Universal approximation”</a> chapter of <a href="https://amzn.to/3OXcHZF">Machine Learning Refined</a> covers trees as one of the standard types of universal approximations.</p>
+<p>1, 4</p>
+<p>Bagging is a popular ensemble learning technique.</p>
+<p>Bagging trains a group of models in parallel and independently from each other. Each model uses a subset of the data randomly selected with replacement from the original dataset. That’s why bagging is also known as “bootstrap aggregating:” because it draws bootstrap samples from the training dataset.</p>
+<p>Bagging is an excellent approach to reducing the variance of a model, but it doesn’t help reduce the bias. That’s why we often use it with low-bias models, like unpruned decision trees. Here is a relevant quote from <a href="https://www.ibm.com/cloud/learn/bagging">“What is bagging?”</a> about how it helps reduce the variance of a model:</p>
+<blockquote class="blockquote">
+<p>Bagging can reduce the variance within a learning algorithm. This is particularly helpful with high-dimensional data, where missing values can lead to higher variance, making it more prone to overfitting and preventing accurate generalization to new datasets.</p>
+</blockquote>
+<p>In summary, the first and fourth choices answer this question correctly.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://www.researchgate.net/publication/2531186_A_Note_on_the_Universal_Approximation_Capability_of_Support_Vector_Machines">“A Note on the Universal Approximation Capability of Support Vector Machines”</a> is a paper showing that SVMs with standard kernels can approximate any measurable or continuous function.</li>
-<li>Chapter 12.5 <a href="https://kenndanielso.github.io/mlrefined/blog_posts/12_Nonlinear_intro/12_5_Universal_approximation.html">“Universal approximation”</a> of <a href="https://amzn.to/3OXcHZF">Machine Learning</a> Refined covers kernels, neural networks, and trees as universal approximations.</li>
+<li>Check IBM’s <a href="https://www.ibm.com/cloud/learn/bagging">“What’s Bagging?”</a> summary for a detailed explanation of this technique.</li>
+<li><a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">What is the difference between Bagging and Boosting?</a> is a great summary of bagging and boosting and their advantages and disadvantages.</li>
 </ul>
 </div>
 </div>
