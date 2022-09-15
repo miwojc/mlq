@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-30">
+<meta name="dcterms.date" content="2022-09-15">
 
-<title>Machine Learning Questions - Softmax mockery</title>
+<title>Machine Learning Questions - The gradient of a function</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Softmax mockery</h1>
+      <h1 class="quarto-secondary-nav-title">The gradient of a function</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220915.html" class="sidebar-item-text sidebar-link">The gradient of a function</a>
+  <a href="./20220915.html" class="sidebar-item-text sidebar-link active">The gradient of a function</a>
   </div>
 </li>
       </ul>
@@ -263,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220830.html" class="sidebar-item-text sidebar-link active">Softmax mockery</a>
+  <a href="./20220830.html" class="sidebar-item-text sidebar-link">Softmax mockery</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Softmax mockery</h1>
+<h1 class="title d-none d-lg-block">The gradient of a function</h1>
 </div>
 
 
@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2022</p>
+      <p class="date">September 15, 2022</p>
     </div>
   </div>
     
@@ -305,16 +305,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Despite years of research, Loretta never paid too much attention to the softmax function and its properties. She never needed it, so imagine her surprise when Alan pushed her about it.</p>
-<p>Alan was cooky. He didn’t know much but liked to show off with every bit of trivia that crossed his path. More than anything, he enjoyed pissing off Loretta at every opportunity he had.</p>
-<p>And here is Alan, bugging Loretta about the softmax function and ready to mock her if she fails.</p>
-<p>Which of the following are correct statements about the softmax function?</p>
-<ol type="1">
-<li><p>The softmax function is a soft or smooth approximation to the max function.</p></li>
-<li><p>The softmax function is a soft or smooth approximation to the argmax function.</p></li>
-<li><p>The softmax function converts a vector of n values into a probability distribution of n possible outcomes.</p></li>
-<li><p>Softmax is a differentiable function.</p></li>
-</ol>
+<p>Yeah, I’m not a huge fan of math, either.</p>
+<p>But to make a career in machine learning, you need at least to know some of the underpinnings behind specific techniques.</p>
+<p>Let’s pick neural networks, for example. The whole idea of optimizing the network rests on understanding how to compute the gradient of a function.</p>
+<p>Which of the following is true about the gradient of a continuous and differentiable function?</p>
+<ul>
+<li><p>The gradient of a continuous and differentiable function is zero at a minimum value.</p></li>
+<li><p>The gradient of a continuous and differentiable function is zero at a saddle point.</p></li>
+<li><p>The gradient of a continuous and differentiable function is non-zero at a maximum value.</p></li>
+<li><p>The gradient of a continuous and differentiable function decreases as it gets closer to a minimum value.</p></li>
+</ul>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -327,14 +327,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3, 4</p>
-<p>The name “softmax” is a misnomer. The softmax function is a smooth—soft—approximation of the argmax function, not the max function. To avoid this confusion, some of the literature uses “softargmax” instead, but the machine learning world ran with “softmax” and never looked back.</p>
-<p>The softmax function turns a vector of n values into another vector of n probabilities that sum to 1. These probabilities are proportional to the relative scale of each value in the vector. For example, when we use softmax as the activation function of a neural network’s output layer, we get a normalized probability distribution that we can use to interpret the result of multi-class classification models.</p>
-<p>Finally, contrary to the argmax function, the softmax function is differentiable.</p>
+<p>1, 2</p>
+<p>To keep it simple, the gradient of a function gives us the slope at any point on its curve. We can compute it by dividing the “rise” of the function by its “run” over a specific small interval.</p>
+<p>Imagine the <a href="https://www.mathworks.com/help/examples/graphics/win64/Create2DLinePlotsExample_01.png">Sine function</a>. Pick a point on the left side, and think of the tangent to the curve as you move the point closer to the maximum value of the function. The gradient starts positive and decreases as we get closer to the maximum.</p>
+<p>Repeat this exercise, starting from the maximum value and moving towards the minimum. The gradient is negative after the maximum point and increases until it reaches the minimum value. Visualizing this in your head is not easy, so <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">here is an excellent interactive chart</a> where you can see how this works using a similar function.</p>
+<p>What happens with the gradient when we get to a minimum, maximum, or saddle point? The gradient will equal zero if the curve has a horizontal slope at a particular point. That means that both the first and second choices correctly describe the properties of the gradient function. However, the third choice is invalid: we already know that the gradient function is zero when we hit a maximum point.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/">“The Softmax function and its derivative”</a> for a complete explanation of softmax.</li>
-<li><a href="https://deepai.org/machine-learning-glossary-and-terms/softmax-layer">“What is the Softmax Function?”</a> is another great explanation of how the function works.</li>
+<li>Check <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">“Is the gradient function increasing or decreasing on this curve?”</a> for a great visualization of the gradient of a function.</li>
+<li>The Wikipedia pages of <a href="https://en.wikipedia.org/wiki/Gradient">“Gradient”</a> and <a href="https://en.wikipedia.org/wiki/Saddle_point">“Saddle point”</a> contain all the information you need to answer this question.</li>
 </ul>
 </div>
 </div>
