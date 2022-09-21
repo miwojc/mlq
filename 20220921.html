@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-22">
+<meta name="dcterms.date" content="2022-09-21">
 
-<title>Machine Learning Questions - Three elevators</title>
+<title>Machine Learning Questions - Vanishing gradients</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Three elevators</h1>
+      <h1 class="quarto-secondary-nav-title">Vanishing gradients</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -213,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220921.html" class="sidebar-item-text sidebar-link">Vanishing gradients</a>
+  <a href="./20220921.html" class="sidebar-item-text sidebar-link active">Vanishing gradients</a>
   </div>
 </li>
       </ul>
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220822.html" class="sidebar-item-text sidebar-link active">Three elevators</a>
+  <a href="./20220822.html" class="sidebar-item-text sidebar-link">Three elevators</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -315,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Three elevators</h1>
+<h1 class="title d-none d-lg-block">Vanishing gradients</h1>
 </div>
 
 
@@ -326,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 22, 2022</p>
+      <p class="date">September 21, 2022</p>
     </div>
   </div>
     
@@ -335,16 +335,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Iris’s company moved downtown. After closing on a large round of funding, they leased one of the tallest buildings in the city.</p>
-<p>The views were amazing, but the building was busy, and getting an elevator during peak hours was always a chore.</p>
-<p>Iris’s floor had three elevators unequally spaced along a wall. On a dull afternoon, while waiting for their ride to come, Iris asked her friends where they would stand and wait for the elevator. She wanted to minimize the distance they had to walk when one of the elevators arrived.</p>
-<p>Which of the following will minimize the distance they have to walk? Keep in mind the elevators are not spaced equally along the wall.</p>
-<ul>
-<li><p>They should always stand in any of the elevators at both extremes of the wall.</p></li>
-<li><p>They should always stand in front of the middle elevator, regardless of its location along the wall.</p></li>
-<li><p>They should always stand at the mid-point between the two elevators located at the extreme.</p></li>
-<li><p>They should only stand in front of the middle elevator if the distance to the other two elevators is the same. If not, they can stand in any of the extreme elevators.</p></li>
-</ul>
+<p>Kaylee’s model is not doing great.</p>
+<p>She is building a deep neural network but can’t even get it to train properly.</p>
+<p>Kaylee mainly uses sigmoid as the activation function on the network’s layers, so a colleague mentioned the vanishing gradient problem as a potential cause.</p>
+<p>Assuming Kaylee’s colleague is correct, which of the following statements should help the network learn?</p>
+<ol type="1">
+<li><p>Kaylee should use tanh instead of sigmoid because it doesn’t suffer from vanishing gradients.</p></li>
+<li><p>Kaylee should use ReLU instead of Sigmoid because it doesn’t suffer from vanishing gradients.</p></li>
+<li><p>Kaylee should modify her model and introduce Batch Normalization to mitigate the problem.</p></li>
+<li><p>Kaylee should initialize the network weights with large values to avoid vanishing gradients.</p></li>
+</ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -357,25 +357,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>If Iris stands in front of the middle elevator, she will minimize the distance she has to walk. This holds for any distribution of the elevators along the wall—they don’t need to be equally spaced.</p>
-<p>Let’s break this down into the three possible situations with an example where we have elevators A, B, and C located along a wall (paraphrasing the answer on <a href="https://stats.stackexchange.com/questions/355538/why-does-minimizing-the-mae-lead-to-forecasting-the-median-and-not-the-mean">this Stack Exchange page</a>):</p>
-<ol type="1">
-<li>If Iris waits in front of elevator A and elevator B arrives, she will need to walk from A to B. If elevator C arrives, she must walk from A to C, passing B on her way. Here is the pattern: A→B or A→B→C.</li>
-<li>If Iris waits in front of elevator C and elevator A arrives, she will need to walk from C to A, passing B on her way. If elevator B comes, she must walk from C to B. Here is the pattern: C→B→A, or C→B.</li>
-<li>If Iris waits in front of elevator B and elevator A arrives, she will need to walk from B to A. If elevator C arrives, she must walk from B to C. She will never have to pass any other elevator. Here is the pattern: B→A or B→C.</li>
-</ol>
-<p>Do you see how standing in front of any of the elevators at both extremes of the wall will make you walk the same distance in multiple cases? A→B in the first case, and C→B in the second one.</p>
-<p>“Visualizing the Median as the Minimum-Deviation Location” explains this as follows:</p>
-<blockquote class="blockquote">
-<p>First, consider waiting at a median location. Then, consider “moving” to a waiting position away from this median point. If one does so, one moves away from more elevators than one moves towards, thereby increasing the sum of the distances to the elevators.</p>
-</blockquote>
-<p>A more exciting insight: we can minimize the distance by standing at the median point between elevators for any number of elevators, not only three. Notice that this median point is not necessarily in front of an elevator.</p>
-<p>Now that we know the correct answer is the second choice imagine if we wanted to minimize the total distance they have to walk from the door they enter the lobby where the elevators are located. It’s no longer about the distance between the elevators, but we also need to consider the distance from the door to the elevator that arrives. The answer may surprise you.</p>
+<p>2, 3</p>
+<p>If the gradients of the loss function approach zero, the model will stop learning because the network will stop updating the weights. This phenomenon is known as the <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">Vanishing Gradient Problem</a>, and it’s common when using the <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> and <a href="https://www.sciencedirect.com/topics/mathematics/hyperbolic-tangent-function">tanh</a> activation functions in deep neural networks. Kaylee won’t fix the problem by replacing sigmoid with tanh.</p>
+<p>In contrast, <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> is a way to solve the vanishing gradient problem. ReLU is much less likely to saturate, and its derivative is 1 for values larger than zero, so Kayle should look at it to replace sigmoid.</p>
+<p><a href="https://en.wikipedia.org/wiki/Batch_normalization">Batch normalization</a> is another way to mitigate the vanishing gradient problem. Suppose we have a layer that uses a sigmoid activation function. We can normalize the input to that layer to ensure that the values don’t reach the edges and stay around the area where derivatives aren’t too small. By modifying the input to this layer with batch normalization, Kaylee will mitigate the vanishing gradient problem.</p>
+<p>Finally, while Kaylee may suffer from the vanishing gradient problem if she uses small values to initialize the network’s weights, she will have the opposite problem (exploding gradients) if she initializes the network with large values. <a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> is an excellent introduction to the importance of correct weight initialization.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Take a look at <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.610.3019&amp;rep=rep1&amp;type=pdf">“Visualizing the Median as the Minimum-Deviation Location”</a> for an in-depth analysis of this problem.</li>
-<li><a href="https://stats.stackexchange.com/questions/355538/why-does-minimizing-the-mae-lead-to-forecasting-the-median-and-not-the-mean">“Why does minimizing the MAE lead to forecasting the median and not the mean?”</a> is the question that led me down this rabbit hole.</li>
+<li>Check <a href="https://machinelearningmastery.com/how-to-fix-vanishing-gradients-using-the-rectified-linear-activation-function/">“How to Fix the Vanishing Gradients Problem Using the ReLU”</a> for recommendations on how to fix the vanishing gradient problem.</li>
+<li><a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> is an excellent summary of the importance of weight initialization.</li>
 </ul>
 </div>
 </div>
