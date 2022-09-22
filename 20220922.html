@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-21">
+<meta name="dcterms.date" content="2022-09-22">
 
-<title>Machine Learning Questions - Low-bias models</title>
+<title>Machine Learning Questions - Bagging or Boosting?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Low-bias models</h1>
+      <h1 class="quarto-secondary-nav-title">Bagging or Boosting?</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220922.html" class="sidebar-item-text sidebar-link">Bagging or Boosting?</a>
+  <a href="./20220922.html" class="sidebar-item-text sidebar-link active">Bagging or Boosting?</a>
   </div>
 </li>
       </ul>
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220821.html" class="sidebar-item-text sidebar-link active">Low-bias models</a>
+  <a href="./20220821.html" class="sidebar-item-text sidebar-link">Low-bias models</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -320,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Low-bias models</h1>
+<h1 class="title d-none d-lg-block">Bagging or Boosting?</h1>
 </div>
 
 
@@ -331,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2022</p>
+      <p class="date">September 22, 2022</p>
     </div>
   </div>
     
@@ -340,15 +340,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>High bias models typically include more assumptions about the target function, while low bias models incorporate fewer assumptions about the target function.</p>
-<p>High bias models are simpler to interpret and usually run fast, but they don’t scale well to complex problems.</p>
-<p>Juliette has already tried a few high-bias algorithms on her dataset and pushed them as far as possible. She is now ready to try something different.</p>
-<p>Which of the following algorithms are low-bias models that Juliette can try on her problem?</p>
+<p>Katherine wants to use an ensemble model to process her dataset.</p>
+<p>There’s only one question for her to answer: Should she use bagging or boosting?</p>
+<p>Both techniques have different advantages and disadvantages, and Katherina wants to ensure she evaluates them correctly before committing to one solution.</p>
+<p>Which of the following statements are true about bagging and boosting?</p>
 <ol type="1">
-<li><p>Linear Regression</p></li>
-<li><p>Decision Trees</p></li>
-<li><p>Logistic Regression</p></li>
-<li><p>k-Nearest Neighbors (KNN)</p></li>
+<li><p>Bagging trains individual models sequentially, using the results from the previous model to inform the selection of training samples.</p></li>
+<li><p>Boosting trains individual models sequentially, using the results from the previous model to inform the selection of training samples.</p></li>
+<li><p>Bagging trains a group of models, each using a subset of data selected randomly with replacement from the original dataset.</p></li>
+<li><p>Each model receives equal weight in bagging to compute the final prediction while boosting uses some way of weighing each model.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -362,16 +362,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 4</p>
-<p>Every machine learning algorithm deals with three types of errors: bias, variance, and irreducible error. We need to focus specifically on the bias error to answer this question.</p>
-<p>Here is what <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">Jason Brownlee</a> has to say about bias: “Bias are the simplifying assumptions made by a model to make the target function easier to learn.”</p>
-<p>In other words, “bias” refers to the assumptions the model makes to simplify the process of finding answers. The fewer assumptions it makes, the less biased the model is.</p>
-<p>Nonlinear models are usually low-bias. They don’t make too many assumptions about the target function, making them an excellent option for tackling complex problems. Decision Trees and k-Nearest Neighbors are examples of low-bias models.</p>
-<p>On the other hand, linear models are usually high-bias. They are easier to understand but make too many assumptions about the target function, preventing them from performing well on complex problems. Linear and logistic regression are two examples of high-bias models.</p>
+<p>2, 3, 4</p>
+<p>Ensembling is where we combine a group of models to produce a new model that yields better results than any initial individual models. Bagging and boosting are two popular ensemble techniques.</p>
+<p>Bagging trains a group of models in parallel and independently from each other. Each model uses a subset of the data randomly selected with replacement from the original dataset. In contrast, Boosting trains a group of learners sequentially, using the results from each model to inform which samples to use to train the next model.</p>
+<p>This summary helps us conclude that the first choice is incorrect, but the second and third choices are correct.</p>
+<p>Finally, when computing the final prediction, bagging averages out the results of each model. Boosting, however, weights each model depending on its performance. Therefore, the fourth choice is also correct.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Here is Jason Brownlee’s article I mentioned before: <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">“Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning”</a>.</li>
-<li>The Wikipedia page on bias and variance is also a good resource: <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">“Bias–variance tradeoff”</a>.</li>
+<li>Check <a href="https://www.upgrad.com/blog/bagging-vs-boosting/">“Bagging vs.&nbsp;Boosting in Machine Learning: Difference Between Bagging and Boosting</a> for a detailed comparison between both techniques.</li>
+<li><a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">What is the difference between Bagging and Boosting?</a> is another great summary of both techniques and their advantages and disadvantages.</li>
 </ul>
 </div>
 </div>
