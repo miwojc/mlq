@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-17">
+<meta name="dcterms.date" content="2022-09-28">
 
-<title>Machine Learning Questions - A classification model</title>
+<title>Machine Learning Questions - Six months of data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">A classification model</h1>
+      <h1 class="quarto-secondary-nav-title">Six months of data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -243,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220928.html" class="sidebar-item-text sidebar-link">Six months of data</a>
+  <a href="./20220928.html" class="sidebar-item-text sidebar-link active">Six months of data</a>
   </div>
 </li>
       </ul>
@@ -258,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220817.html" class="sidebar-item-text sidebar-link active">A classification model</a>
+  <a href="./20220817.html" class="sidebar-item-text sidebar-link">A classification model</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -345,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">A classification model</h1>
+<h1 class="title d-none d-lg-block">Six months of data</h1>
 </div>
 
 
@@ -356,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 17, 2022</p>
+      <p class="date">September 28, 2022</p>
     </div>
   </div>
     
@@ -365,15 +365,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Natalie has been a software developer for quite some time. Although her job keeps her motivated, she wants to take her career to the next level.</p>
-<p>A critical step she wants to take is introducing machine learning into her work. She started learning some of the fundamentals and is now ready to apply what she’s learned.</p>
-<p>She researched one of her company’s problems and learned she needed to build a supervised learning classification model. She had enough labeled data, so it seemed like a good fit.</p>
-<p>Based on this, which of the following better describes what Natalie needs to accomplish?</p>
+<p>Valerie’s company gave her access to their entire dataset from day one.</p>
+<p>She used six consecutive months of data: the first five months to train the model and the sixth to test it.</p>
+<p>After trying multiple times, Valerie’s model performance on the training data had a large gap with the performance on the test data. The model works well with the training dataset but struggles to keep up with the test data.</p>
+<p>Which of the following could be valid reasons for this problem?</p>
 <ol type="1">
-<li><p>She needs to train a model that returns a numerical prediction for each sample of data.</p></li>
-<li><p>She needs to train a model that clusters the data into different groups based on their characteristics.</p></li>
-<li><p>She needs to train a model to predict the class of every sample of data out of a predefined list of classes.</p></li>
-<li><p>She needs to train a model that returns the optimal policy that maximizes the potential outcomes of her problem.</p></li>
+<li><p>Valerie’s optimizer is incorrect for this particular problem.</p></li>
+<li><p>Valerie is not using the correct loss function for this particular problem.</p></li>
+<li><p>Valerie’s model doesn’t have enough complexity to capture the relevant signal from the data.</p></li>
+<li><p>The training data does not come from the same distribution as the test data.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -387,16 +387,12 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3</p>
-<p>Natalie’s problem requires her to predict the class of every sample of data out of a predefined list of classes. That’s the goal of machine learning classification models.</p>
-<p>The first choice refers to a regression model. Here we want the model to output a single, continuous value. For example, imagine we want to return the predicted price of a house or the predicted highest temperature for the weekend.</p>
-<p>The second choice refers to a clustering model. These unsupervised learning techniques are helpful when we don’t have labels for our data and want the algorithm to group every sample into dynamically generated groups.</p>
-<p>The fourth choice is a loose description of a reinforcement learning approach, where we want an agent to learn the optimal policy that maximizes a reward function.</p>
+<p>4</p>
+<p>Valerie is training her model on five consecutive months’ worth of data and testing it with another month worth of data. If something changed during that time, Valerie might have a test set that fundamentally differs from her training data.</p>
+<p>This problem is common, and a way to approach it is to ensure the training and test data come from the same distribution. <a href="https://articles.bnomial.com/adversarial-validation">“Adversarial validation”</a> is a clever technique you can use to accomplish this.</p>
+<p>None of the other three options explain a model that works with the training data but struggles with the test dataset.</p>
 <p><strong>Recommended reading</strong></p>
-<ul>
-<li><a href="https://machinelearningmastery.com/types-of-classification-in-machine-learning/">“4 Types of Classification Tasks in Machine Learning”</a> is an excellent introduction to classification models in machine learning.</li>
-<li>For an introduction to classification models, check <a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/classification-in-machine-learning">“Classification in Machine Learning: What it is and Classification Models”</a></li>
-</ul>
+<p>Check <a href="https://articles.bnomial.com/adversarial-validation">“Adversarial validation”</a> for a quick introduction to this technique.</p>
 </div>
 </div>
 </div>
