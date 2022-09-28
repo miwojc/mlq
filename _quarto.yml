@@ -36,6 +36,8 @@ website:
           - 20220924.md
           - 20220925.md
           - 20220926.md
+          - 20220927.md
+          - 20220928.md
       - section: "August 2022"
         contents:
           - 20220817.md
@@ -56,6 +58,7 @@ website:
 
 format:
   html:
+    highlight-style: a11y
     theme:
       dark: darkly
       light: flatly
