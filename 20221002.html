@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-08">
+<meta name="dcterms.date" content="2022-10-02">
 
-<title>Machine Learning Questions - Leave one out</title>
+<title>Machine Learning Questions - Useless explanation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Leave one out</h1>
+      <h1 class="quarto-secondary-nav-title">Useless explanation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221002.html" class="sidebar-item-text sidebar-link">Useless explanation</a>
+  <a href="./20221002.html" class="sidebar-item-text sidebar-link active">Useless explanation</a>
   </div>
 </li>
       </ul>
@@ -168,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220908.html" class="sidebar-item-text sidebar-link active">Leave one out</a>
+  <a href="./20220908.html" class="sidebar-item-text sidebar-link">Leave one out</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Leave one out</h1>
+<h1 class="title d-none d-lg-block">Useless explanation</h1>
 </div>
 
 
@@ -376,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 8, 2022</p>
+      <p class="date">October 2, 2022</p>
     </div>
   </div>
     
@@ -385,15 +385,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Rosie discovered that her model had worse performance when using a different test set.</p>
-<p>She started the project by setting aside a portion of her data and built a model that, so far, impressed everyone with a strong performance. But the bubble burst when she trained and tested the model with a different portion of her dataset.</p>
-<p>Rosie’s team recommended k-Fold cross-validation, but Rosie wanted to take the process to the extreme: she decided to create as many folds as samples in the dataset.</p>
-<p>Which of the following statements correctly describes what Rosie should expect to happen:</p>
+<p>“Remove every ordinal feature. Keep the nominal ones.”</p>
+<p>Those were the instructions that Brad sent Angelina. “I hate him so much,” she couldn’t stop thinking.</p>
+<p>Angelina’s dataset had a lot of columns, and she couldn’t fit it all into memory. Removing some of the columns was an excellent place to start, and since Brad had solved the problem already, she asked him.</p>
+<p>“But of course” —she kept thinking— “he couldn’t have been more useless.”</p>
+<p>Angelina doesn’t know the difference between ordinal and nominal columns.</p>
+<p>Which of the following is the way forward for Angelina?</p>
 <ol type="1">
-<li><p>Rosie’s method will be computationally cheaper than using fewer folds and result in a more reliable estimate of model performance.</p></li>
-<li><p>Rosie’s method will be computationally more expensive than using fewer folds but will result in a more reliable estimate of model performance.</p></li>
-<li><p>Rosie’s method will be computationally cheaper than using fewer folds but result in a less reliable estimate of model performance.</p></li>
-<li><p>Rosie’s method will be computationally more expensive than using fewer folds and result in a less reliable estimate of model performance.</p></li>
+<li><p>Angelina should remove every categorical feature whose values have a meaningful order.</p></li>
+<li><p>Angelina should remove every categorical feature whose values don’t have a meaningful order.</p></li>
+<li><p>Angelina should remove every numerical feature but leave categorical features.</p></li>
+<li><p>Angelina should remove every categorical feature but leave numerical features.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -407,15 +409,13 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>Rosie’s approach has a name: <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">Leave-one-out cross-validation</a>, a case of cross-validation where the number of folds equals the number of samples in the dataset.</p>
-<p>To use leave-one-out cross-validation, we build one model for each sample in the dataset. We train each model using all data except one instance we later use to evaluate its performance. Finally, we compute the overall performance by averaging the result of each model.</p>
-<p>Assuming Rosie uses leave-one-out cross-validation on a dataset with 10,000 samples, she will need to train 10,000 models. Compare this with 10-Fold cross-validation, where she will only need to build ten models. Leave-one-out cross-validation is significantly more expensive than a process using fewer folds.</p>
-<p>On the other hand, leave-one-out cross-validation will give Rosie a more robust estimate of model performance. Each sample has an opportunity to represent the entire dataset and contribute to the final evaluation, and this will result in a reliable and unbiased estimate of model performance.</p>
+<p>1</p>
+<p>Both ordinal and nominal features refer to categorical columns.</p>
+<p>Ordinal columns have a meaningful order. For example, you could have a feature representing a person’s economic status with three possible values: “low,” “medium,” and “high.” Notice how there’s a clear order among these values: “low” comes first, then “medium,” and finally “high.”</p>
+<p>Compare this with a nominal variable that doesn’t have a meaningful order between values. For example, a feature representing a “color” will not have any discernible order.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/loocv-for-evaluating-machine-learning-algorithms/">“LOOCV for Evaluating Machine Learning Algorithms”</a> is an excellent introduction to leave-one-out cross-validation.</li>
-<li>Check <a href="https://www.statology.org/leave-one-out-cross-validation/">“A Quick Intro to Leave-One-Out Cross-Validation (LOOCV)”</a> for a brief introduction to leave-one-out cross-validation.</li>
+<li>Check <a href="https://s4be.cochrane.org/blog/2015/07/24/nominal-ordinal-numerical-variables/">“Nominal, ordinal, or numerical variables?”</a> to understand the difference between different types of features.</li>
 </ul>
 </div>
 </div>
