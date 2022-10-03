@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-21">
+<meta name="dcterms.date" content="2022-10-03">
 
-<title>Machine Learning Questions - Vanishing gradients</title>
+<title>Machine Learning Questions - Date of sale</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Vanishing gradients</h1>
+      <h1 class="quarto-secondary-nav-title">Date of sale</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221003.html" class="sidebar-item-text sidebar-link">Date of sale</a>
+  <a href="./20221003.html" class="sidebar-item-text sidebar-link active">Date of sale</a>
   </div>
 </li>
       </ul>
@@ -238,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220921.html" class="sidebar-item-text sidebar-link active">Vanishing gradients</a>
+  <a href="./20220921.html" class="sidebar-item-text sidebar-link">Vanishing gradients</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -370,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Vanishing gradients</h1>
+<h1 class="title d-none d-lg-block">Date of sale</h1>
 </div>
 
 
@@ -381,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2022</p>
+      <p class="date">October 3, 2022</p>
     </div>
   </div>
     
@@ -390,15 +390,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Kaylee’s model is not doing great.</p>
-<p>She is building a deep neural network but can’t even get it to train properly.</p>
-<p>Kaylee mainly uses sigmoid as the activation function on the network’s layers, so a colleague mentioned the vanishing gradient problem as a potential cause.</p>
-<p>Assuming Kaylee’s colleague is correct, which of the following statements should help the network learn?</p>
+<p>When Kylie started working for Nike, she didn’t believe her first project was at the core of their sales process.</p>
+<p>She found a team working on a machine learning model for about a year with mediocre results. After a couple of weeks, Kylie proposed to do some feature engineering around a feature representing the sale date to help the model improve its predictions.</p>
+<p>Which of the following are examples of feature engineering techniques that Kylie could do to improve the model?</p>
 <ol type="1">
-<li><p>Kaylee should use tanh instead of sigmoid because it doesn’t suffer from vanishing gradients.</p></li>
-<li><p>Kaylee should use ReLU instead of Sigmoid because it doesn’t suffer from vanishing gradients.</p></li>
-<li><p>Kaylee should modify her model and introduce Batch Normalization to mitigate the problem.</p></li>
-<li><p>Kaylee should initialize the network weights with large values to avoid vanishing gradients.</p></li>
+<li><p>Replacing the feature representing the date of the sale with three separate columns for the year, month, and day.</p></li>
+<li><p>Replacing the feature representing the date of the sale with a single value containing the number of seconds since the year started.</p></li>
+<li><p>Replacing the feature representing the date of the sale with a single value that contains the number of the month.</p></li>
+<li><p>Keeping the date feature untouched and adding a new column representing the number of samples sold during the same month.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -412,15 +411,14 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3</p>
-<p>If the gradients of the loss function approach zero, the model will stop learning because the network will stop updating the weights. This phenomenon is known as the <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">Vanishing Gradient Problem</a>, and it’s common when using the <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> and <a href="https://www.sciencedirect.com/topics/mathematics/hyperbolic-tangent-function">tanh</a> activation functions in deep neural networks. Kaylee won’t fix the problem by replacing sigmoid with tanh.</p>
-<p>In contrast, <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> is a way to solve the vanishing gradient problem. ReLU is much less likely to saturate, and its derivative is 1 for values larger than zero, so Kayle should look at it to replace sigmoid.</p>
-<p><a href="https://en.wikipedia.org/wiki/Batch_normalization">Batch normalization</a> is another way to mitigate the vanishing gradient problem. Suppose we have a layer that uses a sigmoid activation function. We can normalize the input to that layer to ensure that the values don’t reach the edges and stay around the area where derivatives aren’t too small. By modifying the input to this layer with batch normalization, Kaylee will mitigate the vanishing gradient problem.</p>
-<p>Finally, while Kaylee may suffer from the vanishing gradient problem if she uses small values to initialize the network’s weights, she will have the opposite problem (exploding gradients) if she initializes the network with large values. <a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> is an excellent introduction to the importance of correct weight initialization.</p>
+<p>1, 2, 3, 4</p>
+<p>We don’t know which of these options will be the most useful, but every one of them is an example of feature engineering that could help the model make better predictions.</p>
+<p>The first three options are examples of how we can derive new features from a column in our dataset. In this case, Kylie can turn a date field into three components or simplify it by replacing it with a single value that keeps the necessary information for the model. Notice that, in these three cases, Kylie is not introducing anything new. Instead, she is transforming the data so the model can use it.</p>
+<p>The fourth option is an example of frequency encoding, where Kylie counts how many products have been sold every month and creates a meta-feature with this information.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://machinelearningmastery.com/how-to-fix-vanishing-gradients-using-the-rectified-linear-activation-function/">“How to Fix the Vanishing Gradients Problem Using the ReLU”</a> for recommendations on how to fix the vanishing gradient problem.</li>
-<li><a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> is an excellent summary of the importance of weight initialization.</li>
+<li>The <a href="https://amzn.to/3kbanRb">Kaggle Book</a> explains different feature engineering techniques.</li>
+<li><a href="https://amzn.to/3SsnLAc">Feature Engineering for Machine Learning</a> is an excellent book covering feature engineering.</li>
 </ul>
 </div>
 </div>
