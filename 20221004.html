@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-02">
+<meta name="dcterms.date" content="2022-10-04">
 
-<title>Machine Learning Questions - Stock prices</title>
+<title>Machine Learning Questions - Two experiments. Round one.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Stock prices</h1>
+      <h1 class="quarto-secondary-nav-title">Two experiments. Round one.</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221004.html" class="sidebar-item-text sidebar-link">Two experiments. Round one.</a>
+  <a href="./20221004.html" class="sidebar-item-text sidebar-link active">Two experiments. Round one.</a>
   </div>
 </li>
       </ul>
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220902.html" class="sidebar-item-text sidebar-link active">Stock prices</a>
+  <a href="./20220902.html" class="sidebar-item-text sidebar-link">Stock prices</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -375,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Stock prices</h1>
+<h1 class="title d-none d-lg-block">Two experiments. Round one.</h1>
 </div>
 
 
@@ -386,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2022</p>
+      <p class="date">October 4, 2022</p>
     </div>
   </div>
     
@@ -395,17 +395,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>George had an exciting meeting with his new client.</p>
-<p>A fund manager wants George’s team to design a machine learning model that evaluates the price of stocks. The model should use publicly available information to predict the true share price of each company.</p>
-<p>That’s all the fund manager needs. He will take it from there and look deeper into under-priced stocks (where the true price is higher than the current market price.)</p>
-<p>The model will act as a pre-filter to sort out potential companies, and the fund manager will do a more detailed analysis before deciding whether to invest in the stock. The fund manager doesn’t care if there are occasional wrong predictions, even by a large margin, but he doesn’t want to have too many false positives because detailed research will cost a lot of time.</p>
-<p>George is trying to decide which loss function the team should use for the model.</p>
-<p>Which of the following loss functions do you think are suitable for this problem?</p>
+<p>Lena ran two experiments training a neural network on a sample dataset. Her goal is to understand how different batch sizes affect the training process.</p>
+<p>One of the experiments used a very small batch size, and the other used a batch size equal to all existing training data.</p>
+<p>After training and evaluating her models, Lena plotted the training and testing losses over 100 epochs of one of the experiments, and this is what she got:</p>
+<p><img src="20221004.jpg" class="img-fluid"></p>
+<p>Which of the following options is the most likely to be true?</p>
 <ol type="1">
-<li><p>Mean Squared Error (MSE)</p></li>
-<li><p>Mean Absolute Error (MAE)</p></li>
-<li><p>Binary Cross-entropy Loss</p></li>
-<li><p>Huber Loss</p></li>
+<li><p>The model behind this plot corresponds to the experiment that used a very small batch size. This model was the one that took less time to train.</p></li>
+<li><p>The model behind this plot corresponds to the experiment that used a very small batch size. This model was the one that took longer to train.</p></li>
+<li><p>The model behind this plot corresponds to the experiment that used a batch size equal to all the available training data. This model was the one that took less time to train.</p></li>
+<li><p>The model behind this plot corresponds to the experiment that used a batch size equal to all the available training data. This model was the one that took longer to train.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -419,15 +418,16 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 4</p>
-<p>We don’t have too much information about the problem, but the client has clear priorities regarding the errors they are willing to tolerate. Significant outliers are not a big problem because the fund manager will spot them quickly and reject them. However, they expect excellent overall performance to avoid wasting time researching unpromising stocks.</p>
-<p>With this in mind, the <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error (MAE)</a> and the <a href="https://en.wikipedia.org/wiki/Huber_loss">Huber loss</a> seem like better options than the <a href="https://en.wikipedia.org/wiki/Mean_squared_errorj">Mean Squared Error (MSE.)</a> The MSE penalizes high errors of the model much more than the others. This means that the model will try to learn to avoid big mistakes in the prediction, which will likely come at the cost of worse overall performance. We don’t want this.</p>
-<p>On the other hand, the MAE and the Huber loss are more robust to outliers, and they will not dominate the training process. Therefore, the second and fourth choices are the correct answers.</p>
-<p>The cross-entropy loss doesn’t apply to regression problems, so the third choice is also incorrect.</p>
+<p>3</p>
+<p>The amount of noise in the plot is crucial to answering this question.</p>
+<p>The lower the batch size, the more noise we will get in the model’s loss. When we only use a few samples, any instances that vary dramatically will cause the loss to swing wildly. When we use a larger batch, no individual sample would have the power to sway the loss too much, so we should expect less noise.</p>
+<p>This plot shows a very smooth loss with almost no noise, which is likely the experiment that uses the entire training set during every epoch.</p>
+<p>The smaller the batch size, the more times we will need to compute the loss and update the model’s weights during backpropagation. For example, if Lena’s training set has 800 samples and uses one as her batch size, the algorithm will update the model’s weights 800 times. However, if she uses a batch size equal to the size of her training set, the algorithm will update the model’s weights 1 time.</p>
+<p>Updating the model during every iteration is computationally expensive, so using a larger batch size will usually take less time. Therefore, the third option is probably the correct answer to this question.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://machinelearningmastery.com/regression-metrics-for-machine-learning/">“Regression Metrics for Machine Learning”</a> for an overview of some of the most popular metrics used for regression problems.</li>
-<li><a href="https://stephenallwright.com/rmse-vs-mae/">“RMSE vs MAE, which should I use?”</a> is a great summary by Stephen Allwright about the properties of these two functions and how you should think about them. For more information about the Huber loss, take a look at <a href="https://www.cantorsparadise.com/huber-loss-why-is-it-like-how-it-is-dcbe47936473">“Huber Loss: Why Is It, Like How It Is?”</a>.</li>
+<li><a href="https://articles.bnomial.com/the-wrong-batch-size-is-all-it-takes">“The wrong batch size is all it takes”</a> explains how different batch sizes influence the training process of neural networks using gradient descent.</li>
+<li>Check <a href="https://ruder.io/optimizing-gradient-descent/index.html#gradientdescentvariants">“An overview of gradient descent optimization algorithms”</a> for a deep dive into gradient descent and every one of its variants.</li>
 </ul>
 </div>
 </div>
