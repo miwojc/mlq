@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-02">
+<meta name="dcterms.date" content="2022-10-05">
 
-<title>Machine Learning Questions - Useless explanation</title>
+<title>Machine Learning Questions - Tossing a fair coin</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Useless explanation</h1>
+      <h1 class="quarto-secondary-nav-title">Tossing a fair coin</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221002.html" class="sidebar-item-text sidebar-link active">Useless explanation</a>
+  <a href="./20221002.html" class="sidebar-item-text sidebar-link">Useless explanation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221005.html" class="sidebar-item-text sidebar-link">Tossing a fair coin</a>
+  <a href="./20221005.html" class="sidebar-item-text sidebar-link active">Tossing a fair coin</a>
   </div>
 </li>
       </ul>
@@ -380,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Useless explanation</h1>
+<h1 class="title d-none d-lg-block">Tossing a fair coin</h1>
 </div>
 
 
@@ -391,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 2, 2022</p>
+      <p class="date">October 5, 2022</p>
     </div>
   </div>
     
@@ -400,17 +400,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>“Remove every ordinal feature. Keep the nominal ones.”</p>
-<p>Those were the instructions that Brad sent Angelina. “I hate him so much,” she couldn’t stop thinking.</p>
-<p>Angelina’s dataset had a lot of columns, and she couldn’t fit it all into memory. Removing some of the columns was an excellent place to start, and since Brad had solved the problem already, she asked him.</p>
-<p>“But of course” —she kept thinking— “he couldn’t have been more useless.”</p>
-<p>Angelina doesn’t know the difference between ordinal and nominal columns.</p>
-<p>Which of the following is the way forward for Angelina?</p>
+<p>I have a fair coin and want to play a quick game with you.</p>
+<p>I’ll give the coin to you, and I want you to flip it five times.</p>
+<p>Let’s image two different scenarios: one where you get the coin to land five consecutive times on heads, and the second where the coin lands four straight times on heads, then on tails.</p>
+<p>Which of those two scenarios is most likely to happen?</p>
 <ol type="1">
-<li><p>Angelina should remove every categorical feature whose values have a meaningful order.</p></li>
-<li><p>Angelina should remove every categorical feature whose values don’t have a meaningful order.</p></li>
-<li><p>Angelina should remove every numerical feature but leave categorical features.</p></li>
-<li><p>Angelina should remove every categorical feature but leave numerical features.</p></li>
+<li><p>Getting five straight heads is more likely than getting four heads followed by tails.</p></li>
+<li><p>Getting four heads followed by tails is more likely than getting five consecutive heads.</p></li>
+<li><p>Getting four heads followed by tails is equally likely than getting five successive heads.</p></li>
+<li><p>If the coin is fair, this is a random event, and we can’t say which one is more likely than the other.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -424,13 +422,16 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1</p>
-<p>Both ordinal and nominal features refer to categorical columns.</p>
-<p>Ordinal columns have a meaningful order. For example, you could have a feature representing a person’s economic status with three possible values: “low,” “medium,” and “high.” Notice how there’s a clear order among these values: “low” comes first, then “medium,” and finally “high.”</p>
-<p>Compare this with a nominal variable that doesn’t have a meaningful order between values. For example, a feature representing a “color” will not have any discernible order.</p>
+<p>3</p>
+<p>Both scenarios are equally likely to happen with a probability of 1/32.</p>
+<p>This scenario is an example of the <a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy">Gambler’s Fallacy</a>, the irrational belief that prior outcomes in a series of events affect the probability of a future outcome, even though the events are independent and identically distributed.</p>
+<p>Here is a quote from the Gambler’s Fallacy Wikipedia page:</p>
+<blockquote class="blockquote">
+<p>If after tossing four heads in a row, the next coin toss also came up heads, it would complete a run of five successive heads. Since the probability of a run of five successive heads is 1/32, a person might believe that the next flip would be more likely to come up tails rather than heads again. This is incorrect and is an example of the gambler’s fallacy. The event “5 heads in a row” and the event “first 4 heads, then a tails” are equally likely, each having probability 1/32.</p>
+</blockquote>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://s4be.cochrane.org/blog/2015/07/24/nominal-ordinal-numerical-variables/">“Nominal, ordinal, or numerical variables?”</a> to understand the difference between different types of features.</li>
+<li>Check <a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy">“Gambler’s Fallacy”</a> on Wikipedia for an introduction to the situation described in this question.</li>
 </ul>
 </div>
 </div>
