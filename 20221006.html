@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-15">
+<meta name="dcterms.date" content="2022-10-06">
 
-<title>Machine Learning Questions - The gradient of a function</title>
+<title>Machine Learning Questions - A clever loss function</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The gradient of a function</h1>
+      <h1 class="quarto-secondary-nav-title">A clever loss function</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221006.html" class="sidebar-item-text sidebar-link">A clever loss function</a>
+  <a href="./20221006.html" class="sidebar-item-text sidebar-link active">A clever loss function</a>
   </div>
 </li>
       </ul>
@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220915.html" class="sidebar-item-text sidebar-link active">The gradient of a function</a>
+  <a href="./20220915.html" class="sidebar-item-text sidebar-link">The gradient of a function</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -385,7 +385,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The gradient of a function</h1>
+<h1 class="title d-none d-lg-block">A clever loss function</h1>
 </div>
 
 
@@ -396,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2022</p>
+      <p class="date">October 6, 2022</p>
     </div>
   </div>
     
@@ -405,16 +405,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Yeah, I’m not a huge fan of math, either.</p>
-<p>But to make a career in machine learning, you need at least to know some of the underpinnings behind specific techniques.</p>
-<p>Let’s pick neural networks, for example. The whole idea of optimizing the network rests on understanding how to compute the gradient of a function.</p>
-<p>Which of the following is true about the gradient of a continuous and differentiable function?</p>
+<p>Adalynn is using a clever approach with her deep learning model.</p>
+<p>During training, Adalynn runs three samples simultaneously through her model:</p>
 <ul>
-<li><p>The gradient of a continuous and differentiable function is zero at a minimum value.</p></li>
-<li><p>The gradient of a continuous and differentiable function is zero at a saddle point.</p></li>
-<li><p>The gradient of a continuous and differentiable function is non-zero at a maximum value.</p></li>
-<li><p>The gradient of a continuous and differentiable function decreases as it gets closer to a minimum value.</p></li>
+<li>An anchor image</li>
+<li>A matching picture representing the same entity as the anchor</li>
+<li>A non-matching picture representing a different entity as the anchor</li>
 </ul>
+<p>The loss function she uses takes these three inputs and minimizes the distance between the anchor and the matching sample while maximizing the distance with the non-matching picture.</p>
+<p>But Adalynn didn’t invent this function.</p>
+<p>Which of the following is the name of the loss function that Adalynn is using?</p>
+<ol type="1">
+<li><p>Adalynn is using a Contrastive loss function</p></li>
+<li><p>Adalynn is using a Binary Cross-entropy loss function</p></li>
+<li><p>Adalynn is using a Categorical Cross-entropy loss function</p></li>
+<li><p>Adalynn is using a Triplet loss function</p></li>
+</ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -427,15 +433,17 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2</p>
-<p>To keep it simple, the gradient of a function gives us the slope at any point on its curve. We can compute it by dividing the “rise” of the function by its “run” over a specific small interval.</p>
-<p>Imagine the <a href="https://www.mathworks.com/help/examples/graphics/win64/Create2DLinePlotsExample_01.png">Sine function</a>. Pick a point on the left side, and think of the tangent to the curve as you move the point closer to the maximum value of the function. The gradient starts positive and decreases as we get closer to the maximum.</p>
-<p>Repeat this exercise, starting from the maximum value and moving towards the minimum. The gradient is negative after the maximum point and increases until it reaches the minimum value. Visualizing this in your head is not easy, so <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">here is an excellent interactive chart</a> where you can see how this works using a similar function.</p>
-<p>What happens with the gradient when we get to a minimum, maximum, or saddle point? The gradient will equal zero if the curve has a horizontal slope at a particular point. That means that both the first and second choices correctly describe the properties of the gradient function. However, the third choice is invalid: we already know that the gradient function is zero when we hit a maximum point.</p>
+<p>4</p>
+<p>Adalynn is using <a href="https://en.wikipedia.org/wiki/Triplet_loss">Triplet loss</a>, helpful in <a href="https://en.wikipedia.org/wiki/Similarity_learning">similarity learning problems</a> where the goal is to learn a function that measures how similar two objects are.</p>
+<p>The Triplet loss takes the three inputs: the anchor, a positive sample, and a negative sample, and minimizes the anchor—positive distance while maximizing the anchor—negative distance.</p>
+<p>The Triplet loss function compares a baseline (the anchor) to positive and negative inputs. It then reduces the distance between the baseline and the positive sample while increasing the distance between the anchor and the negative input.</p>
+<p>A popular application of Triplet loss is to teach a model to detect faces. Instead of framing this use case as a classification problem, we can look at it as a similarity learning problem. The goal would be for a network to compare two pictures and output whether they are similar enough.</p>
+<p>Notice that we also use <a href="https://medium.com/@maksym.bekuzarov/losses-explained-contrastive-loss-f8f57fe32246">Contrastive loss</a> in similarity learning problems, but this function receives two inputs and whether they represent the same concept or not.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">“Is the gradient function increasing or decreasing on this curve?”</a> for a great visualization of the gradient of a function.</li>
-<li>The Wikipedia pages of <a href="https://en.wikipedia.org/wiki/Gradient">“Gradient”</a> and <a href="https://en.wikipedia.org/wiki/Saddle_point">“Saddle point”</a> contain all the information you need to answer this question.</li>
+<li><a href="https://deepchecks.com/glossary/triplet-loss/">“What is Triplet loss”</a> is a short introduction to this loss function.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Triplet_loss">Wikipedia page of the Triplet loss</a> function is also a great reference.</li>
+<li>Check <a href="https://medium.com/@maksym.bekuzarov/losses-explained-contrastive-loss-f8f57fe32246">“Losses explained: Contrastive Loss”</a> for an explanation of the Contrastive loss.</li>
 </ul>
 </div>
 </div>

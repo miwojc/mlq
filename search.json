@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "20221006.html",
+    "href": "20221006.html",
+    "title": "A clever loss function",
+    "section": "",
+    "text": "During training, Adalynn runs three samples simultaneously through her model:\n\nAn anchor image\nA matching picture representing the same entity as the anchor\nA non-matching picture representing a different entity as the anchor\n\nThe loss function she uses takes these three inputs and minimizes the distance between the anchor and the matching sample while maximizing the distance with the non-matching picture.\nBut Adalynn didn’t invent this function.\nWhich of the following is the name of the loss function that Adalynn is using?\n\nAdalynn is using a Contrastive loss function\nAdalynn is using a Binary Cross-entropy loss function\nAdalynn is using a Categorical Cross-entropy loss function\nAdalynn is using a Triplet loss function\n\n\n\n\n\n\n\nExpand to see the answer\n\n\n\n\n\n4\nAdalynn is using Triplet loss, helpful in similarity learning problems where the goal is to learn a function that measures how similar two objects are.\nThe Triplet loss takes the three inputs: the anchor, a positive sample, and a negative sample, and minimizes the anchor—positive distance while maximizing the anchor—negative distance.\nThe Triplet loss function compares a baseline (the anchor) to positive and negative inputs. It then reduces the distance between the baseline and the positive sample while increasing the distance between the anchor and the negative input.\nA popular application of Triplet loss is to teach a model to detect faces. Instead of framing this use case as a classification problem, we can look at it as a similarity learning problem. The goal would be for a network to compare two pictures and output whether they are similar enough.\nNotice that we also use Contrastive loss in similarity learning problems, but this function receives two inputs and whether they represent the same concept or not.\nRecommended reading\n\n“What is Triplet loss” is a short introduction to this loss function.\nThe Wikipedia page of the Triplet loss function is also a great reference.\nCheck “Losses explained: Contrastive Loss” for an explanation of the Contrastive loss."
+  },
+  {
     "objectID": "20220915.html",
     "href": "20220915.html",
     "title": "The gradient of a function",
