@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-21">
+<meta name="dcterms.date" content="2022-10-07">
 
-<title>Machine Learning Questions - Low-bias models</title>
+<title>Machine Learning Questions - Features and data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Low-bias models</h1>
+      <h1 class="quarto-secondary-nav-title">Features and data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221007.html" class="sidebar-item-text sidebar-link">Features and data</a>
+  <a href="./20221007.html" class="sidebar-item-text sidebar-link active">Features and data</a>
   </div>
 </li>
       </ul>
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220821.html" class="sidebar-item-text sidebar-link active">Low-bias models</a>
+  <a href="./20220821.html" class="sidebar-item-text sidebar-link">Low-bias models</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -390,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Low-bias models</h1>
+<h1 class="title d-none d-lg-block">Features and data</h1>
 </div>
 
 
@@ -401,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2022</p>
+      <p class="date">October 7, 2022</p>
     </div>
   </div>
     
@@ -410,15 +410,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>High bias models typically include more assumptions about the target function, while low bias models incorporate fewer assumptions about the target function.</p>
-<p>High bias models are simpler to interpret and usually run fast, but they don’t scale well to complex problems.</p>
-<p>Juliette has already tried a few high-bias algorithms on her dataset and pushed them as far as possible. She is now ready to try something different.</p>
-<p>Which of the following algorithms are low-bias models that Juliette can try on her problem?</p>
+<p>Balancing the size of a dataset and the number of features to train a model is always a problem you need to consider.</p>
+<p>Which of the following statements correctly summarizes your thoughts about the relationship between features and dataset size?</p>
 <ol type="1">
-<li><p>Linear Regression</p></li>
-<li><p>Decision Trees</p></li>
-<li><p>Logistic Regression</p></li>
-<li><p>k-Nearest Neighbors (KNN)</p></li>
+<li><p>When training a model, as you add more features to the dataset, you often need to increase the dataset’s size to ensure the model learns reliably.</p></li>
+<li><p>When training a model, adding more features to the dataset increases the amount of information you can extract, allowing you to use smaller datasets and still extract good performance from the data.</p></li>
+<li><p>When training a learning algorithm, as you decrease the number of features in your dataset, you need to increase the number of training samples to make up the difference.</p></li>
+<li><p>When training a learning algorithm, the features in your dataset are entirely independent of the number of training samples.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -432,16 +430,16 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 4</p>
-<p>Every machine learning algorithm deals with three types of errors: bias, variance, and irreducible error. We need to focus specifically on the bias error to answer this question.</p>
-<p>Here is what <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">Jason Brownlee</a> has to say about bias: “Bias are the simplifying assumptions made by a model to make the target function easier to learn.”</p>
-<p>In other words, “bias” refers to the assumptions the model makes to simplify the process of finding answers. The fewer assumptions it makes, the less biased the model is.</p>
-<p>Nonlinear models are usually low-bias. They don’t make too many assumptions about the target function, making them an excellent option for tackling complex problems. Decision Trees and k-Nearest Neighbors are examples of low-bias models.</p>
-<p>On the other hand, linear models are usually high-bias. They are easier to understand but make too many assumptions about the target function, preventing them from performing well on complex problems. Linear and logistic regression are two examples of high-bias models.</p>
+<p>1</p>
+<p>Removing features reduces the number of dimensions in our data. It concentrates the samples we have in a lower-dimensional space. We can’t replace the information provided by a feature with more data.</p>
+<p>Imagine plotting a set of numbers. Since you have only one dimension, they will all lie somewhere in a line. Don’t add new values; increase the features by adding a second dimension. Your values now become a set of 2D coordinates (x, y); if you graph them, they will all be somewhere in a plane.</p>
+<p>If you compare the 1D line with the 2D plane (or even a 3D space, assuming you add a third dimension,) something will become apparent quick: As we increase the dimensionality of the data, it will be harder and harder to fill up the space with the same points.</p>
+<p>This increase in sparsity will make it much harder for the learning algorithm to find interesting patterns.</p>
+<p>Based on this, we can conclude that there’s a relationship between features and samples, and the more features we add, the more data points we need.</p>
+<p>The first choice is the only correct solution to this question. For a more formal definition, look at the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of Dimensionality</a>: The amount of data needed to extract relevant information increases exponentially with the number of features in your dataset.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Here is Jason Brownlee’s article I mentioned before: <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">“Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning”</a>.</li>
-<li>The Wikipedia page on bias and variance is also a good resource: <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">“Bias–variance tradeoff”</a>.</li>
+<li>Check <a href="https://deepai.org/machine-learning-glossary-and-terms/curse-of-dimensionality">“What is the Curse of Dimensionality?”</a> for an introduction to the Curse of Dimensionality.</li>
 </ul>
 </div>
 </div>
