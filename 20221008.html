@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-21">
+<meta name="dcterms.date" content="2022-10-08">
 
-<title>Machine Learning Questions - Low-bias models</title>
+<title>Machine Learning Questions - False Negatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Low-bias models</h1>
+      <h1 class="quarto-secondary-nav-title">False Negatives</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221008.html" class="sidebar-item-text sidebar-link">False Negatives</a>
+  <a href="./20221008.html" class="sidebar-item-text sidebar-link active">False Negatives</a>
   </div>
 </li>
       </ul>
@@ -328,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220821.html" class="sidebar-item-text sidebar-link active">Low-bias models</a>
+  <a href="./20220821.html" class="sidebar-item-text sidebar-link">Low-bias models</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -395,7 +395,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Low-bias models</h1>
+<h1 class="title d-none d-lg-block">False Negatives</h1>
 </div>
 
 
@@ -406,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2022</p>
+      <p class="date">October 8, 2022</p>
     </div>
   </div>
     
@@ -415,15 +415,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>High bias models typically include more assumptions about the target function, while low bias models incorporate fewer assumptions about the target function.</p>
-<p>High bias models are simpler to interpret and usually run fast, but they don’t scale well to complex problems.</p>
-<p>Juliette has already tried a few high-bias algorithms on her dataset and pushed them as far as possible. She is now ready to try something different.</p>
-<p>Which of the following algorithms are low-bias models that Juliette can try on her problem?</p>
+<p>Here is the picture of a confusion matrix we generated after evaluating a model in a dataset with 100 samples:</p>
+<p><img src="202210081.jpg" class="img-fluid"></p>
+<p>Assume that class A represents the outcomes of the model we are interested in finding.</p>
+<p>What’s the total of False Negatives on this evaluation round?</p>
 <ol type="1">
-<li><p>Linear Regression</p></li>
-<li><p>Decision Trees</p></li>
-<li><p>Logistic Regression</p></li>
-<li><p>k-Nearest Neighbors (KNN)</p></li>
+<li><p>False Negatives are class A samples the model predicted as class B, so the answer is 7.</p></li>
+<li><p>False Negatives are class B samples the model predicted as class A, so the answer is 13.</p></li>
+<li><p>False Negatives are class A samples the model predicted as class A, so the answer is 52.</p></li>
+<li><p>False Negatives are class B samples the model predicted as class B, so the answer is 28.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -437,16 +437,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 4</p>
-<p>Every machine learning algorithm deals with three types of errors: bias, variance, and irreducible error. We need to focus specifically on the bias error to answer this question.</p>
-<p>Here is what <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">Jason Brownlee</a> has to say about bias: “Bias are the simplifying assumptions made by a model to make the target function easier to learn.”</p>
-<p>In other words, “bias” refers to the assumptions the model makes to simplify the process of finding answers. The fewer assumptions it makes, the less biased the model is.</p>
-<p>Nonlinear models are usually low-bias. They don’t make too many assumptions about the target function, making them an excellent option for tackling complex problems. Decision Trees and k-Nearest Neighbors are examples of low-bias models.</p>
-<p>On the other hand, linear models are usually high-bias. They are easier to understand but make too many assumptions about the target function, preventing them from performing well on complex problems. Linear and logistic regression are two examples of high-bias models.</p>
+<p>1</p>
+<p>We are interested in samples from class A which means we will treat class A as our “Positive” samples and class B as our “Negative” samples.</p>
+<p>If we replace the classes in the confusion matrix with Positive and Negative instead of “A” and “B,” it’s much easier to reason about the model’s number of False Negatives:</p>
+<p><img src="202210082.jpg" class="img-fluid"></p>
+<p>False Negatives are those samples that we expect to be Positive (class A), but the model predicted as Negative (class B.) Therefore, the correct answer to the question is 7. You can see every combination in the image above.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Here is Jason Brownlee’s article I mentioned before: <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">“Gentle Introduction to the Bias-Variance Trade-Off in Machine Learning”</a>.</li>
-<li>The Wikipedia page on bias and variance is also a good resource: <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">“Bias–variance tradeoff”</a>.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
 </ul>
 </div>
 </div>
