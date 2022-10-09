@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-04">
+<meta name="dcterms.date" content="2022-10-09">
 
-<title>Machine Learning Questions - Initializing neural networks</title>
+<title>Machine Learning Questions - Scikit-Learn’s fan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Initializing neural networks</h1>
+      <h1 class="quarto-secondary-nav-title">Scikit-Learn’s fan</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221009.html" class="sidebar-item-text sidebar-link">Scikit-Learn’s fan</a>
+  <a href="./20221009.html" class="sidebar-item-text sidebar-link active">Scikit-Learn’s fan</a>
   </div>
 </li>
       </ul>
@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220904.html" class="sidebar-item-text sidebar-link active">Initializing neural networks</a>
+  <a href="./20220904.html" class="sidebar-item-text sidebar-link">Initializing neural networks</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -400,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Initializing neural networks</h1>
+<h1 class="title d-none d-lg-block">Scikit-Learn’s fan</h1>
 </div>
 
 
@@ -411,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 4, 2022</p>
+      <p class="date">October 9, 2022</p>
     </div>
   </div>
     
@@ -420,15 +420,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>High-level libraries are usually enough to solve complex problems without worrying about low-level details.</p>
-<p>But Gabriella didn’t have that luxury. Her research got her very deep into how neural networks work.</p>
-<p>As part of the project, she wants to write a blog post about the influence of different initialization schemes on how neural networks learn. She wants to cover the problems that could happen when we use the wrong initialization.</p>
-<p>Which of the following problems could we face if we don’t initialize the weights correctly?</p>
+<p>So far, Melody is a big fan of Scikit-Learn.</p>
+<p>She hasn’t used it for too long, but every time she learns something new, there’s always an elegant way to do it using Scikit-Learn.</p>
+<p>But today is perhaps the exception: Melody finished training a multi-class classification model, and after displaying Scikit-Learn’s classification report, she noticed something wasn’t right.</p>
+<p>She has to analyze the Macro-average, Micro-average, and Weighted F1-Score values for her model, but the classification report doesn’t display the Micro-average F1-Score.</p>
+<p>How can Melody move forward?</p>
 <ol type="1">
-<li><p>The network might suffer from vanishing gradients, which could cause a slow down in training.</p></li>
-<li><p>The network might suffer from exploding gradients, preventing it from learning correctly.</p></li>
-<li><p>Every network neuron might learn the same features during training.</p></li>
-<li><p>Every neuron of the network might learn different features during training.</p></li>
+<li><p>The Micro-average F1-Score is the same as the model’s accuracy. Melody can run her analysis using the accuracy of her model.</p></li>
+<li><p>The Micro-average F1-Score is the same as the model’s precision. Melody can run her analysis using the precision of her model.</p></li>
+<li><p>The Micro-average F1-Score is the same as the model’s recall. Melody can run her analysis using the recall of her model.</p></li>
+<li><p>Melody will need to compute the Micro-average F1-Score of her model manually.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -442,16 +443,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2, 3</p>
-<p>Correctly initializing a neural network can have a significant impact on convergence.</p>
-<p>We may suffer from the vanishing gradient problem if we use small values to initialize the network’s weights and the exploding gradient problem if we use large weight values instead. The gradients will become smaller or larger as we move from the output layer toward the input layer during backpropagation. <a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> illustrates a specific example with a 9-layer neural network using the identity function as the activation on every layer.</p>
-<p>The third choice is correct: if we initialize the network with zeros, every neuron will learn the same features. Here is an excerpt from <a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> explaining the consequences of using the same weight values:</p>
-<pre><code>Thus, both hidden units will have identical influence on the cost, which will lead to identical gradients. Thus, both neurons will evolve symmetrically throughout training, effectively preventing different neurons from learning different things.</code></pre>
-<p>The final choice, however, is not a problem. We want every neuron to learn different features.</p>
+<p>1</p>
+<p>When we work on multi-class classification problems, it’s simple to compute the F1-Score for each class. Several strategies exist to calculate a global F1-Score representing the entire model’s performance: Macro-average F1-Score, Micro-average F1-Score, and Weighted F1-Score.</p>
+<p>Scikit-Learn’s classification report shows all three of these metrics but uses a different name for the Micro-average F1-Score. That’s why Melody is confused.</p>
+<p>The Micro-average F1-Score is a metric where we sum all of the contributions from each category to compute an aggregated F1-Score. Micro-average F1-Score calculates the proportion of correctly classified samples out of all samples, which is the model’s accuracy definition.</p>
+<p>In any multi-class classification problem, the Micro-average F1-Score is the same as the accuracy. That’s why Scikit-Learn displays it under the “accuracy” label.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://www.deeplearning.ai/ai-notes/initialization/">“Initializing neural networks”</a> is an excellent summary of the importance of weight initialization.</li>
-<li>Check <a href="https://towardsdatascience.com/weight-initialization-techniques-in-neural-networks-26c649eb3b78">“Weight Initialization Techniques in Neural Networks”</a> to learn about different initialization schemes.</li>
+<li><a href="https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f">“Micro, Macro &amp; Weighted Averages of F1 Score, Clearly Explained”</a> is a great article covering how to compute a global F1-Score metric in multi-class classification problem.</li>
+<li>Check <a href="https://deepai.org/machine-learning-glossary-and-terms/f-score">“What is the F-Score?”</a> for a short introduction to the Fβ-Score.</li>
 </ul>
 </div>
 </div>
