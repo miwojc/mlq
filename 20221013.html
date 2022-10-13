@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-26">
+<meta name="dcterms.date" content="2022-10-13">
 
-<title>Machine Learning Questions - The weird puzzle room</title>
+<title>Machine Learning Questions - Coffee beans</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The weird puzzle room</h1>
+      <h1 class="quarto-secondary-nav-title">Coffee beans</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221013.html" class="sidebar-item-text sidebar-link">Coffee beans</a>
+  <a href="./20221013.html" class="sidebar-item-text sidebar-link active">Coffee beans</a>
   </div>
 </li>
       </ul>
@@ -378,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220826.html" class="sidebar-item-text sidebar-link active">The weird puzzle room</a>
+  <a href="./20220826.html" class="sidebar-item-text sidebar-link">The weird puzzle room</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -420,7 +420,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The weird puzzle room</h1>
+<h1 class="title d-none d-lg-block">Coffee beans</h1>
 </div>
 
 
@@ -431,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2022</p>
+      <p class="date">October 13, 2022</p>
     </div>
   </div>
     
@@ -440,16 +440,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Vivian took her kids to an escape room. They had to solve a bunch of puzzles to get out.</p>
-<p>But this room wasn’t like every other room.</p>
-<p>They found the final puzzle behind a painting hanging from the wall. Four numbered little doors. The key hid behind one of them and a losing score behind the other three.</p>
-<p>Above the doors, they found the question: “What’s the optimal depth of a decision tree?”</p>
-<p>What door will let Vivian’s family out of the room?</p>
+<p>Hadley is building a multi-class classification model to separate coffee beans into five categories.</p>
+<p>To measure the model’s efficacy, Hadley decided to use the F1-Score.</p>
+<p>But there’s one problem: Hadley knows how to compute the F1-Score for every class separately, but she needs a single F1-Score value to compare different model versions and choose the best one.</p>
+<p>Select from the following list every metric that Hadley can use to summarize the F1-Score for her model?</p>
 <ol type="1">
-<li><p>The optimal value for a decision tree’s depth is setting it to the number of training samples minus one.</p></li>
-<li><p>The optimal value for a decision tree’s depth is setting it to the logarithm of the number of training samples.</p></li>
-<li><p>The optimal value for a decision tree’s depth is setting it as low as we possibly can.</p></li>
-<li><p>The optimal value for a decision tree’s depth is setting it as high as we possibly can.</p></li>
+<li><p>Hadley can compute the Macro-average F1-Score.</p></li>
+<li><p>Hadley can compute the Micro-average F1-Score.</p></li>
+<li><p>Hadley can compute the ROC F1-Score.</p></li>
+<li><p>Hadley can compute the Weighted F1-Score.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -463,21 +462,21 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3</p>
-<p>We need to revisit a few concepts and establish constraints to answer this question. How do we know a decision tree has an optimal depth?</p>
-<p>First, the depth of a decision tree is the length of the longest path from a root to a leaf. There’s a tradeoff to keep in mind related to this value. Deeper trees will lead to more complex models prone to overfitting. Shallower trees will have the opposite problem: less complex models prone to underfitting. Finding the appropriate depth is critical to getting good results.</p>
-<p>To determine the optimal depth, we then need to establish how we will measure the performance of the decision tree. Since the goal is to build a model that produces good predictions, I’ll assume that our goal is to find the optimal depth to get the best predictions possible on a test dataset.</p>
-<p>Let’s start with the first choice that argues that we should set the depth at the number of training samples minus one. This is the maximum theoretical depth of a decision tree, but it’s not the optimal value. If we make the tree this deep, we will undoubtedly overfit the training data and perform poorly on any unseen data.</p>
-<p>The second choice is also incorrect. Although this option is probably better than setting the depth to the number of samples, it will still lead to overfitting. For example, for a dataset with 1024 training samples, we will need a decision tree with 10 levels and a tree of depth 10, which requires a total of 2^10 = 1024 nodes. This choice will lead to a tree with as many nodes as samples, which will cause the tree to overfit.</p>
-<p>We can analyze the third and fourth choices together. Are we better off setting the depth of a decision tree as low or as high as possible? Let’s pick two hypothetical decision trees, each producing the same results, but one deeper than the other. Which of these two models would you use?</p>
-<p>Less complex classifiers will usually generalize better than more complex ones. We should remove any non-critical or redundant sections of a decision tree, which generally leads to a much better model. <a href="https://en.wikipedia.org/wiki/Decision_tree_pruning">Decision tree pruning</a> is one technique used to accomplish this.</p>
-<p>If you have two decision trees with the same predictive power in your test dataset, always pick the simpler one. Therefore, we should always set the depth as low as possible without affecting the model’s predictive capabilities.</p>
-<p>In summary, the third choice is the correct answer to this question.</p>
+<p>1, 2, 4</p>
+<p>When building a classification model, the precision and recall scores are two metrics that indicate how effective the model is. There’s a trade-off between these metrics, so higher precision models sacrifice recall and vice versa.</p>
+<p>It’s hard to compare classifiers unless we have a single metric that summarizes the balance between precision and recall. The Fβ score lets us do that.</p>
+<p><img src="20221013.jpg" class="img-fluid"></p>
+<p>When using β = 1, we place equal weight on precision and recall. For values of β &gt; 1, recall is weighted higher than precision; for values of β &lt; 1, precision is weighted higher than recall. F1-Score is the most commonly used, which is the Fβ score with β = 1.</p>
+<p>Computing the F1-Score for each class in a multi-class classification problem is simple: F1-Score = 2 × (precision × recall) / (precision + recall), but this leads to the problem Hadley is facing: How can she combine the individual F1-score values into a single F1-Score value?</p>
+<p>The Macro-average F1-Score is one approach where we calculate the F1-Score for each category and then average all the results. This method penalizes the model equally for any class that doesn’t perform well, regardless of its importance or how many support samples it has.</p>
+<p>The Micro-average F1-Score is another approach where we sum all of the contributions from each category to compute an aggregated F1-Score. In this case, we don’t use the individual F1-Scores but the overall precision and recall across all samples. This method doesn’t favor or penalize any class in particular.</p>
+<p>Finally, the Weighted F1-Score is another way of computing a global F1-Score. In this approach, we weigh every individual F1-Score using the number of true labels of each class and then sum them to produce the global F1-Score. This method favors the majority classes because they will be weighted more in the computation.</p>
+<p>The ROC F1-Score is a made-up term and therefore is not correct.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680">“How to tune a Decision Tree?”</a> is a great article talking about different ways to tune a decision tree, including the effects of setting the maximum depth hyperparameter.</li>
-<li><a href="https://en.wikipedia.org/wiki/Decision_tree_pruning">“Decision tree pruning”</a> is a Wikipedia article covering pruning and its effects.</li>
-<li>A great article to understand the relationship between the bias-variance tradeoff, overfitting, and under-fitting is <a href="https://towardsdatascience.com/how-to-find-decision-tree-depth-via-cross-validation-2bf143f0f3d6">“How To Find Decision Tree Depth via Cross-Validation”</a>.</li>
+<li><a href="https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f">“Micro, Macro &amp; Weighted Averages of F1 Score, Clearly Explained”</a> is a great article covering how to compute a global F1-Score metric in multi-class classification problem.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
 </ul>
 </div>
 </div>
