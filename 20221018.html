@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-30">
+<meta name="dcterms.date" content="2022-10-18">
 
-<title>Machine Learning Questions - Softmax mockery</title>
+<title>Machine Learning Questions - Scrubbing movies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Softmax mockery</h1>
+      <h1 class="quarto-secondary-nav-title">Scrubbing movies</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221018.html" class="sidebar-item-text sidebar-link">Scrubbing movies</a>
+  <a href="./20221018.html" class="sidebar-item-text sidebar-link active">Scrubbing movies</a>
   </div>
 </li>
       </ul>
@@ -413,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220830.html" class="sidebar-item-text sidebar-link active">Softmax mockery</a>
+  <a href="./20220830.html" class="sidebar-item-text sidebar-link">Softmax mockery</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -435,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Softmax mockery</h1>
+<h1 class="title d-none d-lg-block">Scrubbing movies</h1>
 </div>
 
 
@@ -446,7 +446,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2022</p>
+      <p class="date">October 18, 2022</p>
     </div>
   </div>
     
@@ -455,15 +455,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Despite years of research, Loretta never paid too much attention to the softmax function and its properties. She never needed it, so imagine her surprise when Alan pushed her about it.</p>
-<p>Alan was cooky. He didn’t know much but liked to show off with every bit of trivia that crossed his path. More than anything, he enjoyed pissing off Loretta at every opportunity he had.</p>
-<p>And here is Alan, bugging Loretta about the softmax function and ready to mock her if she fails.</p>
-<p>Which of the following are correct statements about the softmax function?</p>
+<p>Over the years, Brianna’s agency pivoted to work for big Hollywood studios. They scrubbed early releases looking for mistakes and gathering information to determine the potential ratings that a movie would get.</p>
+<p>But watching every hour of every film didn’t scale, so they used an active learning approach to only select critical scenes for their team to review.</p>
+<p>They created a machine learning model to predict the ratings. They trained this model on a few randomly selected frames from each movie, processed the entire video, and used the output predictions to decide which scenes to review next. They retrained the model with the new labels and repeated several more iterations.</p>
+<p>Thanks to this process, the team reduced the review time by more than 60 percent.</p>
+<p>Which of the following is the team’s criterion to select which scenes they will manually review after each iteration?</p>
 <ol type="1">
-<li><p>The softmax function is a soft or smooth approximation to the max function.</p></li>
-<li><p>The softmax function is a soft or smooth approximation to the argmax function.</p></li>
-<li><p>The softmax function converts a vector of n values into a probability distribution of n possible outcomes.</p></li>
-<li><p>Softmax is a differentiable function.</p></li>
+<li><p>The team selects any scene their model predicts with high confidence.</p></li>
+<li><p>The team selects any scene their model predicts with low confidence.</p></li>
+<li><p>The team selects any scenes that the model predicts correctly.</p></li>
+<li><p>The team selects any scenes where the model makes a mistake.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -477,14 +478,13 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3, 4</p>
-<p>The name “softmax” is a misnomer. The softmax function is a smooth—soft—approximation of the argmax function, not the max function. To avoid this confusion, some of the literature uses “softargmax” instead, but the machine learning world ran with “softmax” and never looked back.</p>
-<p>The softmax function turns a vector of n values into another vector of n probabilities that sum to 1. These probabilities are proportional to the relative scale of each value in the vector. For example, when we use softmax as the activation function of a neural network’s output layer, we get a normalized probability distribution that we can use to interpret the result of multi-class classification models.</p>
-<p>Finally, contrary to the argmax function, the softmax function is differentiable.</p>
-<p><strong>Recommended reading</strong></p>
+<p>2</p>
+<p><a href="https://articles.bnomial.com/active-learning">Active learning</a> is a learning technique that allows us to build a better-performing machine learning model using fewer training labels by strategically choosing the samples to train the model.</p>
+<p>There are many ways to select which scenes will be better for the model, but in summary, we want to strategically choose those that will provide the most value to the model.</p>
+<p>The model returns the predicted ratings and the confidence in those predictions. High-confidence samples aren’t a challenge for the model, and the amount of information the team will get from labeling them is low. Conversely, low-confidence samples indicate that the model needs help, so the team should focus their time exclusively on them.</p>
+<p>Notice that the team doesn’t know which mistakes the model makes unless they manually review each scene. Doing this will defeat the purpose of reducing the time they take reviewing footage. They should only rely on the prediction confidence to decide what portions of the video they should consider. Recommended reading</p>
 <ul>
-<li>Check <a href="https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/">“The Softmax function and its derivative”</a> for a complete explanation of softmax.</li>
-<li><a href="https://deepai.org/machine-learning-glossary-and-terms/softmax-layer">“What is the Softmax Function?”</a> is another great explanation of how the function works.</li>
+<li><a href="https://articles.bnomial.com/active-learning">“Active Learning”</a> is a short introduction to active learning and how the process works.</li>
 </ul>
 </div>
 </div>
