@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-15">
+<meta name="dcterms.date" content="2022-10-21">
 
-<title>Machine Learning Questions - The gradient of a function</title>
+<title>Machine Learning Questions - Classifying bottles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The gradient of a function</h1>
+      <h1 class="quarto-secondary-nav-title">Classifying bottles</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221021.html" class="sidebar-item-text sidebar-link">Classifying bottles</a>
+  <a href="./20221021.html" class="sidebar-item-text sidebar-link active">Classifying bottles</a>
   </div>
 </li>
       </ul>
@@ -288,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220915.html" class="sidebar-item-text sidebar-link active">The gradient of a function</a>
+  <a href="./20220915.html" class="sidebar-item-text sidebar-link">The gradient of a function</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -450,7 +450,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The gradient of a function</h1>
+<h1 class="title d-none d-lg-block">Classifying bottles</h1>
 </div>
 
 
@@ -461,7 +461,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2022</p>
+      <p class="date">October 21, 2022</p>
     </div>
   </div>
     
@@ -470,16 +470,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Yeah, I’m not a huge fan of math, either.</p>
-<p>But to make a career in machine learning, you need at least to know some of the underpinnings behind specific techniques.</p>
-<p>Let’s pick neural networks, for example. The whole idea of optimizing the network rests on understanding how to compute the gradient of a function.</p>
-<p>Which of the following is true about the gradient of a continuous and differentiable function?</p>
-<ul>
-<li><p>The gradient of a continuous and differentiable function is zero at a minimum value.</p></li>
-<li><p>The gradient of a continuous and differentiable function is zero at a saddle point.</p></li>
-<li><p>The gradient of a continuous and differentiable function is non-zero at a maximum value.</p></li>
-<li><p>The gradient of a continuous and differentiable function decreases as it gets closer to a minimum value.</p></li>
-</ul>
+<p>Esther decided to do something with her machine learning model to get better results from her model.</p>
+<p>She was responsible for a deep learning model to classify bottles in a factory. Instead of running every picture through her model, she created two more copies of the image: the first by flipping the original image vertically and the second by zooming in around 10%.</p>
+<p>Esther ran all three images through the model. She figured that having multiple images to construct the final answer would give her better results.</p>
+<p>What’s the best way for Esther to use the three softmax vectors that her model will output to make a final decision? Select only one option.</p>
+<ol type="1">
+<li><p>Esther should select the best one of the three vectors that come out of her model.</p></li>
+<li><p>Esther should use the softmax vector that contains the lowest value to compute the final result.</p></li>
+<li><p>Esther should use the softmax vector that includes the highest value to calculate the final result.</p></li>
+<li><p>Esther should average out every softmax vector and use that new vector to compute the final result.</p></li>
+</ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -492,15 +492,14 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2</p>
-<p>To keep it simple, the gradient of a function gives us the slope at any point on its curve. We can compute it by dividing the “rise” of the function by its “run” over a specific small interval.</p>
-<p>Imagine the <a href="https://www.mathworks.com/help/examples/graphics/win64/Create2DLinePlotsExample_01.png">Sine function</a>. Pick a point on the left side, and think of the tangent to the curve as you move the point closer to the maximum value of the function. The gradient starts positive and decreases as we get closer to the maximum.</p>
-<p>Repeat this exercise, starting from the maximum value and moving towards the minimum. The gradient is negative after the maximum point and increases until it reaches the minimum value. Visualizing this in your head is not easy, so <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">here is an excellent interactive chart</a> where you can see how this works using a similar function.</p>
-<p>What happens with the gradient when we get to a minimum, maximum, or saddle point? The gradient will equal zero if the curve has a horizontal slope at a particular point. That means that both the first and second choices correctly describe the properties of the gradient function. However, the third choice is invalid: we already know that the gradient function is zero when we hit a maximum point.</p>
+<p>4</p>
+<p>Esther is using <a href="https://articles.bnomial.com/test-time-augmentation">Test-time augmentation</a>, a technique that relies on augmenting the original image before running it through a model. By doing this, Esther gives the model more opportunities to compute the correct prediction.</p>
+<p>When Esther runs three pictures through the model, she will get back three different vectors. How can she use these vectors to determine the final result?</p>
+<p>The best approach from the ones provided in this question is to average all three vectors and use the result to compute the correct class. By doing this, Esther will take advantage of each picture to make the final decision.</p>
+<p>There’s no way to know which vector is “the best one,” so the first option is incorrect. Choosing the vector will the lowest value doesn’t seem like a great idea to make the best prediction, and although Esther could use the vector with the highest value, averaging all vectors will be a better approach.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://undergroundmathematics.org/calculus-of-powers/r7433/solution">“Is the gradient function increasing or decreasing on this curve?”</a> for a great visualization of the gradient of a function.</li>
-<li>The Wikipedia pages of <a href="https://en.wikipedia.org/wiki/Gradient">“Gradient”</a> and <a href="https://en.wikipedia.org/wiki/Saddle_point">“Saddle point”</a> contain all the information you need to answer this question.</li>
+<li>Check <a href="https://articles.bnomial.com/test-time-augmentation">Test-time augmentation</a> for an introduction to a technique that will help you make better predictions with your machine learning model.</li>
 </ul>
 </div>
 </div>
