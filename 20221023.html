@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-08">
+<meta name="dcterms.date" content="2022-10-23">
 
-<title>Machine Learning Questions - False Negatives</title>
+<title>Machine Learning Questions - The beer factory</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">False Negatives</h1>
+      <h1 class="quarto-secondary-nav-title">The beer factory</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221008.html" class="sidebar-item-text sidebar-link active">False Negatives</a>
+  <a href="./20221008.html" class="sidebar-item-text sidebar-link">False Negatives</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221023.html" class="sidebar-item-text sidebar-link">The beer factory</a>
+  <a href="./20221023.html" class="sidebar-item-text sidebar-link active">The beer factory</a>
   </div>
 </li>
       </ul>
@@ -455,7 +455,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">False Negatives</h1>
+<h1 class="title d-none d-lg-block">The beer factory</h1>
 </div>
 
 
@@ -466,7 +466,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2022</p>
+      <p class="date">October 23, 2022</p>
     </div>
   </div>
     
@@ -475,15 +475,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Here is the picture of a confusion matrix we generated after evaluating a model in a dataset with 100 samples:</p>
-<p><img src="202210081.jpg" class="img-fluid"></p>
-<p>Assume that class A represents the outcomes of the model we are interested in finding.</p>
-<p>What’s the total of False Negatives on this evaluation round?</p>
+<p>Logan works in the quality department of a beer factory.</p>
+<p>She is responsible for maintaining several machine learning models that the factory uses to research and develop new drinks and containers.</p>
+<p>While evaluating a new process, Logan put together the following table to show her manager the results. The red chips correspond to defective containers, and the model’s results are those within the black lines at the center:</p>
+<p><img src="20221023-1.jpg" class="img-fluid"></p>
+<p>Which of the following is the correct f1-score of this model?</p>
 <ol type="1">
-<li><p>False Negatives are class A samples the model predicted as class B, so the answer is 7.</p></li>
-<li><p>False Negatives are class B samples the model predicted as class A, so the answer is 13.</p></li>
-<li><p>False Negatives are class A samples the model predicted as class A, so the answer is 52.</p></li>
-<li><p>False Negatives are class B samples the model predicted as class B, so the answer is 28.</p></li>
+<li><p>The f1-score of Logan’s model is 43%.</p></li>
+<li><p>The f1-score of Logan’s model is 50%.</p></li>
+<li><p>The f1-score of Logan’s model is 86%.</p></li>
+<li><p>The f1-score of Logan’s model is 100%.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -498,14 +499,13 @@ Expand to see the answer
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>1</p>
-<p>We are interested in samples from class A which means we will treat class A as our “Positive” samples and class B as our “Negative” samples.</p>
-<p>If we replace the classes in the confusion matrix with Positive and Negative instead of “A” and “B,” it’s much easier to reason about the model’s number of False Negatives:</p>
-<p><img src="202210082.jpg" class="img-fluid"></p>
-<p>False Negatives are those samples that we expect to be Positive (class A), but the model predicted as Negative (class B.) Therefore, the correct answer to the question is 7. You can see every combination in the image above.</p>
+<p>The model’s f1-score is the harmonic mean between precision and recall. We can use the following formula to compute it:</p>
+<p><img src="20221023-2.jpg" class="img-fluid"></p>
+<p>Both the precision and recall of this model are 43%. Substituting this value in the previous formula, we get that the f1-score of Logan’s model is also 43%.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
 <li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
 </ul>
 </div>
 </div>
