@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-02">
+<meta name="dcterms.date" content="2022-10-25">
 
-<title>Machine Learning Questions - Stock prices</title>
+<title>Machine Learning Questions - Paul, the octopus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Stock prices</h1>
+      <h1 class="quarto-secondary-nav-title">Paul, the octopus</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -213,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221025.html" class="sidebar-item-text sidebar-link">Paul, the octopus</a>
+  <a href="./20221025.html" class="sidebar-item-text sidebar-link active">Paul, the octopus</a>
   </div>
 </li>
       </ul>
@@ -233,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220902.html" class="sidebar-item-text sidebar-link active">Stock prices</a>
+  <a href="./20220902.html" class="sidebar-item-text sidebar-link">Stock prices</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -460,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Stock prices</h1>
+<h1 class="title d-none d-lg-block">Paul, the octopus</h1>
 </div>
 
 
@@ -471,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2022</p>
+      <p class="date">October 25, 2022</p>
     </div>
   </div>
     
@@ -480,17 +480,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>George had an exciting meeting with his new client.</p>
-<p>A fund manager wants George’s team to design a machine learning model that evaluates the price of stocks. The model should use publicly available information to predict the true share price of each company.</p>
-<p>That’s all the fund manager needs. He will take it from there and look deeper into under-priced stocks (where the true price is higher than the current market price.)</p>
-<p>The model will act as a pre-filter to sort out potential companies, and the fund manager will do a more detailed analysis before deciding whether to invest in the stock. The fund manager doesn’t care if there are occasional wrong predictions, even by a large margin, but he doesn’t want to have too many false positives because detailed research will cost a lot of time.</p>
-<p>George is trying to decide which loss function the team should use for the model.</p>
-<p>Which of the following loss functions do you think are suitable for this problem?</p>
+<p>During the 2010 world cup, an octopus named Paul became famous for correctly predicting the result of 8 soccer matches with no misses.</p>
+<p>Paul’s keepers would show him two boxes of food, each decorated with a team’s flag. Whichever box Paul ate from first would be his prediction.</p>
+<p>The probability of doing what Paul did was a mere 0.39%, hence his rise to fame.</p>
+<p>Which of the following is a correct statement about this story?</p>
 <ol type="1">
-<li><p>Mean Squared Error (MSE)</p></li>
-<li><p>Mean Absolute Error (MAE)</p></li>
-<li><p>Binary Cross-entropy Loss</p></li>
-<li><p>Huber Loss</p></li>
+<li><p>This story is an example of survivorship bias.</p></li>
+<li><p>This story is an example of confirmation bias.</p></li>
+<li><p>This story is an example of group attribution bias.</p></li>
+<li><p>This story doesn’t show any biases.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -504,15 +502,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 4</p>
-<p>We don’t have too much information about the problem, but the client has clear priorities regarding the errors they are willing to tolerate. Significant outliers are not a big problem because the fund manager will spot them quickly and reject them. However, they expect excellent overall performance to avoid wasting time researching unpromising stocks.</p>
-<p>With this in mind, the <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error (MAE)</a> and the <a href="https://en.wikipedia.org/wiki/Huber_loss">Huber loss</a> seem like better options than the <a href="https://en.wikipedia.org/wiki/Mean_squared_errorj">Mean Squared Error (MSE.)</a> The MSE penalizes high errors of the model much more than the others. This means that the model will try to learn to avoid big mistakes in the prediction, which will likely come at the cost of worse overall performance. We don’t want this.</p>
-<p>On the other hand, the MAE and the Huber loss are more robust to outliers, and they will not dominate the training process. Therefore, the second and fourth choices are the correct answers.</p>
-<p>The cross-entropy loss doesn’t apply to regression problems, so the third choice is also incorrect.</p>
+<p>1</p>
+<p>Paul was undoubtedly an impressive octopus, and without taking anything from him rather than magic, this situation shows the effects of <a href="https://en.wikipedia.org/wiki/Survivorship_bias">survivorship bias</a>.</p>
+<p>While the cameras focused on Paul because of his success, we don’t consider all the other animals that tried but failed. If we assume that 1,000 animals tried to predict all eight games, probabilistically 3.9 of them would have gotten the result correctly.</p>
+<p>Of course, nobody cared about animals that failed their predictions but immediately gravitated toward the seemingly supernatural Paul.</p>
+<p>Survivorship bias seriously compromises our ability to determine the odds of something happening. We focus on what we can see (the winners) and ignore what we can’t see (the losers). Always seek out stories of failure and learn from them.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://machinelearningmastery.com/regression-metrics-for-machine-learning/">“Regression Metrics for Machine Learning”</a> for an overview of some of the most popular metrics used for regression problems.</li>
-<li><a href="https://stephenallwright.com/rmse-vs-mae/">“RMSE vs MAE, which should I use?”</a> is a great summary by Stephen Allwright about the properties of these two functions and how you should think about them. For more information about the Huber loss, take a look at <a href="https://www.cantorsparadise.com/huber-loss-why-is-it-like-how-it-is-dcbe47936473">“Huber Loss: Why Is It, Like How It Is?”</a>.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Survivorship_bias">“Survivorship bias”</a> page in Wikipedia is an excellent resource.</li>
+<li>Paul has a <a href="https://en.wikipedia.org/wiki/Paul_the_Octopus">Wikipedia page</a> as well.</li>
 </ul>
 </div>
 </div>
