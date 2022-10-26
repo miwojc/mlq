@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-30">
+<meta name="dcterms.date" content="2022-10-26">
 
-<title>Machine Learning Questions - Softmax mockery</title>
+<title>Machine Learning Questions - Model structures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Softmax mockery</h1>
+      <h1 class="quarto-secondary-nav-title">Model structures</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221026.html" class="sidebar-item-text sidebar-link">Model structures</a>
+  <a href="./20221026.html" class="sidebar-item-text sidebar-link active">Model structures</a>
   </div>
 </li>
       </ul>
@@ -443,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220830.html" class="sidebar-item-text sidebar-link active">Softmax mockery</a>
+  <a href="./20220830.html" class="sidebar-item-text sidebar-link">Softmax mockery</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -465,7 +465,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Softmax mockery</h1>
+<h1 class="title d-none d-lg-block">Model structures</h1>
 </div>
 
 
@@ -476,7 +476,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2022</p>
+      <p class="date">October 26, 2022</p>
     </div>
   </div>
     
@@ -485,15 +485,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Despite years of research, Loretta never paid too much attention to the softmax function and its properties. She never needed it, so imagine her surprise when Alan pushed her about it.</p>
-<p>Alan was cooky. He didn’t know much but liked to show off with every bit of trivia that crossed his path. More than anything, he enjoyed pissing off Loretta at every opportunity he had.</p>
-<p>And here is Alan, bugging Loretta about the softmax function and ready to mock her if she fails.</p>
-<p>Which of the following are correct statements about the softmax function?</p>
+<p>Nothing bothered Josie more than trying to learn something new without first looking at practical examples.</p>
+<p>The professor knew Josie well, so he wasn’t surprised when she stood up with four different scenarios during his presentation about Recurrent Neural Networks.</p>
+<p>Her question was straightforward but made everyone think:</p>
+<p>Which of the following scenarios can you model using a Recurrent Neural Network?</p>
 <ol type="1">
-<li><p>The softmax function is a soft or smooth approximation to the max function.</p></li>
-<li><p>The softmax function is a soft or smooth approximation to the argmax function.</p></li>
-<li><p>The softmax function converts a vector of n values into a probability distribution of n possible outcomes.</p></li>
-<li><p>Softmax is a differentiable function.</p></li>
+<li><p>A model that takes a fixed-size vector as the input and outputs a sequence of vectors.</p></li>
+<li><p>A model that takes a sequence of vectors as the input and outputs a fixed-size vector.</p></li>
+<li><p>A model that takes a sequence of vectors as the input and outputs a sequence of vectors.</p></li>
+<li><p>A model that takes a fixed-size vector as the input and outputs a fixed-sized vector.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -507,14 +507,18 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3, 4</p>
-<p>The name “softmax” is a misnomer. The softmax function is a smooth—soft—approximation of the argmax function, not the max function. To avoid this confusion, some of the literature uses “softargmax” instead, but the machine learning world ran with “softmax” and never looked back.</p>
-<p>The softmax function turns a vector of n values into another vector of n probabilities that sum to 1. These probabilities are proportional to the relative scale of each value in the vector. For example, when we use softmax as the activation function of a neural network’s output layer, we get a normalized probability distribution that we can use to interpret the result of multi-class classification models.</p>
-<p>Finally, contrary to the argmax function, the softmax function is differentiable.</p>
+<p>1, 2, 3, 4</p>
+<p><a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Recurrent Neural Networks</a> (RNNs) have several advantages over vanilla neural networks. One that helps answer this question is their ability to use sequences of vectors, both as their input and output.</p>
+<p>A feed-forward network, for example, is limited to taking a fixed-size input vector and outputting another fixed-size vector. Unfortunately, this characteristic limits their usefulness.</p>
+<p>Generating an image caption is an example of a model that requires a fixed-size vector as its input (the image) and a sequence of vectors as the output (the generated caption.)</p>
+<p>Sentiment analysis is an example of a model that takes a sequence of vectors as its input (the text) and outputs a fixed-size vector (a numerical value indicating the sentiment.)</p>
+<p>To build a model capable of translating text from one language to another, we could use a sequence of vectors as the input (the original text) and output another sequence of vectors (the translation.)</p>
+<p>Finally, we don’t need an RNN to build a model that takes a fixed-size vector as its input and output, but that doesn’t mean that RNNs don’t support this structure. <a href="https://arxiv.org/abs/1412.7755">Here is an example</a> using an RNN to process a picture (fixed-size vector) and outputs the number on the image (fixed-size vector.)</p>
+<p>In summary, we could build an RNN model with any structures listed in this question.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/">“The Softmax function and its derivative”</a> for a complete explanation of softmax.</li>
-<li><a href="https://deepai.org/machine-learning-glossary-and-terms/softmax-layer">“What is the Softmax Function?”</a> is another great explanation of how the function works.</li>
+<li>Check <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">“The Unreasonable Effectiveness of Recurrent Neural Networks”</a> by Andrej Karpathy for the motivation behind Recurrent Neural Networks.</li>
+<li><a href="https://machinelearningmastery.com/an-introduction-to-recurrent-neural-networks-and-the-math-that-powers-them/">“An Introduction To Recurrent Neural Networks And The Math That Powers Them”</a> is an excellent introduction to Recurrent Neural Networks.</li>
 </ul>
 </div>
 </div>
