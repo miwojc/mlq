@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-17">
+<meta name="dcterms.date" content="2022-10-27">
 
-<title>Machine Learning Questions - A classification model</title>
+<title>Machine Learning Questions - Evaluating logistic regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">A classification model</h1>
+      <h1 class="quarto-secondary-nav-title">Evaluating logistic regression</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221027.html" class="sidebar-item-text sidebar-link">Evaluating logistic regression</a>
+  <a href="./20221027.html" class="sidebar-item-text sidebar-link active">Evaluating logistic regression</a>
   </div>
 </li>
       </ul>
@@ -383,7 +383,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220817.html" class="sidebar-item-text sidebar-link active">A classification model</a>
+  <a href="./20220817.html" class="sidebar-item-text sidebar-link">A classification model</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -470,7 +470,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">A classification model</h1>
+<h1 class="title d-none d-lg-block">Evaluating logistic regression</h1>
 </div>
 
 
@@ -481,7 +481,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 17, 2022</p>
+      <p class="date">October 27, 2022</p>
     </div>
   </div>
     
@@ -490,15 +490,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Natalie has been a software developer for quite some time. Although her job keeps her motivated, she wants to take her career to the next level.</p>
-<p>A critical step she wants to take is introducing machine learning into her work. She started learning some of the fundamentals and is now ready to apply what she’s learned.</p>
-<p>She researched one of her company’s problems and learned she needed to build a supervised learning classification model. She had enough labeled data, so it seemed like a good fit.</p>
-<p>Based on this, which of the following better describes what Natalie needs to accomplish?</p>
+<p>Eva is working on a logistic regression model.</p>
+<p>She works for an auto manufacturer that wants to predict whether previous customers are potential future buyers.</p>
+<p>Eva has a well-balanced dataset and is ready to evaluate her model after a few iterations.</p>
+<p>Which of the following are viable ways for Eva to evaluate her model?</p>
 <ol type="1">
-<li><p>She needs to train a model that returns a numerical prediction for each sample of data.</p></li>
-<li><p>She needs to train a model that clusters the data into different groups based on their characteristics.</p></li>
-<li><p>She needs to train a model to predict the class of every sample of data out of a predefined list of classes.</p></li>
-<li><p>She needs to train a model that returns the optimal policy that maximizes the potential outcomes of her problem.</p></li>
+<li><p>Eva could evaluate the model by computing its accuracy.</p></li>
+<li><p>Eva could evaluate the model by computing its log loss.</p></li>
+<li><p>Eva could evaluate the model using the Mean Squared Error.</p></li>
+<li><p>Eva could evaluate the model using the Mean Absolute Error.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -512,15 +512,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>3</p>
-<p>Natalie’s problem requires her to predict the class of every sample of data out of a predefined list of classes. That’s the goal of machine learning classification models.</p>
-<p>The first choice refers to a regression model. Here we want the model to output a single, continuous value. For example, imagine we want to return the predicted price of a house or the predicted highest temperature for the weekend.</p>
-<p>The second choice refers to a clustering model. These unsupervised learning techniques are helpful when we don’t have labels for our data and want the algorithm to group every sample into dynamically generated groups.</p>
-<p>The fourth choice is a loose description of a reinforcement learning approach, where we want an agent to learn the optimal policy that maximizes a reward function.</p>
+<p>1, 2</p>
+<p>Eva is building a <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a> model to solve a binary classification problem. She is only concerned about two classes: potential buyers and non-potential buyers.</p>
+<p>Eva could compute the accuracy of her model and use it to determine how good it is. Accuracy is misleading for imbalanced datasets, but this is not the case.</p>
+<p>Eva could also compute the log loss of her model to evaluate it. You can use the log loss to determine how close are the prediction probabilities returned by the model to the actual values. The closer these are, the lower the log loss will be.</p>
+<p>Finally, Eva cannot use the <a href="https://en.wikipedia.org/wiki/Mean_squared_error">Mean Squared Error</a> (MSE) or the <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error</a> (MAE) to evaluate her model. These metrics work for regression problems, where the model’s output is a continuous value, but Eva is working on a classification problem with a model’s output bounded between 0 and 1.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://machinelearningmastery.com/types-of-classification-in-machine-learning/">“4 Types of Classification Tasks in Machine Learning”</a> is an excellent introduction to classification models in machine learning.</li>
-<li>For an introduction to classification models, check <a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/classification-in-machine-learning">“Classification in Machine Learning: What it is and Classification Models”</a></li>
+<li>Check out <a href="https://machinelearningmastery.com/logistic-regression-for-machine-learning/">“Logistic Regression for Machine Learning”</a> for an introduction to Logistic regression.</li>
+<li><a href="https://towardsdatascience.com/intuition-behind-log-loss-score-4e0c9979680a">“Intuition behind Log-loss score”</a> is a great explanation of log loss and how it works.</li>
 </ul>
 </div>
 </div>
