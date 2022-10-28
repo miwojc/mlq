@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-23">
+<meta name="dcterms.date" content="2022-10-28">
 
-<title>Machine Learning Questions - The beer factory</title>
+<title>Machine Learning Questions - Representing music</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The beer factory</h1>
+      <h1 class="quarto-secondary-nav-title">Representing music</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221023.html" class="sidebar-item-text sidebar-link active">The beer factory</a>
+  <a href="./20221023.html" class="sidebar-item-text sidebar-link">The beer factory</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -228,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221028.html" class="sidebar-item-text sidebar-link">Representing music</a>
+  <a href="./20221028.html" class="sidebar-item-text sidebar-link active">Representing music</a>
   </div>
 </li>
       </ul>
@@ -475,7 +475,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The beer factory</h1>
+<h1 class="title d-none d-lg-block">Representing music</h1>
 </div>
 
 
@@ -486,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2022</p>
+      <p class="date">October 28, 2022</p>
     </div>
   </div>
     
@@ -495,16 +495,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Logan works in the quality department of a beer factory.</p>
-<p>She is responsible for maintaining several machine learning models that the factory uses to research and develop new drinks and containers.</p>
-<p>While evaluating a new process, Logan put together the following table to show her manager the results. The red chips correspond to defective containers, and the model’s results are those within the black lines at the center:</p>
-<p><img src="20221023-1.jpg" class="img-fluid"></p>
-<p>Which of the following is the correct f1-score of this model?</p>
+<p>Ada needs to process a dataset of songs from her favorite musician and create a compact representation of what makes her music unique and distinctive.</p>
+<p>She read about autoencoders and decided to design a network to solve her problem. But creating the bottleneck to force the model to represent the music wasn’t as simple as she thought.</p>
+<p>Which of the following are valid approaches that Ada could follow to design the bottleneck of her autoencoder?</p>
 <ol type="1">
-<li><p>The f1-score of Logan’s model is 43%.</p></li>
-<li><p>The f1-score of Logan’s model is 50%.</p></li>
-<li><p>The f1-score of Logan’s model is 86%.</p></li>
-<li><p>The f1-score of Logan’s model is 100%.</p></li>
+<li><p>Ada can introduce an information bottleneck by constraining the number of nodes in the middle part of the network.</p></li>
+<li><p>Ada can introduce an information bottleneck by ensuring the middle part of the network has sufficient nodes to represent the input data in its original form.</p></li>
+<li><p>Ada can introduce an information bottleneck by using the proper optimization algorithm.</p></li>
+<li><p>Ada can introduce an information bottleneck by using a loss function that relies on activating a small number of nodes.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -518,14 +516,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1</p>
-<p>The model’s f1-score is the harmonic mean between precision and recall. We can use the following formula to compute it:</p>
-<p><img src="20221023-2.jpg" class="img-fluid"></p>
-<p>Both the precision and recall of this model are 43%. Substituting this value in the previous formula, we get that the f1-score of Logan’s model is also 43%.</p>
+<p>1, 4</p>
+<p><a href="https://essays.bnomial.com/autoencoders">Autoencoders</a> are learning algorithms that can help with anomaly detection problems.</p>
+<p>An autoencoder is a neural network that we can split into three sections: an encoder, a bottleneck, and a decoder. The encoder compresses the original input into an intermediate representation, and the decoder reverses the process to reconstruct the original data. The bottleneck sits between the encoder and decoder and is the section that stores the compressed representation of the data.</p>
+<p>Regular autoencoders constrain the number of nodes in the bottleneck layers of the network. This characteristic forces the model to learn a compact representation of the data instead of memorizing the input. Therefore, the first choice is correct.</p>
+<p>Sparse autoencoders employ a different technique to introduce an information bottleneck. They use a loss function that relies on a small number of nodes. These autoencoders don’t need bottleneck layers since penalizing activations is enough to accomplish the same purpose. Therefore, the fourth option is also correct.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
-<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
+<li>Check <a href="https://articles.bnomial.com/autoencoders">“Autoencoders”</a> for an introduction to a learning technique to represent data efficiently using neural networks.</li>
+<li>For more information about sparse autoencoders, check the <a href="https://www.jeremyjordan.me/autoencoders/">“Introduction to autoencoders”</a> article by Jeremy Jordan.</li>
 </ul>
 </div>
 </div>
