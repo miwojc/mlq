@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-27">
+<meta name="dcterms.date" content="2022-10-29">
 
-<title>Machine Learning Questions - Data augmentation on YouTube</title>
+<title>Machine Learning Questions - True Negatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Data augmentation on YouTube</h1>
+      <h1 class="quarto-secondary-nav-title">True Negatives</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -233,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221029.html" class="sidebar-item-text sidebar-link">True Negatives</a>
+  <a href="./20221029.html" class="sidebar-item-text sidebar-link active">True Negatives</a>
   </div>
 </li>
       </ul>
@@ -373,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220927.html" class="sidebar-item-text sidebar-link active">Data augmentation on YouTube</a>
+  <a href="./20220927.html" class="sidebar-item-text sidebar-link">Data augmentation on YouTube</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -480,7 +480,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Data augmentation on YouTube</h1>
+<h1 class="title d-none d-lg-block">True Negatives</h1>
 </div>
 
 
@@ -491,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 27, 2022</p>
+      <p class="date">October 29, 2022</p>
     </div>
   </div>
     
@@ -500,15 +500,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Amara is writing a script for a YouTube video about data augmentation.</p>
-<p>She wants to cover some of the most critical aspects of using the technique on a dataset of pictures.</p>
-<p>Here is Amara’s list with the key takeaways she wants to leave for her audience.</p>
-<p>Which of the following statements would you let Amara share with her audience?</p>
+<p>Here is the picture of a confusion matrix we generated after evaluating a model in a dataset with 100 samples:</p>
+<p><img src="202210291.jpg" class="img-fluid"></p>
+<p>Assume that class B represents the outcomes of the model we are interested in finding.</p>
+<p>What’s the total of True Negatives on this evaluation round?</p>
 <ol type="1">
-<li><p>Using data augmentation, we can artificially increase the amount of data by generating new samples from existing data.</p></li>
-<li><p>Generative Adversarial Networks (GANs) and Style Transfer are advanced techniques that can help with data augmentation.</p></li>
-<li><p>Data augmentation has a regularization effect when used to increase the amount of data before training a model.</p></li>
-<li><p>Data augmentation helps remove the inherent bias present in the original data.</p></li>
+<li><p>True Negatives are class A samples the model predicted as class B, so the answer is 7.</p></li>
+<li><p>True Negatives are class B samples the model predicted as class A, so the answer is 13.</p></li>
+<li><p>True Negatives are class A samples the model predicted as class A, so the answer is 52.</p></li>
+<li><p>True Negatives are class B samples the model predicted as class B, so the answer is 28.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -522,16 +522,15 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1, 2, 3</p>
-<p>The first choice is the definition of data augmentation: we can augment the size of the dataset by generating new samples from our existing data.</p>
-<p>Generative Adversarial Networks (GANs) are a popular way to generate synthetic images. <a href="https://arxiv.org/abs/1909.01056">We can also use Style Transfer</a> to create new data based on existing samples.</p>
-<p>The third choice is also correct: Data augmentation has a regularization effect. Increasing the training data through data augmentation decreases the model’s variance and, in turn, increases the model’s generalization ability.</p>
-<p>Finally, when we use data augmentation, we will propagate any of the biases already present in the original data. Remember that data augmentation uses existing data as the foundation for any new data, so any problems with the original dataset will persist on the augmented one. Therefore, the fourth choice is incorrect.</p>
+<p>3</p>
+<p>We are interested in samples from class B, which means we will treat class B as our “Positive” samples and class A as our “Negative” samples.</p>
+<p>If we replace the classes in the confusion matrix with Positive and Negative instead of “B” and “A,” it’s much easier to reason about the model’s number of True Positives:</p>
+<p><img src="202210292.jpg" class="img-fluid"></p>
+<p>True Negatives are those samples that we expect to be Negative (class A), and the model predicted as Negative (class A.) Therefore, the correct answer to the question is 52. You can see every combination in the image above.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://arxiv.org/abs/1909.01056">“STaDA: Style Transfer as Data Augmentation”</a> is a paper illustrating how to use Style Transfer for data augmentation.</li>
-<li><a href="https://www.v7labs.com/blog/data-augmentation-guide">“The Essential Guide to Data Augmentation in Deep Learning”</a> is an excellent article discussing data augmentation in detail.</li>
-<li>Check <a href="https://articles.bnomial.com/test-time-augmentation">“Test-Time augmentation”</a> for an introduction that will help you make better predictions with your machine learning model.</li>
+<li>Check <a href="https://articles.bnomial.com/confusion-matrix">“Confusion Matrix”</a> for a full explanation of how a confusion matrix works and how you can use them as part of your work.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
 </ul>
 </div>
 </div>
