@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-24">
+<meta name="dcterms.date" content="2022-11-01">
 
-<title>Machine Learning Questions - The output of the network</title>
+<title>Machine Learning Questions - Regularizing a model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">The output of the network</h1>
+      <h1 class="quarto-secondary-nav-title">Regularizing a model</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221101.html" class="sidebar-item-text sidebar-link">Regularizing a model</a>
+  <a href="./20221101.html" class="sidebar-item-text sidebar-link active">Regularizing a model</a>
   </div>
 </li>
       </ul>
@@ -383,7 +383,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220924.html" class="sidebar-item-text sidebar-link active">The output of the network</a>
+  <a href="./20220924.html" class="sidebar-item-text sidebar-link">The output of the network</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -505,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">The output of the network</h1>
+<h1 class="title d-none d-lg-block">Regularizing a model</h1>
 </div>
 
 
@@ -516,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2022</p>
+      <p class="date">November 1, 2022</p>
     </div>
   </div>
     
@@ -525,14 +525,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Juniper learned that designing a neural network architecture for a supervised classification problem wasn’t hard.</p>
-<p>Although most of it needed experimentation, one thing Juniper could count on was the design of the output layer of the network.</p>
-<p>Which of the following is a correct statement about the neurons in the output layer of a classification network?</p>
+<p>Charlotte’s machine learning model is overfitting.</p>
+<p>She needs to find a way to handle it, but before trying anything, she wants to understand her options.</p>
+<p>Which of the following are regularization techniques that Charlotte could consider?</p>
 <ol type="1">
-<li><p>The number of neurons in the output layer should always match the number of classes.</p></li>
-<li><p>The number of neurons in the output layer doesn’t necessarily need to match the number of classes.</p></li>
-<li><p>The number of neurons in the output layer should always be greater than one.</p></li>
-<li><p>The number of neurons in the output layer should always be a multiple of 2.</p></li>
+<li><p>Validation-based early stopping</p></li>
+<li><p>Dropout</p></li>
+<li><p>Data augmentation</p></li>
+<li><p>Cross-validation</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -546,16 +546,16 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>When working on a multi-class classification problem, setting the output layer to the same number of classes we are interested in predicting is common. But what happens when we are working on a binary classification problem?</p>
-<p>A network to solve a binary classification problem doesn’t need an output with two neurons. Instead, we can use a single neuron to determine the class by deciding on a cutoff threshold. For example, the result could be positive if the output exceeds 0.5 and negative otherwise.</p>
-<p>That means we can solve a problem requiring two classes with a single neuron.</p>
-<p>We can stretch the same idea to multi-class classification problems: We could interpret the output layer as a binary result, allowing us to represent multiple classes with fewer neurons. For example, we would need only two neurons to classify instances into four different categories (00, 01, 10, 11.) This approach, although not popular, it’s possible.</p>
-<p>Therefore, the second choice is the correct answer to this question.</p>
+<p>1, 2, 3</p>
+<p>Validation-based early stopping is a regularization technique that stops the training process as soon as the generalization error of the model increases. In other words, if the model’s performance on the validation set starts degrading, the training process stops.</p>
+<p>Dropout is a regularization method that works well and is vital for reducing overfitting. Dropout randomly removes a percentage of the nodes, forcing the network to learn in a balanced way, and tackling a phenomenon that we call <a href="https://machinelearning.wtf/terms/co-adaptation/j">“co-adaptation.”</a></p>
+<p>Data augmentation has a regularization effect. Increasing the training data through data augmentation decreases the model’s variance and, in turn, increases the model’s generalization ability.</p>
+<p>Finally, cross-validation is a validation scheme and not a regularization method.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=aircAruvnKk">“But what is a neural network?”</a> is Grant Sanderson’s introduction to neural networks on YouTube. Highly recommended!</li>
-<li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Networks and Deep Learning</a> is a free online book written by <a href="https://twitter.com/michael_nielsen">Michael Nielsen</a>.</li>
+<li>Check <a href="https://articles.bnomial.com/early-stopping">“Early Stopping”</a> for an introduction to one of the most effective, easy-to-implement regularization techniques when training machine learning models.</li>
+<li><a href="https://machinelearningmastery.com/dropout-for-regularizing-deep-neural-networks/">“A Gentle Introduction to Dropout for Regularizing Deep Neural Networks”</a> is an excellent introduction to Dropout.</li>
+<li><a href="https://www.v7labs.com/blog/data-augmentation-guide">“The Essential Guide to Data Augmentation in Deep Learning”</a> is an excellent article discussing data augmentation in detail.</li>
 </ul>
 </div>
 </div>
