@@ -9,6 +9,9 @@ website:
     style: "floating"
     search: true
     contents:
+      - section: "November 2022"
+        contents:
+          - 20221101.md
       - section: "October 2022"
         contents:
           - 20221001.md
