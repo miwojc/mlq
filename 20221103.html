@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-11">
+<meta name="dcterms.date" content="2022-11-03">
 
-<title>Machine Learning Questions - Extra regularization</title>
+<title>Machine Learning Questions - A decision tree for that?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Extra regularization</h1>
+      <h1 class="quarto-secondary-nav-title">A decision tree for that?</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221103.html" class="sidebar-item-text sidebar-link">A decision tree for that?</a>
+  <a href="./20221103.html" class="sidebar-item-text sidebar-link active">A decision tree for that?</a>
   </div>
 </li>
       </ul>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221011.html" class="sidebar-item-text sidebar-link active">Extra regularization</a>
+  <a href="./20221011.html" class="sidebar-item-text sidebar-link">Extra regularization</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Extra regularization</h1>
+<h1 class="title d-none d-lg-block">A decision tree for that?</h1>
 </div>
 
 
@@ -526,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 11, 2022</p>
+      <p class="date">November 3, 2022</p>
     </div>
   </div>
     
@@ -535,14 +535,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Eloise found that adding Batch Normalization was the best approach to improve the training speed of her deep neural network.</p>
-<p>But everything comes at a price. Batch Normalization introduces some regularization to the network, and Eloise knows this will affect the Dropout she is currently using.</p>
-<p>How should Eloise adjust the Dropout her network is using?</p>
+<p>Gianna had the opportunity to meet some of her technical heroes at a conference, and of course, she peppered them with questions!</p>
+<p>At some point, the conversation centered around a machine learning solution they implemented. Gianna was delighted to hear that they used a decision tree for their solution.</p>
+<p>The next day, she was still thinking about the conversation. She didn’t have much machine learning experience but knew enough about decision trees to feel validated. It was fantastic to find out that decision trees are useful!</p>
+<p>Which of the following machine learning problems can you solve with a decision tree?</p>
 <ol type="1">
-<li><p>After adding Batch Normalization, Eloise should remove the Dropout she is currently using.</p></li>
-<li><p>After adding Batch Normalization, Eloise should slightly decrease the amount of Dropout she is currently using.</p></li>
-<li><p>After adding Batch Normalization, Eloise should slightly increase the amount of Dropout she is currently using.</p></li>
-<li><p>After adding Batch Normalization, Eloise should significantly increase the amount of Dropout she is using.</p></li>
+<li><p>Binary classification problems where you need to decide the correct category for a sample among two possible choices.</p></li>
+<li><p>Multi-class classification problems where you need to decide the correct category for a sample among multiple choices.</p></li>
+<li><p>Multi-label classification problems where you need to decide the correct categories for a sample among multiple choices.</p></li>
+<li><p>Regression problems where you need to predict a continuous output.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -556,15 +557,16 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2</p>
-<p>Batch Normalization is a popular technique used to train deep neural networks. It normalizes the input to a layer during every training iteration using a mini-batch of data. It smooths and simplifies the optimization function leading to a more stable and faster training.</p>
-<p>Batch Normalization acts as a regularizer. The mean of a mini-batch of data is a noisier version of the true mean of the population, and when used to normalize the data, it adds randomness to the optimization process. Eloise will need to adjust the Dropout she is using to accommodate this extra regularization.</p>
-<p>Keep in mind that Batch Normalization doesn’t introduce a lot of regularization, so it’s unlikely that Eloise can remove all of the Dropout she is using. She should, however, slightly decrease the Dropout she is using to account for the extra regularization.</p>
+<p>1, 2, 3, 4</p>
+<p>To get straight to the answer, every one of the choices is a correct answer: decision trees are really powerful!</p>
+<p>We usually discuss two types of decision trees in machine learning: classification and regression trees. The former covers the first three choices, while the latter covers the fourth choice.</p>
+<p>Binary classification problems aim to classify one sample into two different categories. Multi-class classification problems are similar, but they classify samples into more than two categories. Decision trees are a perfect fit for these problems.</p>
+<p><a href="https://en.wikipedia.org/wiki/Multi-label_classification">Multi-label classification</a> is somewhat different. Here we want to classify a sample into one or more categories. Decision trees can also solve these problems. Check out <a href="https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification">Scikit-Learn’s implementation</a> to see how they tackle multi-label classification.</p>
+<p>Finally, decision trees can also solve regression problems where we want to predict a continuous target variable. <a href="https://medium.com/analytics-vidhya/regression-trees-decision-tree-for-regression-machine-learning-e4d7525d8047">“How can Regression Trees be used for Solving Regression Problems?”</a> is an excellent introduction.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li><a href="https://arxiv.org/pdf/1502.03167.pdf">“Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift”</a> is the original paper introducing Batch Normalization.</li>
-<li><a href="https://blog.paperspace.com/busting-the-myths-about-batch-normalization/">“Intro to Optimization in Deep Learning: Busting the Myth About Batch Normalization”</a> is an excellent blog post challenging some of the ideas from the original paper.</li>
-<li><a href="https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/">“A Gentle Introduction to Batch Normalization for Deep Neural Networks”</a> is a good introduction to Batch Normalization.</li>
+<li>Scikit-Learn’s <a href="https://scikit-learn.org/stable/modules/multiclass.html#multilabel-classification">“Multiclass and multioutput algorithms”</a> will introduce you to solve these problems using Scikit-Learn’s decision tree implementation.</li>
+<li><a href="https://medium.com/analytics-vidhya/regression-trees-decision-tree-for-regression-machine-learning-e4d7525d8047">“How can Regression Trees be used for Solving Regression Problems?”</a> is an excellent article about using decision trees for regression tasks.</li>
 </ul>
 </div>
 </div>
