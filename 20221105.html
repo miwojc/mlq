@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-10-12">
+<meta name="dcterms.date" content="2022-11-05">
 
-<title>Machine Learning Questions - Recurring daughter</title>
+<title>Machine Learning Questions - Precision is more important</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Recurring daughter</h1>
+      <h1 class="quarto-secondary-nav-title">Precision is more important</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221105.html" class="sidebar-item-text sidebar-link">Precision is more important</a>
+  <a href="./20221105.html" class="sidebar-item-text sidebar-link active">Precision is more important</a>
   </div>
 </li>
       </ul>
@@ -198,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221012.html" class="sidebar-item-text sidebar-link active">Recurring daughter</a>
+  <a href="./20221012.html" class="sidebar-item-text sidebar-link">Recurring daughter</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -520,7 +520,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Recurring daughter</h1>
+<h1 class="title d-none d-lg-block">Precision is more important</h1>
 </div>
 
 
@@ -531,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 12, 2022</p>
+      <p class="date">November 5, 2022</p>
     </div>
   </div>
     
@@ -540,13 +540,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>I’m trying to convince my daughter that she will have difficulty using a traditional feedforward network to process comments from her followers on YouTube.</p>
-<p>Instead, I recommended recurrent neural networks as a good starting point. Going to transformers is overkill, and I’d rather have her look into some foundational ideas first.</p>
-<p>Which of the following do you think I should include in the list of differences between recurrent and traditional networks?</p>
-<p>Traditional neural networks can process inputs of any length. Recurrent neural networks require a fixed-size sequence as their input.</p>
-<p>Recurrent neural networks capture the sequential information present in the input data. Traditional neural networks don’t have this ability.</p>
-<p>Recurrent neural networks share weights across time. Traditional networks use different weights on each input node.</p>
-<p>Recurrent neural networks can consider future inputs to compute their current state. Traditional neural networks can’t access future inputs.</p>
+<p>Here is the Fβ score formula:</p>
+<p><img src="20221105.jpg" class="img-fluid"></p>
+<p>The Fβ score lets us combine precision and recall into a single metric.</p>
+<p>Let’s say you want to use this formula to measure a model where higher precision is more important.</p>
+<p>What’s the correct value for the β parameter to achieve this?</p>
+<ol type="1">
+<li><p>β = 0</p></li>
+<li><p>β = 0.5</p></li>
+<li><p>β = 1</p></li>
+<li><p>β = 2</p></li>
+</ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -559,15 +563,14 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3</p>
-<p><a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Recurrent neural networks</a> (RNN) are a type of artificial neural network that can process sequential or time series data. Their main difference from traditional networks is their ability to take information from prior inputs to influence the current input and output. This ability allows them to capture any sequential information present in the data. For example, an RNN is ideal for capturing the dependency between words of a sentence.</p>
-<p>RNN processes the data sequentially so a model can process sequences of varying sizes. For example, an RNN can process a 5-word and 10-word sentence using the same input structure, unlike a traditional neural network that will need a different input size for each case.</p>
-<p>RNNs share the same weight parameters for every input sample, unlike traditional networks with different weights across each input node. Sharing parameters helps an RNN generalize to sequences of varying lengths and operate similarly on sequences with the same meaning but organized differently. The <a href="https://stats.stackexchange.com/a/318428">accepted answer</a> to <a href="https://stats.stackexchange.com/questions/221513/why-are-the-weights-of-rnn-lstm-networks-shared-across-time">this question</a> expands on this topic with an example.</p>
-<p>Finally, neither recurrent nor traditional networks can access future inputs to compute their current state.</p>
+<p>1, 2</p>
+<p>The Fβ score lets us combine precision and recall into a single metric. When using β = 1, we place equal weight on precision and recall. For values of β &gt; 1, recall is weighted higher than precision; for values of β &lt; 1, precision is weighted higher than recall.</p>
+<p>When β = 0, the Fβ score only takes precision into account; therefore, the correct answers to this question are β = 0 and β = 0.5.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Check <a href="https://www.ibm.com/cloud/learn/recurrent-neural-networks">“Recurrent Neural Networks”</a> for a description of what they are and how they work.</li>
-<li><a href="https://machinelearningmastery.com/an-introduction-to-recurrent-neural-networks-and-the-math-that-powers-them/">“An Introduction To Recurrent Neural Networks And The Math That Powers Them”</a> is a deeper dive into RNNs.</li>
+<li><a href="https://deepai.org/machine-learning-glossary-and-terms/f-score">“What is the F-Score?”</a> is a short introduction to this metric.</li>
+<li><a href="https://towardsdatascience.com/micro-macro-weighted-averages-of-f1-score-clearly-explained-b603420b292f">“Micro, Macro &amp; Weighted Averages of F1 Score, Clearly Explained”</a> is a great article covering how to compute a global F1-Score metric in multi-class classification problem.</li>
+<li>Check <a href="https://articles.bnomial.com/when-accuracy-doesnt-help">“When accuracy doesn’t help”</a> for an introduction to precision, recall, and f1-score metrics to measure a machine learning model’s performance.</li>
 </ul>
 </div>
 </div>
