@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-19">
+<meta name="dcterms.date" content="2022-11-07">
 
-<title>Machine Learning Questions - Hiring a team</title>
+<title>Machine Learning Questions - Salary leak</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Hiring a team</h1>
+      <h1 class="quarto-secondary-nav-title">Salary leak</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20221107.html" class="sidebar-item-text sidebar-link">Salary leak</a>
+  <a href="./20221107.html" class="sidebar-item-text sidebar-link active">Salary leak</a>
   </div>
 </li>
       </ul>
@@ -448,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20220819.html" class="sidebar-item-text sidebar-link active">Hiring a team</a>
+  <a href="./20220819.html" class="sidebar-item-text sidebar-link">Hiring a team</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -525,7 +525,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Hiring a team</h1>
+<h1 class="title d-none d-lg-block">Salary leak</h1>
 </div>
 
 
@@ -536,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2022</p>
+      <p class="date">November 7, 2022</p>
     </div>
   </div>
     
@@ -545,15 +545,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The company was getting ready to build an extensive system with a machine learning model at its core, so it was time to start hiring.</p>
-<p>Jordan was one of the first. She came right off her Ph.D.&nbsp;to lead the creation of an automated data pipeline for the system. There was only one small problem: she didn’t have industry experience, and her research work was very different.</p>
-<p>Jordan needs to build a team, but it’s hard to identify the appropriate candidates without fully understanding what goes into a data pipeline.</p>
-<p>Which of the following are some of the data processing steps that go into a data pipeline?</p>
+<p>There was a massive data leak, and for some mysterious reason, you came across a dataset full of compensation data from top tech companies in Silicon Valley.</p>
+<p>You thought it wouldn’t hurt to play around with the data for a little bit. You could finally build a model to predict future compensation based on the different attributes of each employee.</p>
+<p>But one thing becomes apparent from the start: You need to cut down useless features to build something useful.</p>
+<p>Dimensionality reduction to the rescue. You haven’t done it before and want to ensure you are doing it correctly.</p>
+<p>How should you apply dimensionality reduction to your data?</p>
 <ol type="1">
-<li><p>Data analysis is one of the steps of a data pipeline.</p></li>
-<li><p>Data ingestion is one of the steps of a data pipeline.</p></li>
-<li><p>Data preparation is one of the steps of a data pipeline.</p></li>
-<li><p>Data validation is one of the steps of a data pipeline.</p></li>
+<li><p>Reduce the dimensions of the training dataset. It’s unnecessary to use dimensionality reduction on the test dataset.</p></li>
+<li><p>Reduce the dimensions of the entire dataset. Split your data into training and test right after.</p></li>
+<li><p>Reduce the dimensions of the training dataset, then reduce the dimensions of the test dataset. We can use different dimensionality reduction techniques as long as both splits end up with the same features.</p></li>
+<li><p>Reduce the dimensions of the training dataset, then apply the same transformations to the test dataset.</p></li>
 </ol>
 <div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -567,17 +568,18 @@ Expand to see the answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>2, 3, 4</p>
-<p>A critical part of any production-ready machine learning system is the data pipeline. Its goal is to collect and prepare the data we can use later to train, validate and use the model.</p>
-<p>A data pipeline is a fully automated process. There shouldn’t be any steps that require human intervention.</p>
-<p>Analyzing the data is not part of a data pipeline. During the data analysis phase, the team will define the data required by the system. This is a manual step that happens before the data pipeline is ready. During the data analysis phase, the team will make the necessary decisions to build the data pipeline. Therefore, the first option is incorrect.</p>
-<p>Data ingestion is one of the steps of a data pipeline. During this step, we ingest the data from the different data sources and transfer it to where we will store it and later process it. For example, the company may need data currently stored in spreadsheets, databases, and a few real-time sensors. The data ingestion step will get the necessary data from each place and keep them in the final location for the rest of the process.</p>
-<p>Data preparation is another essential step of a data pipeline, where we format and prepare the data before using it. For example, the company might want to standardize the format of dates collected from different sources or perform specific transformations on numerical data.</p>
-<p>Finally, data validation is another step of a data pipeline. We can validate that the necessary data we are ingesting is present and follow the appropriate schema during this step. For example, we might need to collect a minimum number of samples daily and raise an exception during the data validation step if we don’t meet that condition.</p>
+<p>4</p>
+<p>You found there are too many features to create a useful model. The Curse of Dimensionality states that, as the dimensionality of the data increases, the amount of data needed to train a learning algorithm grows exponentially.</p>
+<p>There are different techniques to reduce the dimensionality of a dataset. They all follow the same principle: you start with a dataset, reduce its dimensionality, and obtain a new dataset with fewer features. Depending on the technique, the final dataset may contain a subset of the initial features or even have entirely different columns not present in the initial dataset.</p>
+<p>The first choice argues that you only need to worry about reducing the dimension of the training dataset. That’s incorrect. How can you test a model trained with a dataset containing different features?</p>
+<p>The second choice argues for reducing the dimensionality of the entire dataset and splitting the data right after that. Dimensionality reduction algorithms like PCA will use information about the whole dataset to produce new features. If we apply this algorithm to all of our data—including the test data, which we aren’t supposed to know about— we’ll leak details from the test data into the training set.</p>
+<p>The third choice is also incorrect. You need to apply dimensionality reduction separately to the training and test datasets and make sure you use the same transformations from the training data on the test data.</p>
+<p>For example, imagine your dimensionality reduction technique creates a new feature based on the mean of another two columns. If you compute this mean separately on the train and test data, the resulting columns will come from different mean values. You need to avoid this problem by using what the fourth choice suggests: apply the same transformations and use the same information from the training and testing sets.</p>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>The <a href="https://www.coursera.org/learn/machine-learning-data-lifecycle-in-production">“Machine Learning Data Lifecycle in Production”</a> course in Coursera, part of the <a href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops">Machine Learning Engineering for Production (MLOps) Specialization.</a></li>
-<li><a href="https://hazelcast.com/glossary/data-pipeline/">“What is a Data Pipeline”</a> is a short article explaining the high-level idea of data pipelines.</li>
+<li>Check <a href="https://deepai.org/machine-learning-glossary-and-terms/curse-of-dimensionality">“What is the Curse of Dimensionality?”</a> for an introduction to the Curse of Dimensionality.</li>
+<li>For an explanation of data leakages, check <a href="https://machinelearningmastery.com/data-leakage-machine-learning/">“Data Leakage in Machine Learning”</a>.</li>
+<li><a href="https://machinelearningmastery.com/dimensionality-reduction-for-machine-learning/">“Introduction to Dimensionality Reduction for Machine Learning”</a> covers different examples of dimensionality reduction.</li>
 </ul>
 </div>
 </div>
