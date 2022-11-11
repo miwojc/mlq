@@ -49,6 +49,13 @@
     "text": "This website is built with markdown and Quarto"
   },
   {
+    "objectID": "20221111.html",
+    "href": "20221111.html",
+    "title": "Testing loss going nuts",
+    "section": "",
+    "text": "As you can see, the training loss is low after finishing training, but the testing loss stops decreasing at some point and starts climbing.\nWhat’s a reasonable conclusion about this machine learning model?\n\nYour model is underfitting.\nYou are training a model for too many epochs.\nYour model is well-fit to the point where the testing loss increases. It overfits after that.\nYour model is well-fit to the point where the testing loss increases. It underfits after that.\n\n\n\n\n\n\n\nExpand to see the answer\n\n\n\n\n\n2, 3\nA good model should capture valuable patterns in the data and discard any noise that doesn’t help with predictions. An overfitting model will fit that noise. An underfitting model will not capture the relevant patterns in the dataset.\nAn overfitting model should not have any problems with the training data but stumble with the testing data. Therefore, we should expect a low training loss and a high testing loss. An underfitting model should struggle with the training and testing datasets, so both of its losses should be high. A well-fit model, however, should have low training and testing losses.\nA couple of things happen in this chart. First, up to the point the testing loss starts increasing, the model is well-fit. Then, the testing loss suddenly starts increasing, which means we trained the model for too long. Right when this happens, the model starts overfitting. It’s memorizing the training data, it’s not generalizing anymore.\nA simple technique to fix this issue is Early stopping. In short, we want to stop training right before the model overfits.\nRecommended reading\n\nCheck “Overfitting and Underfitting with Learning Curves” for an introduction to two fundamental concepts in machine learning through the lens of learning curves.\nCheck “Early stopping” for an introduction to one of the most effective, easy-to-implement regularization techniques when training machine learning models."
+  },
+  {
     "objectID": "20221003.html",
     "href": "20221003.html",
     "title": "Date of sale",
